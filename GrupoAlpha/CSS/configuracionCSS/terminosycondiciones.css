@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #EAEBEF;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navegacion {
+    width: 210px;
+}
+
+.navegacion_link {
+    color: #000;
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+}
+
+.navegacion_link--inside {
+    border-radius: 4px;
+    font-size: 12px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.navegacion_link--inside:hover {
+    background: #ADD8E6;
+}
+
+.titulogo {
+    position: relative;
+    bottom: 20px;
+}
+
+.titulo_logo {
+    bottom: 8px;
+    position: relative;
+    left: 28px;
+}
+
+.titulo_logo h4 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.logo {
+    bottom: 100px;
+    position: relative;
+    right: 14px;
+}
+
+.logo figure img {
+    width: 230px;
+}
+
+.lista {
+    background: #fff;
+    border-radius: 0 13px 13px 0;
+    display: flex;
+    font-size: 13px;
+    font-weight: bold;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
+}
+
+.lista_imagen {
+    width: 40px;
+}
+
+.lista_item {
+    bottom: 30px;
+    list-style: none;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.lista_item--click {
+    cursor: pointer;
+
+}
+
+.lista_boton {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    margin: 7px;
+    width: 70%;
+}
+
+.lista_boton--abajo {
+    padding-top: 85px;
+    position: fixed;
+}
+
+.arrow .lista_arrow {
+    transform: rotate(90deg);
+}
+
+.lista_arrow {
+    margin-left: auto;
+    transition: transform .3s;
+}
+
+.lista_show {
+    border-left: 2px solid #303440;
+    height: 0;
+    list-style: none;
+    margin-left: auto;
+    transition: height .4s;
+    width: 75%;
+}
+
+main {
+    bottom: 0;
+    left: 20%;
+    position: fixed;
+    text-transform: uppercase; 
+    top: 5%;
+    right: 0;
+}
+
+h1 {
+    background-color: #0029FF;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 1040px;
+}
+
+.parrafos {
+    align-items: center;
+    align-content: center;
+    background: #fff;
+    display: flex;
+    flex-flow: column;
+    line-height: 1.35;
+    padding: 20px;
+    width: 1040px;
+}
+
+p {
+    font-size: 18px;
+    padding: 20px;
+    text-align: justify;
+    width: 100%;
+}
