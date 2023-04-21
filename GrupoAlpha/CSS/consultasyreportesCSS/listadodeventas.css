@@ -9,6 +9,10 @@ body {
     background: #EAEBEF;
 }
 
+.contenedor_principal {
+    position: relative;
+    z-index: -1;
+}
 
 .navegacion {
     width: 210px;
@@ -67,7 +71,9 @@ body {
     flex-direction: column;
     height: 100vh;
     justify-content: center;
+    position: relative;
     width: 100%;
+    z-index: 1;
 }
 
 .lista_imagen {
