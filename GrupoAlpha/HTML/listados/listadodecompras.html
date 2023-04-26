@@ -2,10 +2,10 @@
 <html lang="es-Do">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BACK-UP</title>
-    <link rel="stylesheet" href="../../CSS/backupCSS/backup.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LISTADOS | LISTADO DE COMPRAS</title>
+    <link rel="stylesheet" href="../../CSS/listadosCSS/listadodecompras.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
         rel="stylesheet">
@@ -140,63 +140,126 @@
     </header>
     <main>
         <aside>
-            <h1>Back-ups De Inventario</h1>
+            <h1>Listado De Compras</h1>
+            <form class="formulario">
+                <div class="contenedor_formulario">
+                    <label for="des-fecha">Desde La Fecha:</label>
+                    <input type="date" id="des-fecha">
+                </div>
+                <div class="contenedor_formulario">
+                    <label for="has-fecha">Hasta La Fecha:</label>
+                    <input type="date" id="has-fecha">
+                </div>
+                <div class="contenedor_formulario">
+                    <label for="Encargado">Encargado De Ventas:</label>
+                    <input type="text" id="Encargado">
+                </div>
+                <div class="contenedor_formulario">
+                    <label for="Cliente">Suplidor:</label>
+                    <input type="text" id="Cliente">
+                    <a href="../buscadores/buscadores_procesos/buscadordesuplidores.html"><img src="../../icons/magnifier.png" alt="buscar" class="icono"></a>
+                </div>
+            </form>
             <div class="contentedor_table">
                 <table class="table">
                     <tr>
                         <th>Fecha</th>
-                        <th>Ultimos Backups Realizados</th>
+                        <th>Facturas</th>
+                        <th>Codigo</th>
+                        <th>Descripcion</th>
+                        <th>Itbis</th>
+                        <th>Cantidad</th>
+                        <th>Costo</th>
+                        <th>Total</th>
                     </tr>
                     <tr class="active">
                         <td>---</td>
-                        <td>---</td>
+                        <td>0000</td>
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>18%</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                        <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>---</td>
-                        <td>---</td>
+                        <td>0000</td>
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>18%</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                        <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>---</td>
-                        <td>---</td>
+                        <td>0000</td>
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>18%</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                        <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>---</td>
-                        <td>---</td>
+                        <td>0000</td>
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>18%</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                        <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>---</td>
-                        <td>---</td>
+                        <td>0000</td>
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>18%</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                        <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>---</td>
-                        <td>---</td>
+                        <td>0000</td>
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>18%</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                        <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>---</td>
-                        <td>---</td>
+                        <td>0000</td>
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>18%</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                        <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>---</td>
-                        <td>---</td>
+                        <td>0000</td>
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>18%</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                        <td>00.00</td>
                     </tr>
-                    <tr class="active">
-                        <td>---</td>
-                        <td>---</td>
-                    </tr>
-                    <tr class="active">
-                        <td>---</td>
-                        <td>---</td>
-                    </tr>
-                    <tr class="active">
-                        <td>---</td>
-                        <td>---</td>
-                    </tr>
+        
                 </table>
-                <button class="boton" type="submit" value="REALIZAR BACKUP">Realizar Backup</button>
             </div>
+            <button type="submit" class="boton" value="Grabar">Grabar</button>
         </aside>
     </main>
     <script src="../../JS/menuDesplegable.js"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>
+

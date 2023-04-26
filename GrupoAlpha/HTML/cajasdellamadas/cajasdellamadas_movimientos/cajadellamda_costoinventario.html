@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-Do">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caja de Llamada | Listado de Compras</title>
-    <link rel="stylesheet" href="../../CSS/cajasdellamadas_consultasyreportes/cajadellamada_listadodecompras.css">
+    <title>Caja de Llamada | Costo por Inventario</title>
+    <link rel="stylesheet"
+        href="../../../CSS/cajasdellamadas/cajasdellamadas_movimientos/cajadellamda_costoinventario.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
         rel="stylesheet">
@@ -13,19 +14,19 @@
 <body>
     <header>
         <div class="titulo">
-            <h1>Caja de Llamada | Listado de Compras</h1>
+            <h1>Caja de Llamada | Costo por Inventario</h1>
         </div>
     </header>
     <main>
         <div class="contenedor_caja-llamada">
             <div class="caja-llamada">
-                <label for="des-fecha">Desde el codigo:</label>
-                <input type="number" name="codigo" id="des-fecha">
+                <label for="des-codigo">Desde el codigo:</label>
+                <input type="number" name="codigo" id="des-codigo">
             </div>
             <div class="caja-llamada">
-                <label for="has-fecha">Hasta el codigo:</label>
-                <input type="number" name="codigo" id="has-fecha">
-                <img src="../../icons/magnifier.png" alt="buscar" class="icono">
+                <label for="has-codigo">Hasta el codigo:</label>
+                <input type="number" name="codigo" id="has-codigo">
+                <a href="../../movimientos/costodeinventario.html"><img src="../../../icons/magnifier.png" alt="buscar" class="icono"></a>
             </div>
         </div>
     </main>
