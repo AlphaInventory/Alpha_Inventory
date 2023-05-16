@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTRO | CREADOR DE ARTICULOS</title>
+    <title>REGISTRO | REGISTRO DE ARTICULOS</title>
 	<link rel="stylesheet" href="../../CSS/registroCSS/creadordearticulos.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
@@ -33,7 +33,7 @@
                             <div class="lista_boton lista_boton--click">
                                 <img src="../../icons/registro.png" alt="INVENTARIO" class="lista_imagen">
                                 <a href="#" class="navegacion_link">REGISTRO</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow">
+                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
                             </div>
                             <ul class="lista_show">
                                 <li class="lista_inside"><a href="../registro/creadordearticulos.html"
@@ -52,7 +52,7 @@
                             <div class="lista_boton lista_boton--click">
                                 <img src="../../icons/procesos.png" alt="PROCESOS" class="lista_imagen">
                                 <a href="#" class="navegacion_link">PROCESOS</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow">
+                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
                             </div>
                             <ul class="lista_show">
                                 <li class="lista_inside"><a href="../procesos/compras.html"
@@ -67,20 +67,20 @@
                             <div class="lista_boton lista_boton--click">
                                 <img src="../../icons/movimientos.png" alt="MOVIMIENTOS" class="lista_imagen">
                                 <a href="#" class="navegacion_link">MOVIMIENTOS</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow">
+                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
                             </div>
                             <ul class="lista_show">
                                 <li class="lista_inside"><a
-                                        href="../cajasdellamadas/cajasdellamadas_movimientos/cajadellamda_costoinventario.html"
+                                        href="../movimientos/costodeinventario.html"
                                         class="navegacion_link navegacion_link--inside">COSTO DE INVENTARIO</a></li>
                                 <li class="lista_inside"><a
-                                        href="../cajasdellamadas/cajasdellamadas_movimientos/cajadellamada_movimientosdiarios.html"
+                                        href="../movimientos/movimientosdiario.html"
                                         class="navegacion_link navegacion_link--inside">DIARIOS</a></li>
                                 <li class="lista_inside"><a
-                                        href="../cajasdellamadas/cajasdellamadas_movimientos/cajadellamada_movimientoporarticulo.html"
+                                        href="../movimientos/movimientoporarticulo.html"
                                         class="navegacion_link navegacion_link--inside">ARTICULOS</a></li>
                                 <li class="lista_inside"><a
-                                        href="../cajasdellamadas/cajasdellamadas_movimientos/cajadellamada_movimientoporsuplidor.html"
+                                        href="../movimientos/movimientoporsuplidor.html"
                                         class="navegacion_link navegacion_link--inside">SUPLIDOR</a></li>
                             </ul>
                         </li>
@@ -88,7 +88,7 @@
                             <div class="lista_boton lista_boton--click">
                                 <img src="../../icons/listados.png" alt="REPORTES" class="lista_imagen">
                                 <a href="#" class="navegacion_link">LISTADOS</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow">
+                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
                             </div>
                             <ul class="lista_show">
                                 <li class="lista_inside"><a href="../listados/listadeprecios.html"
@@ -109,7 +109,7 @@
                             <div class="lista_boton lista_boton--click">
                                 <img src="../../icons/configuraciones.png" alt="CONFIGURACIONES" class="lista_imagen">
                                 <a href="#" class="navegacion_link">CONFIGURACIONES</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow">
+                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
                             </div>
                             <ul class="lista_show">
                                 <li class="lista_inside"><a href="../configuracion/perfil.html"
@@ -141,7 +141,7 @@
     <main>
         <aside>
             <div class="cabecera_main">
-                <h1 class="titulo">Creador de articulos</h1>
+                <h1 class="titulo">Registro de articulos</h1>
             </div>
             <form>
                 <div class="campo">
@@ -153,11 +153,11 @@
                     <input type="text" id="descripcion" required>
                 </div>
                 <div class="campo">
-                    <label for="size">Size</label>
+                    <label for="size">Talla</label>
                     <input type="text" id="size" required>
                 </div>
                 <div class="campo">
-                    <label for="direccion">Direccion</label>
+                    <label for="direccion">Ubicacion</label>
                     <input type="text" id="direccion" required>
                 </div>
                 <div class="campo">
@@ -168,12 +168,11 @@
                     <label for="margen">Margen De Beneficio</label>
                     <input type="text" id="margen" required>
                 </div>
-                <div class="campo">
-                    <label for="marca">Marca</label>
+                <div class="campo buscador">
+                    <label for="marca">Marca <a href="../buscadores/buscadores_registro/buscadordemarcas.html"><img src="../../icons/magnifier.png"
+                        alt="buscar" class="icono"></a></label>
                     <input type="text" id="marca" required>
                 </div>
-                <a href="../buscadores/buscadores_registro/buscadordemarcas.html"><img src="../../icons/magnifier.png"
-                        alt="buscar" class="icono"></a>
                 <div class="campo">
                     <label for="costo">Costo</label>
                     <input type="text" id="costo" required>
@@ -183,14 +182,18 @@
                     <input type="text" id="ref" required>
                 </div>
                 <div class="campo">
-                    <label for="dep">Departamento</label>
+                    <label for="dep">Departamento <a href="./../buscadores/buscadores_registro/buscadordedepartamentos.html"><img
+                        src="../../icons/magnifier.png" alt="buscar" class="icono-"></a></label>
                     <input type="text" id="dep" required>
                 </div>
-                <a href="./../buscadores/buscadores_registro/buscadordedepartamentos.html"><img
-                        src="../../icons/magnifier.png" alt="buscar" class="icono"></a>
                 <div class="campo">
-                    <label for="itbis">ITBIS</label>
-                    <input type="text" id="itbis" required>
+                    <label for="itbis">Itbis</label>
+                    <select name="itbis" id="itbis">
+                        <option selected disabled>Sel. el impuesto</option>
+                        <option>18%</option>
+                        <option>16%</option>
+                        <option>excento</option>
+                    </select>
                 </div>
                 <div class="campo">
                     <label for="precio">Precio</label>

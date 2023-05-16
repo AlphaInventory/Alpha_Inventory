@@ -1,9 +1,9 @@
-let listElements = document.querySelectorAll('.lista_boton--click');
+let listElements = document.querySelectorAll('.lista_boton');
 
 listElements.forEach(listElement => {
     listElement.addEventListener('click', ()=>{
         
-        listElement.classList.toggle('lista_arrow');
+        listElement.classList.toggle('arrow');
 
         let height = 0;
         let menu = listElement.nextElementSibling;
@@ -15,12 +15,12 @@ listElements.forEach(listElement => {
 
     })
 
-    const menu = document.getElementsByClassName('contenedor_menu');
+    // const menu = document.getElementsByClassName('contenedor_menu');
 
-    for (i=0; i<menu.length; i++) {
-        menu[i].addEventListener('click', function () {
-        this.classList.toggle('lista_show')
-        })
-    }
-    
+    // for (i=0; i<menu.length; i++) {
+    //     menu[i].addEventListener('click', function () {
+    //     this.classList.toggle('lista_show')
+    //     })
+    // }
+
 });

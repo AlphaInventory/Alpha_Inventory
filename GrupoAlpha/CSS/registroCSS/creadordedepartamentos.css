@@ -3,6 +3,7 @@
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
+    text-transform: uppercase;
 }
 
 body {
@@ -18,10 +19,6 @@ main {
 }
 
 .cabecera_main {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
     width: 100%;
 }
 
@@ -32,26 +29,23 @@ h1 {
     font-weight: bold;
     padding: 20px;
     text-align: center;
-    text-transform: uppercase;
-    width: 100%;
+}
+
+form {
+    margin-top: 100px;
 }
 
 input {
     border: 2px solid #ADD8E6;
     border-radius: 5px;
-    box-shadow: none;
     color: #000;
     display: flex;
     font-size: 14px;
     font-weight: bold;
     flex-flow: column;
-    height: 35px;
-    justify-content: left;
-    margin: 10px;
-    padding: 10px;
+    height: 38px;
     text-align: center;
-    text-transform: uppercase;
-    width: 400px;
+    width: 360px;
 }
 
 input::placeholder {
@@ -60,10 +54,7 @@ input::placeholder {
 }
 
 .control {
-    margin: auto;
-    margin-top: 50px;
     margin-bottom: 16px;
-    padding: 10px;
 }
 
 .botones {
@@ -76,10 +67,9 @@ input::placeholder {
     background-color: #2CF30B;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
+    height: 34px;
     margin: 0 10px;
-    padding: 8px;
-    text-transform: uppercase;
-    width: 120px;
+    width: 100px;
 }

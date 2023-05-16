@@ -93,7 +93,6 @@ body {
 
 .lista_item--click {
     cursor: pointer;
-    
 }
 
 .lista_boton {
@@ -118,6 +117,11 @@ body {
     transition: transform .3s;
 }
 
+.posicion {
+    position: fixed;
+    left: 170px;
+}
+
 .lista_show {
     border-left: 1px solid #303440;
     height: 0;
@@ -137,4 +141,264 @@ main {
     background-repeat: repeat-y;
     background-position: center;
     filter: opacity(0.4);
+}
+
+@media screen and (max-width: 1024px) {
+    .navegacion {
+        width: 190px;
+    }
+
+    .navegacion_link {
+        font-size: 13px;
+    }
+
+    .navegacion_link--inside {
+        font-size: 11px;
+    }
+
+    .titulogo {
+        position: relative;
+        bottom: 20px;
+    }
+
+    .logo figure img {
+        width: 190px;
+    }
+
+    .logo h4 {
+        font-size: 27px;
+    }
+
+    .lista {
+        font-size: 12px;
+    }
+
+    .lista_imagen {
+        height: 28px;
+        width: 38px;
+    }
+
+    .posicion {
+        position: fixed;
+        left: 162px;
+    }
+
+    main {
+        background-size: 300px;
+        background-repeat: space;
+        left: 40%;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navegacion {
+        width: 200px;
+    }
+
+    .logo figure img {
+        width: 200px;
+    }
+
+    .logo h4 {
+        font-size: 28px;
+    }
+
+    main {
+        background-size: 400px;
+        background-repeat: space;
+        left: 30%;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .navegacion {
+        width: 160px;
+    }
+
+    .navegacion_link {
+        font-size: 11px;
+    }
+
+    .navegacion_link--inside {
+        font-size: 11px;
+    }
+
+    .logo figure img {
+        width: 160px;
+    }
+
+    .logo h4 {
+        font-size: 24px;
+    }
+
+    .lista {
+        font-size: 12px;
+    }
+
+    .lista_imagen {
+        height: 24px;
+        width: 34px;
+    }
+
+    .posicion {
+        position: fixed;
+        left: 133px;
+    }
+
+    main {
+        background-size: 280px;
+        background-repeat: space;
+        left: 36%;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .navegacion {
+        width: 140px;
+    }
+
+    .navegacion_link {
+        font-size: 9px;
+    }
+
+    .navegacion_link--inside {
+        font-size: 9px;
+    }
+
+    .logo figure img {
+        width: 140px;
+    }
+
+    .logo h4 {
+        font-size: 21px;
+        position: fixed;
+        top: 5%;
+        left: 6%;
+    }
+
+    .lista {
+        font-size: 11px;
+    }
+
+    .lista_imagen {
+        height: 20px;
+        width: 30px;
+    }
+
+    .lista_arrow {
+        height: 20px;
+    }
+
+    .posicion {
+        position: fixed;
+        left: 115px;
+    }
+
+    main {
+        background-size: 240px;
+        background-repeat: space;
+        left: 36%;
+        position: fixed;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navegacion {
+        width: 120px;
+    }
+
+    .navegacion_link {
+        font-size: 8px;
+    }
+
+    .navegacion_link--inside {
+        font-size: 8px;
+    }
+
+    .logo figure img {
+        width: 120px;
+    }
+
+    .logo h4 {
+        font-size: 18px;
+    }
+
+    .lista {
+        font-size: 10px;
+    }
+
+    .lista_item {
+        margin-bottom: 25px;
+    }
+
+    .lista_imagen {
+        height: 18px;
+        width: 28px;
+    }
+
+    .lista_arrow {
+        height: 18px;
+    }
+
+    .posicion {
+        position: fixed;
+        left: 98px;
+    }
+
+    main {
+        background-size: 200px;
+        background-repeat: space;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .navegacion {
+        width: 110px;
+    }
+
+    .navegacion_link {
+        font-size: 7px;
+    }
+
+    .navegacion_link--inside {
+        font-size: 7px;
+    }
+
+    .logo figure img {
+        width: 110px;
+    }
+
+    .logo h4 {
+        font-size: 16px;
+    }
+
+    .lista {
+        font-size: 9px;
+    }
+
+    .lista_item {
+        margin-bottom: 20px;
+    }
+
+    .lista_imagen {
+        height: 15px;
+        width: 25px;
+    }
+
+    .lista_arrow {
+        height: 15px;
+    }
+
+    .posicion {
+        position: fixed;
+        left: 88px;
+    }
+
+    main {
+        background-size: 180px;
+        background-repeat: space;
+    }
 }

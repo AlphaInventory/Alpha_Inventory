@@ -125,3 +125,242 @@ input::placeholder {
     text-transform: uppercase;
     width: 120px;
 }
+
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 22px;
+        padding: 15px;
+    }
+
+    .iconos_tar {
+        font-size: 30px;
+        height: 90%;
+    }
+
+    .nomape_tar {
+        padding-bottom: 35px;
+    }
+
+    label {
+        font-size: 19px;
+    }
+
+    input {
+        height: 34px;
+        font-size: 13px;
+    }
+
+    .contenedor_mac {
+        margin: 0;
+        padding: 0;
+    }
+
+    .contenedor_mac label {
+        font-size: 16px;
+    }
+
+    .contenedor_mac input {
+        height: 32px;
+        width: 70px;
+    }
+
+
+    .botones {
+        padding-top: 70px;
+    }
+
+    .boton {
+        font-size: 16px;
+        width: 110px;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    header {
+        padding: 30px 0;
+    }
+
+    h1 {
+        font-size: 20px;
+        padding: 13px;
+    }
+
+    main {
+        padding-top: 0px;
+    }
+
+    .iconos_tar {
+        font-size: 24px;
+        position: relative;
+        right: 40px;
+        top: 42px;
+    }
+
+    .nomape_tar {
+        padding-bottom: 35px;
+    }
+
+    label {
+        font-size: 17px;
+    }
+
+    input {
+        height: 33px;
+        font-size: 12px;
+        width: 80%;
+    }
+
+    #numtar {
+        margin-bottom: 10px;
+    }
+
+    .contenedor_mac {
+        margin-left: 22px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .campo {
+        grid-column: 3/4;
+    }
+
+    .campo- {
+        grid-column: 5/6;
+    }
+
+    .campo-- {
+        grid-column: 7/8;
+    }
+
+    .contenedor_mac label {
+        font-size: 16px;
+    }
+
+    .contenedor_mac input {
+        height: 32px;
+        font-size: 12px;
+        width: 65px;
+    }
+
+    .botones {
+        padding-top: 55px;
+    }
+
+    .boton {
+        font-size: 15px;
+        height: 36px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    h1 {
+        font-size: 19px;
+        padding: 12px;
+    }
+
+    .iconos_tar {
+        font-size: 20px;
+        position: relative;
+        right: 40px;
+        top: 42px;
+    }
+
+    .nomape_tar {
+        padding-bottom: 35px;
+    }
+
+    label {
+        font-size: 15px;
+    }
+
+    input {
+        height: 32px;
+        font-size: 11px;
+        width: 80%;
+    }
+
+    .contenedor_mac label {
+        font-size: 14px;
+    }
+
+    .contenedor_mac input {
+        height: 30px;
+        font-size: 11px;
+        width: 60px;
+    }
+
+    .botones {
+        padding-top: 50px;
+    }
+
+    .boton {
+        font-size: 14px;
+        height: 34px;
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 17px;
+        padding: 11px;
+    }
+
+    main {
+        margin-right: 18px;
+    }
+
+    .iconos_tar {
+        font-size: 16px;
+        position: relative;
+        right: 30px;
+        top: 36px;
+    }
+
+    .nomape_tar {
+        padding-bottom: 30px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .contenedor_mac {
+        margin-right: 100px;
+    }
+
+    .contenedor_mac label {
+        font-size: 12px;
+    }
+
+    .contenedor_mac input {
+        height: 28px;
+        font-size: 9px;
+        width: 50px;
+    }
+
+    .boton {
+        font-size: 13px;
+        height: 30px;
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    header {
+        padding: 30px 0;
+    }
+
+    .iconos_tar {
+        font-size: 18px;
+        position: relative;
+        right: 40px;
+    }
+}

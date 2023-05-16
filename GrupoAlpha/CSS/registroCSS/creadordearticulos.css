@@ -118,6 +118,11 @@ body {
     transition: transform .3s;
 }
 
+.posicion {
+    position: fixed;
+    left: 170px;
+}
+
 .lista_show {
     border-left: 1px solid #303440;
     height: 0;
@@ -190,11 +195,22 @@ input {
     padding-left: 0.5rem;
 }
 
+select {
+    border: 2px solid #ADD8E6;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    height: 2.2rem;
+    padding-left: 0.5rem;
+}
+
 .icono {
-    position: relative;
-    right: 20px;
-    top: 13px;
-    width: 20px;
+    margin-left: 150px;
+    width: 15px;
+}
+
+.icono- {
+    margin-left: 84px;
+    width: 15px;
 }
 
 .botones {

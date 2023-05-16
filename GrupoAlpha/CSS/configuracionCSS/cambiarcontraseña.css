@@ -118,6 +118,11 @@ body {
     transition: transform .3s;
 }
 
+.posicion {
+    position: fixed;
+    left: 170px;
+}
+
 .lista_show {
     border-left: 1px solid #303440;
     height: 0;
