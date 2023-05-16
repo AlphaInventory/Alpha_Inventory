@@ -1,26 +1,18 @@
-let listElements = document.querySelectorAll('.lista_boton');
+$(document).ready(function () {
+    //jquery for toggle sub menus
+    $('.sub-boton').click(function () {
+        $(this).next('.sub-menu').slideToggle();
+        $(this).find('.dropdown').toggleClass('rotate');
+    });
 
-listElements.forEach(listElement => {
-    listElement.addEventListener('click', ()=>{
-        
-        listElement.classList.toggle('arrow');
+    //jquery for expand and collapse the sidebar
+    $('.menu-boton').click(function () {
+        $('.barra-lateral').addClass('active');
+        $('menu-boton').css("visibility", "hidden");
+    });
 
-        let height = 0;
-        let menu = listElement.nextElementSibling;
-        if(menu.clientHeight == "0"){
-            height=menu.scrollHeight;
-        }
-
-        menu.style.height = `${height}px`;
-
-    })
-
-    // const menu = document.getElementsByClassName('contenedor_menu');
-
-    // for (i=0; i<menu.length; i++) {
-    //     menu[i].addEventListener('click', function () {
-    //     this.classList.toggle('lista_show')
-    //     })
-    // }
-
+    $('.cerrar-boton').click(function () {
+        $('.barra-lateral').removeClass('active');
+        $('menu-boton').css("visibility", "visible");
+    });
 });

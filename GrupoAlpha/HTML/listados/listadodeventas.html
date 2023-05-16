@@ -9,135 +9,93 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
         rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
-    <header>
-        <div class="contenedor_principal">
-
-        </div>
-        <div class="contenedor">
-            <nav class="navegacion">
-                <ul class="lista">
-                    <div class="titulogo">
-                        <a href="../inicio_inventario/inicio_inventario.html">
-                            <div class="logo">
-                                <figure>
-                                    <img src="../../icons/logo.png" alt="LOGO">
-                                </figure>
-                                <h4>Inventory</h4>
-                            </div>
-                        </a>
+    <div class="menu-boton">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="barra-lateral">
+        <header>
+            <div class="cerrar-boton">
+                <i class="fas fa-times"></i>
+            </div>
+            <a href="../inicio_inventario/inicio_inventario.html" class="inicio">
+                <img src="../../icons/logo.png" class="logo">
+                <h1>Inventory</h1>
+            </a>
+            <div class="menu">
+                <div class="elemento">
+                    <a class="sub-boton">
+                        <img class="icon" src="../../icons/registro.png"><span>REGISTRO</span><i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="../registro/creadordearticulos.html" class="sub-elemento">ARTICULOS</a>
+                        <a href="../registro/tarjeterodeclientes.html" class="sub-elemento">CLIENTES</a>
+                        <a href="../registro/creadordedepartamentos.html" class="sub-elemento">DEPARTAMENTOS</a>
+                        <a href="../registro/creadordemarcas.html" class="sub-elemento">MARCAS</a>
+                        <a href="../registro/tarjeterodesuplidores.html" class="sub-elemento">SUPLIDORES</a>
                     </div>
-                    <div class="contenedor__menu">
-                        <li class="lista_item lista_item--click">
-                            <div class="lista_boton lista_boton--click">
-                                <img src="../../icons/registro.png" alt="INVENTARIO" class="lista_imagen">
-                                <a href="#" class="navegacion_link">REGISTRO</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
-                            </div>
-                            <ul class="lista_show">
-                                <li class="lista_inside"><a href="../registro/creadordearticulos.html"
-                                        class="navegacion_link navegacion_link--inside">ARTICULOS</a></li>
-                                <li class="lista_inside"><a href="../registro/tarjeterodeclientes.html"
-                                        class="navegacion_link navegacion_link--inside">CLIENTES</a></li>
-                                <li class="lista_inside"><a href="../registro/creadordedepartamentos.html"
-                                        class="navegacion_link navegacion_link--inside">DEPARTAMENTOS</a></li>
-                                <li class="lista_inside"><a href="../registro/creadordemarcas.html"
-                                        class="navegacion_link navegacion_link--inside">MARCAS</a></li>
-                                <li class="lista_inside"><a href="../registro/tarjeterodesuplidores.html"
-                                        class="navegacion_link navegacion_link--inside">SUPLIDORES</a></li>
-                            </ul>
-                        </li>
-                        <li class="lista_item lista_item--click">
-                            <div class="lista_boton lista_boton--click">
-                                <img src="../../icons/procesos.png" alt="PROCESOS" class="lista_imagen">
-                                <a href="#" class="navegacion_link">PROCESOS</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
-                            </div>
-                            <ul class="lista_show">
-                                <li class="lista_inside"><a href="../procesos/compras.html"
-                                        class="navegacion_link navegacion_link--inside">COMPRAS</a></li>
-                                <li class="lista_inside"><a href="../procesos/ventas.html"
-                                        class="navegacion_link navegacion_link--inside">VENTAS</a></li>
-                                <li class="lista_inside"><a href="../procesos/ajustesdeinventario.html"
-                                        class="navegacion_link navegacion_link--inside">AJUSTES DE INVENTARIO</a></li>
-                            </ul>
-                        </li>
-                        <li class="lista_item lista_item--click">
-                            <div class="lista_boton lista_boton--click">
-                                <img src="../../icons/movimientos.png" alt="MOVIMIENTOS" class="lista_imagen">
-                                <a href="#" class="navegacion_link">MOVIMIENTOS</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
-                            </div>
-                            <ul class="lista_show">
-                                <li class="lista_inside"><a
-                                        href="../movimientos/costodeinventario.html"
-                                        class="navegacion_link navegacion_link--inside">COSTO DE INVENTARIO</a></li>
-                                <li class="lista_inside"><a
-                                        href="../movimientos/movimientosdiario.html"
-                                        class="navegacion_link navegacion_link--inside">DIARIOS</a></li>
-                                <li class="lista_inside"><a
-                                        href="../movimientos/movimientoporarticulo.html"
-                                        class="navegacion_link navegacion_link--inside">ARTICULOS</a></li>
-                                <li class="lista_inside"><a
-                                        href="../movimientos/movimientoporsuplidor.html"
-                                        class="navegacion_link navegacion_link--inside">SUPLIDOR</a></li>
-                            </ul>
-                        </li>
-                        <li class="lista_item lista_item--click">
-                            <div class="lista_boton lista_boton--click">
-                                <img src="../../icons/listados.png" alt="REPORTES" class="lista_imagen">
-                                <a href="#" class="navegacion_link">LISTADOS</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
-                            </div>
-                            <ul class="lista_show">
-                                <li class="lista_inside"><a href="../listados/listadeprecios.html"
-                                        class="navegacion_link navegacion_link--inside">LISTA DE PRECIOS</a></li>
-                                <li class="lista_inside"><a href="../listados/listadodecompras.html"
-                                        class="navegacion_link navegacion_link--inside">LISTADO DE COMPRAS</a></li>
-                                <li class="lista_inside"><a href="../listados/listadodeventas.html"
-                                        class="navegacion_link navegacion_link--inside">LISTADO DE VENTAS</a></li>
-                            </ul>
-                        </li>
-                        <li class="lista_item">
-                            <div class="lista_boton">
-                                <img src="../../icons/backup.png" alt="BACKUPS" class="lista_imagen">
-                                <a href="../backups/backup.html" class="navegacion_link">BACK-UP</a>
-                            </div>
-                        </li>
-                        <li class="lista_item">
-                            <div class="lista_boton lista_boton--click">
-                                <img src="../../icons/configuraciones.png" alt="CONFIGURACIONES" class="lista_imagen">
-                                <a href="#" class="navegacion_link">CONFIGURACIONES</a>
-                                <img src="../../icons/arrow.svg" alt="ABRIR" class="lista_arrow posicion">
-                            </div>
-                            <ul class="lista_show">
-                                <li class="lista_inside"><a href="../configuracion/perfil.html"
-                                        class="navegacion_link navegacion_link--inside">PERFIL</a></li>
-                                <li class="lista_inside"><a href="../configuracion/cambiarcontraseña.html"
-                                        class="navegacion_link navegacion_link--inside">CAMBIAR CONTRASEÑA</a></li>
-                                <li class="lista_inside"><a href="../configuracion/terminosycondiciones.html"
-                                        class="navegacion_link navegacion_link--inside">TERMINOS & CONDICIONES</a></li>
-                            </ul>
-                        </li>
-                        <li class="lista_item">
-                            <div class="lista_boton">
-                                <img src="../../icons/log-out.png" alt="LOG-OUT" class="lista_imagen">
-                                <a href="../inicio/index.html" class="navegacion_link">LOG-OUT</a>
-                            </div>
-                        </li>
-                        <li class="lista_item">
-                            <div class="lista_boton lista_boton--abajo">
-                                <img src="../../icons/ayuda.png" alt="HELP" class="lista_imagen">
-                                <a href="#" class="navegacion_link">HELP
-                                </a>
-                            </div>
-                        </li>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton">
+                        <img class="icon" src="../../icons/procesos.png"><span>PROCESOS</span><i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="../procesos/compras.html" class="sub-elemento">COMPRAS</a>
+                        <a href="../procesos/ventas.html" class="sub-elemento">VENTAS</a>
+                        <a href="../procesos/ajustesdeinventario.html" class="sub-elemento">AJUSTES DE INVENTARIO</a>
                     </div>
-                </ul>
-            </nav>
-        </div>
-    </header>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton">
+                        <img class="icon" src="../../icons/movimientos.png"><span>MOVIMIENTOS</span><i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="../movimientos/costodeinventario.html" class="sub-elemento">COSTO DE INVENTARIO</a>
+                        <a href="../movimientos/movimientosdiario.html" class="sub-elemento">DIARIOS</a>
+                        <a href="../movimientos/movimientoporarticulo.html" class="sub-elemento">ARTICULO</a>
+                        <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton">
+                        <img class="icon" src="../../icons/listados.png"><span>LISTADOS</span><i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="../listados/listadeprecios.html" class="sub-elemento">LISTADO DE PRECIOS</a>
+                        <a href="../listados/listadodecompras.html" class="sub-elemento">LISTADO DE COMPRAS</a>
+                        <a href="../listados/listadodeventas.html" class="sub-elemento">LISTADO DE VENTAS</a>
+                    </div> 
+                </div>
+                <div class="elemento">
+                    <a href="../backups/backup.html">
+                        <img  class="icon" src="../../icons/backup.png" alt=""><span>BACK-UP</span>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton">
+                        <img class="icon" src="../../icons/configuraciones.png"><span>CONFIGURACIONES</span><i class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="../configuracion/perfil.html" class="sub-elemento">PERFIL</a>
+                        <a href="../configuracion/cambiarcontraseña.html" class="sub-elemento">CAMBIAR CONTRASEÑA</a>
+                        <a href="../configuracion/terminosycondiciones.html" class="sub-elemento">TERMINOS & CONDICIONES</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a href="../inicio/index.html">
+                        <img class="icon" src="../../icons/log-out.png"><span>LOG-OUT</span>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a href="#" class="abajo">
+                        <img class="icon" src="../../icons/ayuda.png"><span>HELP</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
     <main>
         <aside>
             <h1>Listado De Ventas</h1>

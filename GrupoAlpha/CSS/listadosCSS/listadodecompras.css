@@ -6,130 +6,132 @@
 }
 
 body {
+    min-height: 100vh;
     background: #EAEBEF;
-}
-
-.contenedor_principal {
-    position: relative;
-    z-index: -1;
-}
-
-.navegacion {
-    width: 210px;
-}
-
-.navegacion_link {
     color: #000;
-    display: block;
-    padding: 8px 0;
-    text-decoration: none;
+    background-size: cover;
+    background-position: center;
 }
-
-.navegacion_link--inside {
-    border-radius: 4px;
-    font-size: 12px;
-    padding-left: 10px;
-    text-align: left;
-}
-
-.navegacion_link--inside:hover {
-    background: #ADD8E6;
-}
-
-.titulogo {
-    position: relative;
-    bottom: 20px;
-}
-
-.logo {
-    position: fixed;
-    top: 1%;
-}
-
-.logo figure img {
-    width: 200px;
-}
-
-.logo h4 {
-    color: black;
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    position: relative;
-    bottom: 18px;
-}
-
-.contenedor_menu {
-    position: relative;
-}
-
-.lista {
-    background: #fff;
-    border-radius: 0 13px 13px 0;
-    display: flex;
-    font-size: 13px;
-    font-weight: bold;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    position: relative;
-    width: 100%;
+   
+header, .barra-lateral {
     z-index: 1;
 }
 
-.lista_imagen {
-    height: 30px;
-    width: 40px;
+.inicio {
+    text-decoration: none;
 }
-
-.lista_item {
-    bottom: -1%;
-    list-style: none;
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-    width: 100%;
+   
+.logo {
+    height: 70px;
+    width: 230px;
+    margin-top: 10px;
 }
-
-.lista_item--click {
-    cursor: pointer;
-    
-}
-
-.lista_boton {
-    align-items: center;
-    display: flex;
-    gap: 6px;
-    margin: 7px;
-    width: 70%;
-}
-
-.lista_boton--abajo {
-    bottom: -1%;
+   
+.barra-lateral {
+    background: #FFF;
+    backdrop-filter: blur(15px);
+    width: 240px;
+    height: 100vh;
     position: fixed;
+    top: 0;
+    /* left: -250px; */
+    overflow-y: auto;
+    transition: 0.6s ease;
+    transition-property: left;
+    border-radius: 0 13px 13px 0;
 }
 
-.arrow .lista_arrow {
+.barra-lateral::-webkit-scrollbar {
+     width: 0px;
+}
+   
+.barra-lateral.active {
+    left: 0;
+}
+   
+header h1 {
+    color: black;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    top: -15px;
+    right: 2%;
+}
+   
+.icon {
+   width: 40px;
+   height: 30px;
+}
+   
+.barra-lateral .menu {
+    margin-top: 5px;
+    width: 250px;
+}
+   
+.barra-lateral .menu .elemento {
+    position: relative;
+    left: -10px;
+    cursor: pointer;
+}
+   
+.barra-lateral .menu .elemento a {
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    align-content: center;
+    line-height: 10px;
+    font-weight: bold;
+ }
+   
+.barra-lateral .menu .elemento a span {
+    position: relative;
+    bottom: 24px;
+}
+   
+.barra-lateral .menu .elemento a i {
+    position: relative;
+    top: 4px;
+    margin-right: 15px;
+}
+   
+.barra-lateral .menu .elemento a:hover {
+    background: #ADD8E6;
+    transition: 0.3s ease;
+}
+   
+   
+.barra-lateral .menu .elemento a .dropdown {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+
+.barra-lateral .menu .elemento a img {
+    margin: 15px;
+}
+   
+.barra-lateral .menu .elemento .sub-menu {
+    /* background: #EAEBEF; */
+    display: none;
+}
+   
+.barra-lateral .menu .elemento .sub-menu a {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 15px;
+    margin-left: 30px;
+    border-left: 2px solid #303440;
+}
+
+.rotate {
     transform: rotate(90deg);
 }
 
-.lista_arrow {
-    margin-left: 7px;
-    transition: transform .3s;
-}
-
-.posicion {
-    position: fixed;
-    left: 170px;
-}
-
-.lista_show {
-    border-left: 1px solid #303440;
-    height: 0;
-    list-style: none;
-    margin-left: 40px;
-    transition: height .4s;
-    width: 75%;
+.menu-boton, .cerrar-boton {
+    display: none;
 }
 
 aside {
@@ -140,8 +142,7 @@ aside {
     top: 5%;
     right: 0;
 }
-
-h1 {
+aside h1 {
     background-color: #0029FF;
     color: #fff;
     font-size: 26px;
