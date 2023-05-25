@@ -12,6 +12,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
+    <script>
+        function confirmacion() {
+            alert("Estas seguro de que quieres GUARDAR CAMBIOS");
+        }
+    </script>
     <div class="menu-boton">
         <i class="fas fa-bars"></i>
     </div>
@@ -120,7 +125,7 @@
                         <input type="text" id="localizacion">
                     </div>
                     <div class="botones">
-                        <button type="submit" class="boton">Guardar Cambios</button>
+                        <button type="submit" class="boton" onclick="confirmacion()">Guardar Cambios</button>
                     </div>
                 </form>
             </div>

@@ -12,6 +12,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
+    <script>
+        function confirmacion() {
+            alert("Estas seguro de que quieres GRABAR");
+        }
+    </script>
     <div class="menu-boton">
         <i class="fas fa-bars"></i>
     </div>
@@ -192,7 +197,7 @@
                     </tr>
                 </table>
             </div>
-            <button type="submit" class="boton" value="Grabar">Grabar</button>
+            <button type="submit" class="boton" value="Grabar" onclick="confirmacion()">Grabar</button>
         </aside>
     </main>
     <script src="../../JS/menuDesplegable.js"></script>
