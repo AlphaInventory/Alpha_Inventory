@@ -32,8 +32,6 @@
                     <div class="sub-menu">
                         <a href="../registro/creadordearticulos.html" class="sub-elemento">ARTICULOS</a>
                         <a href="../registro/tarjeterodeclientes.html" class="sub-elemento">CLIENTES</a>
-                        <a href="../registro/creadordedepartamentos.html" class="sub-elemento">DEPARTAMENTOS</a>
-                        <a href="../registro/creadordemarcas.html" class="sub-elemento">MARCAS</a>
                         <a href="../registro/tarjeterodesuplidores.html" class="sub-elemento">SUPLIDORES</a>
                     </div>
                 </div>
@@ -111,7 +109,7 @@
                 <div class="contenedor_formulario">
                     <label for="Cliente">Cliente:</label>
                     <input type="text" id="Cliente">
-                    <a href="./../buscadores/buscadores_procesos/buscadordeclientes.html"><img
+                    <a href="#" id="abrir"><img
                             src="../../icons/magnifier.png" alt="buscar" class="icono"></a>
                 </div>
             </form>
@@ -179,8 +177,75 @@
             </div>
             <button type="submit" class="boton" value="Grabar">GRABAR</button>
         </aside>
+        <div id="miModal" class="modal">
+            <div class="flex" id="flex">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>BUSCADOR DE CLIENTES</h2>
+                        <span class="close" id="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form class="contenedor_formulario-">
+                            <input type="search" id="buscador-a" placeholder="BUSCAR CLIENTE">
+                        </form>
+                        <table class="tabla">
+                            <tr>
+                                <th>CODIGO</th>
+                                <th>NOMBRE</th>
+                                <th>CEDULA</th>
+                                <th>UBICACION</th>
+                                <th>TELEFONO</th>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="../../JS/menuDesplegable.js"></script>
+    <script src="../../JS/ventanaModal.js"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body> 
 </html>

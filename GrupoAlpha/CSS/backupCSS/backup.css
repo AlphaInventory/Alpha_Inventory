@@ -184,6 +184,94 @@ table td {
     text-align: center;
 }
 
+.eliminar {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 150px;
+    width: 24px;
+}
+
+.eliminar1 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 185px;
+    width: 24px;
+}
+
+.eliminar2 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 220px;
+    width: 24px;
+}
+
+.eliminar3 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 257px;
+    width: 24px;
+}
+
+.eliminar4 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 293px;
+    width: 24px;
+}
+
+.eliminar5 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 330px;
+    width: 24px;
+}
+
+.eliminar6 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 365px;
+    width: 24px;
+}
+
+.eliminar7 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 400px;
+    width: 24px;
+}
+
+.eliminar8 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 436px;
+    width: 24px;
+}
+
+.eliminar9 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 473px;
+    width: 24px;
+}
+
+.eliminar10 {
+    height: 24px;
+    position: fixed;
+    left: 94%;
+    top: 510px;
+    width: 24px;
+}
+
 .boton {
     background-color: #2CF30B;
     border-radius: 6px;

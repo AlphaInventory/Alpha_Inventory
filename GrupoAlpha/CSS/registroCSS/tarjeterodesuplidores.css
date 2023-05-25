@@ -205,6 +205,20 @@ select {
     padding-left: 0.5rem;
 }
 
+.buscador {
+    margin-top: 30px;
+}
+
+.abrir {
+    font-size: 14px;
+    text-decoration: none;
+    background: #0029FF;
+    padding: 9px 44px;
+    margin-right: 8px;
+    border-radius: 5px;
+    color: #fff;
+}
+
 .botones {
     align-items: center;
     display: flex;
@@ -223,4 +237,130 @@ select {
     padding: 8px;
     text-transform: uppercase;
     width: 120px;
+}
+
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.452);
+    backdrop-filter: blur(3px);
+}
+
+.contenido-modal {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    width: 45%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+
+@keyframes modal {
+    from {
+        top: -330px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #f2f2f2;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: #7f8c8d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 8px 16px;
+    background: #0029FF;
+    color: #f2f2f2;
+}
+
+.modal-body {
+    padding: 20px 16px;
+}
+
+.cabecera_main {
+    width: 100%;
+}
+
+h2 {
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.formulario- {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    gap: 10px;
+}
+
+.campo- {
+    padding: 0 10px;
+}
+
+.campo- input {
+    border: 2px solid #ADD8E6;
+    border-radius: 5px;
+    color: #000;
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    text-align: center;
+    width: 320px;
+}
+
+input::placeholder {
+    color: #0029FF;
+    padding: 2px;
+}
+
+.botones- {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.boton- {
+    background-color: #2CF30B;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    height: 34px;
+    margin: 0 10px;
+    width: 130px;
 }

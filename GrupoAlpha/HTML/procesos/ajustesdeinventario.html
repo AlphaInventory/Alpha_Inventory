@@ -32,8 +32,6 @@
                     <div class="sub-menu">
                         <a href="../registro/creadordearticulos.html" class="sub-elemento">ARTICULOS</a>
                         <a href="../registro/tarjeterodeclientes.html" class="sub-elemento">CLIENTES</a>
-                        <a href="../registro/creadordedepartamentos.html" class="sub-elemento">DEPARTAMENTOS</a>
-                        <a href="../registro/creadordemarcas.html" class="sub-elemento">MARCAS</a>
                         <a href="../registro/tarjeterodesuplidores.html" class="sub-elemento">SUPLIDORES</a>
                     </div>
                 </div>
@@ -104,8 +102,7 @@
                     <h3>INFORMACION DEL ARTICULO</h3>
                     <label for="codigo">Codigo:</label>
                     <input type="number" id="codigo">
-                    <a href="./../buscadores/buscadores_procesos/buscadordearticulos.html"><img
-                            src="../../icons/magnifier.png" alt="buscar" class="icono"></a>
+                    <a href="#" id="abrir"><img src="../../icons/magnifier.png" alt="buscar" class="icono"></a>
                     <label for="cantidad">Cantidad:</label>
                     <input type="number" id="cantidad">
                 </div>
@@ -184,15 +181,67 @@
                         <td>---</td>
                         <td>00.00</td>
                     </tr>
-        
                 </table>
             </div>
             <div class="botones">
                 <button type="submit" class="boton" value="Grabar">GRABAR</button>
             </div>
         </aside>
+        <div id="miModal" class="modal">
+            <div class="flex" id="flex">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>BUSCADOR DE ARTICULOS</h2>
+                        <span class="close" id="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form class="contenedor_formulario-">
+                            <input type="search" id="buscador-a" placeholder="BUSCAR ARTICULO">
+                        </form>
+                        <table>
+                            <tr>
+                                <th>CODIGO</th>
+                                <th>DESCRIPCION</th>
+                                <th>REFERENCIA</th>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="../../JS/menuDesplegable.js"></script>
+    <script src="../../JS/ventanaModal.js"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>
