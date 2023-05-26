@@ -118,7 +118,7 @@
                 <div class="contenedor_formulario">
                     <label for="Cliente">Suplidor:</label>
                     <input type="text" id="Cliente">
-                    <a href="../buscadores/buscadores_procesos/buscadordesuplidores.html"><img src="../../icons/magnifier.png" alt="buscar" class="icono"></a>
+                    <a href="#" id="abrir"><img src="../../icons/magnifier.png" alt="buscar" class="icono"></a>
                 </div>
             </form>
             <div class="contentedor_table">
@@ -213,13 +213,80 @@
                         <td>00.00</td>
                         <td>00.00</td>
                     </tr>
-        
                 </table>
             </div>
             <button type="submit" class="boton" value="Grabar" onclick="confirmacion()">Grabar</button>
         </aside>
+        <div id="miModal" class="modal">
+            <div class="flex" id="flex">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>BUSCADOR DE SUPLIDORES</h2>
+                        <span class="close" id="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form class="contenedor_formulario-">
+                            <input type="search" id="buscador-a" placeholder="BUSCAR SUPLIDOR">
+                        </form>
+                        <table class="tabla">
+                            <tr>
+                                <th>CODIGO</th>
+                                <th>NOMBRE</th>
+                                <th>RNC</th>
+                                <th>UBICACION</th>
+                                <th>TELEFONO</th>
+        
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                            <tr class="active">
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                                <td>---</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="../../JS/menuDesplegable.js"></script>
+    <script src="../../JS/ventanaModal.js"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>

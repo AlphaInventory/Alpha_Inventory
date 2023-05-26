@@ -187,7 +187,7 @@ table td {
 .eliminar {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 150px;
     width: 24px;
 }
@@ -195,7 +195,7 @@ table td {
 .eliminar1 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 185px;
     width: 24px;
 }
@@ -203,7 +203,7 @@ table td {
 .eliminar2 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 220px;
     width: 24px;
 }
@@ -211,7 +211,7 @@ table td {
 .eliminar3 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 257px;
     width: 24px;
 }
@@ -219,7 +219,7 @@ table td {
 .eliminar4 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 293px;
     width: 24px;
 }
@@ -227,7 +227,7 @@ table td {
 .eliminar5 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 330px;
     width: 24px;
 }
@@ -235,7 +235,7 @@ table td {
 .eliminar6 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 365px;
     width: 24px;
 }
@@ -243,7 +243,7 @@ table td {
 .eliminar7 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 400px;
     width: 24px;
 }
@@ -251,7 +251,7 @@ table td {
 .eliminar8 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 436px;
     width: 24px;
 }
@@ -259,7 +259,7 @@ table td {
 .eliminar9 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 473px;
     width: 24px;
 }
@@ -267,9 +267,97 @@ table td {
 .eliminar10 {
     height: 24px;
     position: fixed;
-    left: 94%;
+    right: 58px;
     top: 510px;
     width: 24px;
+}
+
+.descargar {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 152px;
+    width: 23.5px;
+}
+
+.descargar1 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 188px;
+    width: 23.5px;
+}
+
+.descargar2 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 225px;
+    width: 23.5px;
+}
+
+.descargar3 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 261px;
+    width: 23.5px;
+}
+
+.descargar4 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 296px;
+    width: 23.5px;
+}
+
+.descargar5 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 333px;
+    width: 23.5px;
+}
+
+.descargar6 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 368px;
+    width: 23.5px;
+}
+
+.descargar7 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 405px;
+    width: 23.5px;
+}
+
+.descargar8 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 440px;
+    width: 23.5px;
+}
+
+.descargar9 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 476px;
+    width: 23.5px;
+}
+
+.descargar10 {
+    height: 23.5px;
+    position: fixed;
+    right: 95px;
+    top: 513px;
+    width: 23.5px;
 }
 
 .boton {
