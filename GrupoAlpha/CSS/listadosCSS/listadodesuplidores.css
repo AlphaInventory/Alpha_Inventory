@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #EAEBEF;
+    color: #000;
+    background-size: cover;
+    background-position: center;
+}
+   
+header, .barra-lateral {
+    z-index: 1;
+}
+
+.inicio {
+    text-decoration: none;
+}
+   
+.logo {
+    height: 70px;
+    width: 230px;
+    margin-top: 10px;
+}
+   
+.barra-lateral {
+    background: #FFF;
+    backdrop-filter: blur(15px);
+    width: 240px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    /* left: -250px; */
+    overflow-y: auto;
+    transition: 0.6s ease;
+    transition-property: left;
+    border-radius: 0 13px 13px 0;
+}
+
+.barra-lateral::-webkit-scrollbar {
+     width: 0px;
+}
+   
+.barra-lateral.active {
+    left: 0;
+}
+   
+header h1 {
+    color: black;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    top: -15px;
+    right: 2%;
+}
+   
+.icon {
+   width: 40px;
+   height: 30px;
+}
+   
+.barra-lateral .menu {
+    margin-top: 5px;
+    width: 250px;
+}
+   
+.barra-lateral .menu .elemento {
+    position: relative;
+    left: -10px;
+    cursor: pointer;
+}
+   
+.barra-lateral .menu .elemento a {
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    align-content: center;
+    line-height: 10px;
+    font-weight: bold;
+ }
+   
+.barra-lateral .menu .elemento a span {
+    position: relative;
+    bottom: 24px;
+}
+   
+.barra-lateral .menu .elemento a i {
+    position: relative;
+    top: 4px;
+    margin-right: 15px;
+}
+   
+.barra-lateral .menu .elemento a:hover {
+    background: #ADD8E6;
+    transition: 0.3s ease;
+}
+   
+   
+.barra-lateral .menu .elemento a .dropdown {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+
+.barra-lateral .menu .elemento a img {
+    margin: 15px;
+}
+   
+.barra-lateral .menu .elemento .sub-menu {
+    /* background: #EAEBEF; */
+    display: none;
+}
+   
+.barra-lateral .menu .elemento .sub-menu a {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 15px;
+    margin-left: 30px;
+    border-left: 2px solid #303440;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.menu-boton, .cerrar-boton {
+    display: none;
+}
+
+aside {
+    bottom: 0;
+    left: 20%;
+    position: fixed;
+    text-transform: uppercase;
+    top: 5%;
+    right: 0;
+}
+aside h1 {
+    background-color: #0029FF;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 1040px;
+}
+
+.formulario {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.formulario input {
+    background-color: #ADD8E6;
+    border: none;
+    border-radius: 12px;
+    padding: 7px;
+    text-align: left;
+    width: 30%;
+}
+
+.icono {
+    position: relative;
+    left: 330px;
+    bottom: 27px;
+    margin-left: 7px;
+    width: 23px;
+}
+
+table {
+    background-color: #ADD8E6;
+    border-collapse: collapse;
+    height: auto;
+    margin-top: 20px;
+    width: 95%;
+}
+
+table th {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    padding: 7px;
+    text-align: center;
+}
+
+table td {
+    border-right: 1px solid;
+    cursor: pointer;  
+    padding: 7px; 
+    text-align: center;
+}  
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table .active:hover {
+    background-color: #009BEF;
+}
+
+
+.boton {
+    background-color: #2CF30B;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-left: 40%;
+    padding: 7px 30px;
+    text-transform: uppercase;
+}
