@@ -2,17 +2,17 @@
 <html lang="es-Do">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>INICIO INVENTARIO</title>
-    <link rel="stylesheet" href="../../CSS/inicio_inventarioCSS/inicio_inventario.css">
+    <title>REGISTROS | REGISTRO DE SUPLIDORES</title>
+	<link rel="stylesheet" href="../../CSS/registroCSS/tarjeterodesuplidores.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
-    <div class="menu-boton">
+   <div class="menu-boton">
         <i class="fas fa-bars"></i>
     </div>
     <div class="barra-lateral">
@@ -98,9 +98,119 @@
         </header>
     </div>
     <main>
-
+        <aside>
+            <div class="cabecera_main">
+                <h1 class="titulo">Registro de suplidores</h1>
+            </div>
+            <form>
+                <div class="campo">
+                    <label for="codigo">Codigo</label>
+                    <input type="text" id="codigo">
+                </div>
+                <div class="campo">
+                    <label for="nom">Nombre</label>
+                    <input type="text" id="nom">
+                </div>
+                <div class="campo">
+                    <label for="dir">Direccion</label>
+                    <input type="text" id="dir">
+                </div>
+                <div class="campo">
+                    <label for="tel">Telefono</label>
+                    <input type="tel" id="tel">
+                </div>
+                <div class="campo">
+                    <label for="rnc">RNC</label>
+                    <input type="text" id="rnc">
+                </div>
+                <div class="campo">
+                    <label for="ciudad">Ciudad</label>
+                    <select name="Provincia" id="ciudad">
+                        <option selected disabled>Sel. una provincia</option>
+                        <option>Santiago</option>
+                        <option>Santo Domingo</option>
+                        <option>Bonao</option>
+                        <option>Santiago Rodriguez</option>
+                        <option>San Juan</option>
+                        <option>Azua</option>
+                        <option>Dajabon</option>
+                        <option>Montecristi</option>
+                        <option>Barahona</option>
+                        <option>Perdenales</option>
+                        <option>Independencia</option>
+                        <option>Bahoruco</option>
+                        <option>San Jose De Ocoa</option>
+                        <option>Monte Plata</option>
+                        <option>Samana</option>
+                        <option>El Seibo</option>
+                        <option>Valverde</option>
+                        <option>Puerto Plata</option>
+                        <option>Monte Plata</option>
+                        <option>La Altagracia</option>
+                        <option>Punta Cana</option>
+                        <option>San Cristobal</option>
+                        <option>La Romana</option>
+                        <option>Hato Mayor</option>
+                        <option>Elias Pina</option>
+                        <option>Salcedo</option>
+                        <option>Espaillat</option>
+                        <option>San Pedro de Macoris</option>
+                        <option>Maria Trinidad Sanchez</option>
+                        <option>Peravia</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="encargado">Encargado De Ventas</label>
+                    <input type="text" id="encargado">
+                </div>
+                <div class="campo">
+                    <label for="limite">Limite de Credito</label>
+                    <input type="text" id="limite">
+                </div>
+                <div class="campo">
+                    <label for="condiciones">Condiciones</label>
+                    <input type="text" id="condiciones">
+                </div>
+                <div class="campo">
+                    <label for="descuento">Descuentos</label>
+                    <input type="text" id="descuento">
+                </div>
+                <div class="buscador">
+                    <a href="#" class="abrir" id="abrir">CREADOR DE MARCAS</a>
+                </div>
+                <div class="botones">
+                    <button type="reset" class="boton">Limpiar</button>
+                    <button type="submit" class="boton">Guardar</button>
+                </div>
+            </form>
+        </aside>
+        <div id="miModal" class="modal">
+        <div class="flex" id="flex">
+            <div class="contenido-modal">
+                <div class="modal-header flex">
+                    <h2>CREADOR DE MARCAS</h2>
+                    <span class="close" id="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <form class="formulario-">
+                        <div class="campo-">
+                            <input type="text" name="codigo" id="codigo" placeholder="Ingrese el Codigo" class="control">
+                        </div>
+                        <div class="campo-">
+                            <input type="text" name="nombre" id="nombre" placeholder="Ingrese el Nombre" class="control">
+                        </div>
+                    </form>
+                    <div class="botones-">
+                        <button type="reset" class="boton-">Borrar</button>
+                        <button type="submit" class="boton-">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </main>
     <script src="../../JS/menuDesplegable.js"></script>
+    <script src="../../JS/ventanaModal.js"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
-</body> 
+</body>
 </html>

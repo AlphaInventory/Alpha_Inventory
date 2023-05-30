@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>INICIO INVENTARIO</title>
-    <link rel="stylesheet" href="../../CSS/inicio_inventarioCSS/inicio_inventario.css">
+    <title>LISTADOS | LISTADO DE PRECIOS</title>
+    <link rel="stylesheet" href="../../CSS/listadosCSS/listadeprecios.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
         rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
+    <script>
+        function confirmacion() {
+            alert("Estas seguro de que quieres GRABAR");
+        }
+    </script>
     <div class="menu-boton">
         <i class="fas fa-bars"></i>
     </div>
@@ -98,9 +103,108 @@
         </header>
     </div>
     <main>
-
+        <aside>
+            <h1>Listado De Precios</h1>
+            <form class="formulario">
+                <div class="contenedor_formulario">
+                    <label for="des-codigo">Desde El Codigo:</label>
+                    <input type="number" id="des-codigo">
+                </div>
+                <div class="contenedor_formulario">
+                    <label for="has-codigo">Hasta El Codigo:</label>
+                    <input type="number" id="has-codigo">
+                    <a href="#" target="_self"><img src="../../icons/magnifier.png" alt="buscar" class="icono"></a>
+                </div>
+            </form>
+            <div class="contentedor_table">
+                <table class="table">
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Descripcion</th>
+                        <th>Referencia</th>
+                        <th>Unidad.M</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                    </tr>
+                    <tr class="active">
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>00000000</td>
+                        <td>Und</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                    </tr>
+                    <tr class="active">
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>00000000</td>
+                        <td>Und</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                    </tr>
+                    <tr class="active">
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>00000000</td>
+                        <td>Und</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                    </tr>
+                    <tr class="active">
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>00000000</td>
+                        <td>Und</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                    </tr>
+                    <tr class="active">
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>00000000</td>
+                        <td>Und</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                    </tr>
+                    <tr class="active">
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>00000000</td>
+                        <td>Und</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                    </tr>
+                    <tr class="active">
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>00000000</td>
+                        <td>Und</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                    </tr>
+                    <tr class="active">
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>00000000</td>
+                        <td>Und</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                    </tr>
+                    <tr class="active">
+                        <td>000000</td>
+                        <td>Ropa</td>
+                        <td>00000000</td>
+                        <td>Und</td>
+                        <td>00</td>
+                        <td>00.00</td>
+                    </tr>
+                </table>
+            </div>
+            <button type="submit" class="boton" value="Grabar" onclick="confirmacion()">Grabar</button>
+        </aside>
     </main>
     <script src="../../JS/menuDesplegable.js"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
-</body> 
+</body>
 </html>
+
