@@ -150,33 +150,29 @@ aside h1 {
     font-weight: bold;
     padding: 10px;
     text-align: center;
-    text-transform: uppercase;
     width: 1040px;
 }
 
 .formulario {
     align-items: flex-start;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding-bottom: 20px;
-}
-
-.contenedor_formulario {
-    margin: 2px;
     position: relative;
-    top: 20px
-}
-
-.formulario_arriba {
-    padding-bottom: 20px;
+    top: 20px;
 }
 
 .formulario label {
-    font-weight: 800;
+    font-weight: 800; 
+}
+
+.contenedor_formulario {
+    margin-left: 10px;
 }
 
 .icono {
     position: relative;
+    right: 6px;
     top: 4px;
     margin-left: 7px;
     width: 20px;
@@ -190,11 +186,11 @@ table {
     width: 95%;
 }
 
-table tr:nth-child(even) {
+table tr:nth-child(even){
     background-color: #f2f2f2;
 }
 
-table .active:hover {
+table .active:hover{
     background-color: #009BEF;
 }
 
@@ -206,7 +202,7 @@ table th {
 }
 
 table td {
-    border-right: 1px solid;
+    border-right: 1px solid; 
     cursor: pointer; 
     padding: 7px; 
     text-align: center;
@@ -221,115 +217,7 @@ table td {
     margin-top: 40px;
     margin-left: 40%;
     padding: 7px 30px;
-}
-
-.flex {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-h2 {
-    color: #fff;
-    font-size: 26px;
-    font-weight: bold;
     text-transform: uppercase;
-}
-
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    overflow: auto;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.452);
-    backdrop-filter: blur(3px);
-}
-
-.contenido-modal {
-    position: relative;
-    background-color: #fefefe;
-    height: auto;
-    margin: auto;
-    width: 50%;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
-    animation-name: modal;
-    animation-duration: 1s;
-}
-
-@keyframes modal {
-    from {
-        top: -330px;
-        opacity: 0;
-    }
-
-    to {
-        top: 0;
-        opacity: 1;
-    }
-}
-
-.close {
-    color: #f2f2f2;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.close:hover {
-    color: #7f8c8d;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 8px 16px;
-    background: #0029FF;
-    color: #fff;
-}
-
-.modal-body {
-    padding: 20px 16px;
-}
-
-.contenedor_formulario- input {
-    background-color: #ADD8E6;
-    border: none;
-    border-radius: 12px;
-    padding: 7px;
-    text-align: left;
-    width: 35%;
-}
-
-.tabla {
-    background-color: #fff;
-    border-collapse: collapse;
-    height: auto;
-    margin-top: 20px;
-    width: 100%;
-}
-
-.tabla.active:hover {
-    background-color: #f2f2f2;
-}
-
-.tabla th {
-    background-color: #009BEF;
-    border-bottom: 1px solid;
-    border-right: 1px solid;
-    padding: 7px;
-    text-align: center;
-}
-
-.tabla td {
-    border-right: 1px solid;
-    padding: 7px;
-    text-align: center;
 }
 
 @media screen and (max-width: 1224px) {
@@ -394,11 +282,6 @@ h2 {
         margin-left: 10px;
     }
 
-    .formulario_arriba {
-        position: relative;
-        left: 1.2%;
-    }
-
     table {
         margin-top: 20px;
         margin-left: 20px;
@@ -415,18 +298,6 @@ h2 {
 
     .boton {
         font-size: 16px;
-    }
-
-    .contenido-modal {
-        width: 40%;
-    }
-
-    .contenedor_formulario- input {
-        margin-left: 20px;
-    }
-
-    .tabla {
-        width: 350px;
     }
 }
 
@@ -471,23 +342,6 @@ h2 {
 
     .boton {
         font-size: 14px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    .contenido-modal {
-        width: 40%;
-    }
-
-    .contenedor_formulario- input {
-        margin-left: 20px;
-        width: 44%;
-    }
-
-    .tabla {
-        width: 200px;
     }
 }
 
@@ -540,19 +394,16 @@ h2 {
         padding: 9px;
     }
 
-    .formulario,
-    .formulario_arriba .contenedor_formulario {
+    .formulario {
         position: relative;
         left: 6%;
     }
 
-    .formulario label,
-    .formulario_arriba .contenedor_formulario label {
+    .formulario label {
         font-size: 14px;
     }
 
-    .formulario input,
-    .formulario_arriba .contenedor_formulario input {
+    .formulario input {
         height: 20px;
         width: 116px;
     }
@@ -579,16 +430,8 @@ h2 {
     .boton {
         font-size: 15px;
     }
-
-    .contenido-modal {
-        width: 55%;
-    }
-
-    .contenedor_formulario- input {
-        margin-left: 30px;
-        width: 40%;
-    }
 }
+
 
 @media screen and (max-width: 724px) {
     aside h1 {
@@ -619,12 +462,6 @@ h2 {
     .boton {
         font-size: 13px;
     }
-
-    .contenedor_formulario- input {
-        margin-left: 30px;
-        height: 26px;
-        width: 45%;
-    }
 }
 
 @media screen and (max-width: 624px) {
@@ -653,11 +490,6 @@ h2 {
     .boton {
         font-size: 12px;
     }
-
-    .contenido-modal {
-        width: 60%;
-    }
-
 }
 
 @media screen and (max-width: 524px) {
@@ -709,16 +541,5 @@ h2 {
 
     .boton {
         font-size: 11px;
-    }
-
-    h2 {
-        font-size: 16px;
-    }
-
-    .contenedor_formulario- input {
-        margin-left: 26px;
-        font-size: 10px;
-        height: 22px;
-        width: 40%;
     }
 }

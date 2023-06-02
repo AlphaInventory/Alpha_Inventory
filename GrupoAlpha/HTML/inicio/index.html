@@ -11,6 +11,18 @@
         rel="stylesheet">
 </head>
 <body>
+    <script>
+        function validar() {
+            let user=document.getElementById("email").value;
+            let pwd=document.getElementById("password").value;
+
+            if(user=="admin" && pwd=="admin") {
+                window.location="../inicio_inventario/inicio_inventario.html"
+            } else {
+                alert("Datos incorrectos");
+            }
+        }
+    </script>
     <header>
         <div class="logo">
             <figure>
@@ -38,9 +50,7 @@
                     <a href="recuperarcontraseña.html" class="enlace_olvcon">¿Olvidaste tu contraseña?</a>
                 </div>
                 <div class="boton_ini">
-                    <a href="../inicio_inventario/inicio_inventario.html">
-                        <button type="button" class="boton_inicio">Iniciar</button>
-                    </a>
+                    <button type="button" class="boton_inicio" onclick="validar()">Entrar</button>
                 </div>
                 <div class="reg_usuario">
                     <h4 class="subtitulo-">¿Eres un nuevo usuario?</h4>

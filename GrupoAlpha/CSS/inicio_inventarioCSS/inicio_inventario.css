@@ -147,261 +147,151 @@ main {
 }
 
 @media screen and (max-width: 1024px) {
-    .navegacion {
-        width: 190px;
-    }
-
-    .navegacion_link {
-        font-size: 13px;
-    }
-
-    .navegacion_link--inside {
-        font-size: 11px;
-    }
-
-    .titulogo {
-        position: relative;
-        bottom: 20px;
-    }
-
-    .logo figure img {
-        width: 190px;
-    }
-
-    .logo h4 {
-        font-size: 27px;
-    }
-
-    .lista {
-        font-size: 12px;
-    }
-
-    .lista_imagen {
-        height: 28px;
-        width: 38px;
-    }
-
-    .posicion {
-        position: fixed;
-        left: 162px;
-    }
-
-    main {
-        background-size: 300px;
-        background-repeat: space;
-        left: 40%;
-        position: fixed;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .navegacion {
+    .logo {
         width: 200px;
+        height: 60px;
     }
 
-    .logo figure img {
-        width: 200px;
-    }
-
-    .logo h4 {
+    header h1 {
         font-size: 28px;
     }
 
+    .barra-lateral {
+        width: 210px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 12px;
+    }
+
+    .elemento a i {
+        left: 71%;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 11px;
+    }
+
+
     main {
-        background-size: 400px;
+        background-size: 500px;
         background-repeat: space;
         left: 30%;
         position: fixed;
     }
 }
 
-@media screen and (max-width: 425px) {
-    .navegacion {
-        width: 160px;
+@media screen and (max-width: 824px) {
+    .logo {
+        width: 180px;
+        height: 50px;
     }
 
-    .navegacion_link {
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        left: -205px;
+    }
+
+
+    .barra-lateral .elemento span {
         font-size: 11px;
     }
 
-    .navegacion_link--inside {
-        font-size: 11px;
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
     }
 
-    .logo figure img {
-        width: 160px;
+    .elemento a i {
+        left: 66%;
     }
 
-    .logo h4 {
-        font-size: 24px;
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
     }
 
-    .lista {
-        font-size: 12px;
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
     }
 
-    .lista_imagen {
-        height: 24px;
-        width: 34px;
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
     }
 
-    .posicion {
+    main {
+        background-size: 450px;
+        background-repeat: space;
+        left: 0%;
         position: fixed;
-        left: 133px;
+    }
+}
+
+
+@media screen and (max-width: 524px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+
+
+    .barra-lateral {
+        backdrop-filter: blur(15px);
+        width: 195px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -205px;
+        overflow-y: auto;
+        transition: 0.6s ease;
+        transition-property: left;
+        border-radius: 0 13px 13px 0;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .barra-lateral .elemento a i {
+        position: relative;
+        left: 65%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
     }
 
     main {
         background-size: 280px;
         background-repeat: space;
-        left: 36%;
+        left: 2%;
         position: fixed;
-    }
-}
-
-@media screen and (max-width: 375px) {
-    .navegacion {
-        width: 140px;
-    }
-
-    .navegacion_link {
-        font-size: 9px;
-    }
-
-    .navegacion_link--inside {
-        font-size: 9px;
-    }
-
-    .logo figure img {
-        width: 140px;
-    }
-
-    .logo h4 {
-        font-size: 21px;
-        position: fixed;
-        top: 5%;
-        left: 6%;
-    }
-
-    .lista {
-        font-size: 11px;
-    }
-
-    .lista_imagen {
-        height: 20px;
-        width: 30px;
-    }
-
-    .lista_arrow {
-        height: 20px;
-    }
-
-    .posicion {
-        position: fixed;
-        left: 115px;
-    }
-
-    main {
-        background-size: 240px;
-        background-repeat: space;
-        left: 36%;
-        position: fixed;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .navegacion {
-        width: 120px;
-    }
-
-    .navegacion_link {
-        font-size: 8px;
-    }
-
-    .navegacion_link--inside {
-        font-size: 8px;
-    }
-
-    .logo figure img {
-        width: 120px;
-    }
-
-    .logo h4 {
-        font-size: 18px;
-    }
-
-    .lista {
-        font-size: 10px;
-    }
-
-    .lista_item {
-        margin-bottom: 25px;
-    }
-
-    .lista_imagen {
-        height: 18px;
-        width: 28px;
-    }
-
-    .lista_arrow {
-        height: 18px;
-    }
-
-    .posicion {
-        position: fixed;
-        left: 98px;
-    }
-
-    main {
-        background-size: 200px;
-        background-repeat: space;
-    }
-}
-
-@media screen and (max-width: 280px) {
-    .navegacion {
-        width: 110px;
-    }
-
-    .navegacion_link {
-        font-size: 7px;
-    }
-
-    .navegacion_link--inside {
-        font-size: 7px;
-    }
-
-    .logo figure img {
-        width: 110px;
-    }
-
-    .logo h4 {
-        font-size: 16px;
-    }
-
-    .lista {
-        font-size: 9px;
-    }
-
-    .lista_item {
-        margin-bottom: 20px;
-    }
-
-    .lista_imagen {
-        height: 15px;
-        width: 25px;
-    }
-
-    .lista_arrow {
-        height: 15px;
-    }
-
-    .posicion {
-        position: fixed;
-        left: 88px;
-    }
-
-    main {
-        background-size: 180px;
-        background-repeat: space;
     }
 }

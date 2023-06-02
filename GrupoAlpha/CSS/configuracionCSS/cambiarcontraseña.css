@@ -222,3 +222,400 @@ input {
     padding: 7px 30px;
     text-transform: uppercase;
 }
+
+@media screen and (max-width: 1224px) {
+    .logo {
+        width: 200px;
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .barra-lateral {
+        width: 210px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 12px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 11px;
+    }
+
+    .elemento a i {
+        left: 71%;
+    }
+
+    main {
+        bottom: 0;
+        left: 22%;
+        position: fixed;
+        text-transform: uppercase;
+        top: 5%;
+        right: 0;
+    }
+
+    main h1 {
+        font-size: 24px;
+        padding: 7px;
+        margin-left: 18px;
+        width: 90%;
+
+    }
+
+    .indicaciones_cta p {
+        font-size: 15px;
+    }
+
+    .campo {
+        padding: 14px 0;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    input {
+        font-size: 13px;
+        height: 32px;
+        width: 340px;
+    }
+
+    .boton {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+
+    main {
+        left: 26%;
+        position: fixed;
+    }
+
+    main h1 {
+        font-size: 22px;
+        padding: 7px;
+    }
+
+
+    .indicaciones_cta p {
+        font-size: 14px;
+    }
+
+    .campo {
+        padding: 12px 0;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input {
+        font-size: 12px;
+        height: 30px;
+        width: 300px;
+    }
+
+    .boton {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        left: -205px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    main {
+        left: -3%;
+        position: fixed;
+    }
+
+    main h1 {
+        font-size: 20px;
+        padding: 7px;
+        width: 100%;
+    }
+
+    .indicaciones_cta p {
+        font-size: 13px;
+        margin-left: 4px;
+    }
+
+    .contenedor_formulario {
+
+        margin-left: 10px;
+    }
+
+    .campo {
+        padding: 10px 0;
+    }
+
+    label {
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    input {
+        font-size: 11px;
+        height: 28px;
+        width: 280px;
+        padding: 5px;
+    }
+
+    .boton {
+        font-size: 12px;
+        margin-left: 63px;
+    }
+}
+
+
+@media screen and (max-width: 724px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+
+
+    main h1 {
+        font-size: 18px;
+        padding: 7px;
+        width: 100%;
+    }
+
+    .indicaciones_cta p {
+        font-size: 12px;
+    }
+
+    .campo {
+        padding: 9px 0;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input {
+        font-size: 10px;
+        height: 28px;
+        width: 250px;
+    }
+
+    .boton {
+        font-size: 10px;
+        margin-left: 53px;
+    }
+
+
+}
+
+
+@media screen and (max-width: 624px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+
+
+    main h1 {
+        font-size: 20px;
+        padding: 6px;
+        width: 100%;
+    }
+
+    .indicaciones_cta p {
+        font-size: 10px;
+    }
+
+    .campo {
+        padding: 8px 0;
+    }
+
+    label {
+        font-size: 11px;
+    }
+
+    input {
+        font-size: 10px;
+        height: 26px;
+        width: 200px;
+    }
+
+    .boton {
+        font-size: 9px;
+        margin-left: 36px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -205px;
+        overflow-y: auto;
+        transition: 0.6s ease;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .barra-lateral .elemento a i {
+        position: relative;
+        left: 65%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    main {
+        left: -4%;
+        position: fixed;
+        width: 100%;
+    }
+
+    main h1 {
+        font-size: 16px;
+        padding: 7px;
+        width: 100%;
+    }
+
+    .indicaciones_cta p {
+        font-size: 9px;
+    }
+
+    .campo {
+        padding: 6px 0;
+    }
+
+    label {
+        font-size: 10px;
+    }
+
+    input {
+        font-size: 9px;
+        height: 24px;
+        width: 190px;
+    }
+
+    .boton {
+        font-size: 8px;
+        margin-left: 38px;
+
+    }
+}

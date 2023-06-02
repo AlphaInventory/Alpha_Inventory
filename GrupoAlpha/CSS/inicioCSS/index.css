@@ -104,13 +104,13 @@ input {
     justify-content: left;
     padding: 10px;
     text-align: center;
-    text-transform: uppercase;
     width: 450px;
 }
 
 input::placeholder {
     color: #0029FF;
     padding: 2px;
+    text-transform: uppercase;
 }
 
 .olvcon {

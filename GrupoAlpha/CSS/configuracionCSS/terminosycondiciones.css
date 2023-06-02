@@ -172,3 +172,270 @@ p {
     text-align: justify;
     width: 100%;
 }
+
+@media screen and (max-width: 1224px) {
+    .logo {
+        width: 200px;
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .barra-lateral {
+        width: 210px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 12px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 11px;
+    }
+
+    .elemento a i {
+        left: 71%;
+    }
+
+    main {
+        position: fixed;
+        left: 24%;
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+
+}
+
+
+@media screen and (max-width: 924px) {
+
+    main {
+        position: fixed;
+        left: 28%;
+    }
+
+    .parrafos {
+        line-height: 1.25;
+        padding: 14px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    ;
+
+}
+
+@media screen and (max-width: 824px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        left: -205px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    main h1 {
+        font-size: 22px;
+        width: 100%;
+    }
+
+    main {
+        position: fixed;
+        left: 0%;
+        top: 5%;
+        width: 100%;
+    }
+
+
+    .parrafos {
+        width: 100%;
+    }
+
+
+
+
+}
+
+@media screen and (max-width: 724px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+
+
+    main h1 {
+        font-size: 19px;
+    }
+
+
+    p {
+        font-size: 14px;
+    }
+
+
+
+}
+
+@media screen and (max-width: 624px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    main h1 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+
+}
+
+@media screen and (max-width: 524px) {
+
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -205px;
+        overflow-y: auto;
+        transition: 0.6s ease;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .barra-lateral .elemento a i {
+        position: relative;
+        left: 65%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    main {
+        position: fixed;
+        left: 0;
+        top: 5%;
+        width: 105%;
+    }
+
+    p {
+        margin-right: 25px;
+    }
+}

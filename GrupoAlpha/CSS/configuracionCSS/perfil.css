@@ -227,3 +227,516 @@ input {
     text-transform: uppercase;
     width: 250px;
 }
+
+@media screen and (max-width: 1224px) {
+    .logo {
+        width: 200px;
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .barra-lateral {
+        width: 210px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 12px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 11px;
+    }
+
+    .elemento a i {
+        left: 71%;
+    }
+
+    main {
+        bottom: 0;
+        left: 22%;
+        position: fixed;
+        text-transform: uppercase;
+        top: 5%;
+        right: 0;
+    }
+
+    main h1 {
+        font-size: 24px;
+        padding: 7px;
+        margin-left: 18px;
+        width: 90%;
+
+    }
+
+    .grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        padding-top: 10px;
+        margin-right: 50px;
+    }
+
+
+    h2 {
+        font-size: 20px;
+        padding: 20px 0;
+        margin-left: 50px;
+    }
+
+    .imagen-empresa {
+        height: 150px;
+        margin-right: 30px;
+        width: 300px;
+    }
+
+    .campo {
+        padding: 10px 0;
+    }
+
+    label {
+        align-items: center;
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    input {
+        height: 35px;
+        font-size: 14px;
+        width: 300px;
+    }
+
+    .botones {
+        display: block;
+        position: relative;
+        left: 8%;
+    }
+
+    .boton {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+
+    main {
+        left: 26%;
+        position: fixed;
+    }
+
+    main h1 {
+        font-size: 22px;
+        padding: 7px;
+    }
+
+    .grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        padding-top: 10px;
+        margin-right: 50px;
+    }
+
+    h2 {
+        font-size: 20px;
+        padding: 20px 0;
+        margin-left: 50px;
+    }
+
+    .imagen-empresa {
+        height: 150px;
+        margin-right: 30px;
+        width: 300px;
+    }
+
+    .campo {
+        padding: 10px 0;
+    }
+
+    label {
+        align-items: center;
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    input {
+        height: 35px;
+        font-size: 14px;
+        width: 300px;
+    }
+
+    .botones {
+        display: block;
+        position: relative;
+        left: 8%;
+    }
+
+    .boton {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+}
+
+
+@media screen and (max-width: 824px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        left: -205px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    main {
+        left: -3%;
+        position: fixed;
+    }
+
+    main h1 {
+        font-size: 20px;
+        padding: 7px;
+        width: 100%;
+        text-align: center;
+
+    }
+
+    .grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        padding-top: 10px;
+        margin-right: -40px;
+    }
+
+
+    h2 {
+        font-size: 20px;
+        padding: 20px 0;
+    }
+
+    .imagen-empresa {
+        height: 150px;
+        margin-left: 13px;
+        width: 300px;
+    }
+
+    .campo {
+        padding: 10px 0;
+    }
+
+    label {
+        align-items: center;
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-size: 16px;
+        margin-left: 13px;
+    }
+
+    input {
+        margin-left: 17px;
+        height: 35px;
+        font-size: 14px;
+        width: 300px;
+    }
+
+    .botones {
+        margin-left: 18px;
+    }
+
+    .boton {
+        font-size: 15px;
+        margin-top: 20px;
+    }
+}
+
+
+@media screen and (max-width: 724px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    main h1 {
+        font-size: 18px;
+        padding: 7px;
+        width: 100%;
+    }
+
+    .grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        padding-top: 10px;
+    }
+
+
+    h2 {
+        font-size: 20px;
+        padding: 20px 0;
+        margin-left: 50px;
+    }
+
+    .imagen-empresa {
+        height: 150px;
+        margin-right: 30px;
+        width: 300px;
+    }
+
+    .campo {
+        padding: 10px 0;
+    }
+
+    label {
+        align-items: center;
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    input {
+        height: 35px;
+        font-size: 14px;
+        width: 300px;
+    }
+
+    .botones {
+        margin-left: 40px;
+
+    }
+
+    .boton {
+        font-size: 13px;
+        width: 200px;
+    }
+}
+
+
+@media screen and (max-width: 624px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    main h1 {
+        font-size: 20px;
+        padding: 6px;
+        width: 100%;
+    }
+
+    label {
+
+        font-size: 15px;
+    }
+
+    input {
+        height: 35px;
+        font-size: 15px;
+        width: 250px;
+    }
+
+    .botones {
+        margin-left: 5px;
+    }
+
+    .boton {
+        font-size: 12px;
+        width: 150px;
+        margin-left: 36px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -205px;
+        overflow-y: auto;
+        transition: 0.6s ease;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .barra-lateral .elemento a i {
+        position: relative;
+        left: 65%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    main {
+        left: -4%;
+        position: fixed;
+        width: 100%;
+    }
+
+    main h1 {
+        font-size: 16px;
+        padding: 7px;
+        width: 100%;
+    }
+
+
+    main .grid .informacion_empresa h2 {
+        font-size: 18px;
+        padding: 20px 0;
+        margin-left: 50px;
+    }
+
+    .imagen-empresa {
+        height: 150px;
+        margin-left: -1px;
+        width: 300px;
+    }
+
+    .campo {
+        padding: 10px 0;
+    }
+
+    label {
+        align-items: center;
+        display: block;
+        justify-content: center;
+        text-align: center;
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    input {
+        height: 35px;
+        font-size: 14px;
+        width: 250px;
+        margin-left: -3px;
+    }
+
+    .botones {
+        display: block;
+        position: relative;
+        left: 8%;
+    }
+
+    .boton {
+        font-size: 12px;
+        margin-left: 15px;
+        width: 180px;
+    }
+}
