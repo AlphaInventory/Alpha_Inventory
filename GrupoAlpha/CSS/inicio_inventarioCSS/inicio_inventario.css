@@ -172,6 +172,9 @@ main {
         font-size: 11px;
     }
 
+    .barra-lateral .menu .elemento a .dropdown {
+        width: 10px;
+    }
 
     main {
         background-size: 500px;

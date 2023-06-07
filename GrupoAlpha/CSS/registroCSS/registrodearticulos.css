@@ -364,6 +364,10 @@ table td {
         left: 71%;
     }
 
+    .barra-lateral .menu .elemento a .dropdown {
+        width: 10px;
+    }
+
     aside {
         bottom: 0;
         left: 22%;

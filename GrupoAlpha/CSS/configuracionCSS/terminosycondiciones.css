@@ -199,6 +199,10 @@ p {
         left: 71%;
     }
 
+    .barra-lateral .menu .elemento a .dropdown {
+        width: 10px;
+    }
+
     main {
         position: fixed;
         left: 24%;
@@ -208,8 +212,6 @@ p {
     p {
         font-size: 17px;
     }
-
-
 }
 
 

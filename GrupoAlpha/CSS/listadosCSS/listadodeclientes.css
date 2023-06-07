@@ -155,25 +155,26 @@ aside h1 {
 .formulario {
     align-items: flex-start;
     display: flex;
-    flex-direction: column;
-    padding-top: 30px;
+    flex-direction: row;
+    padding-bottom: 20px;
+    position: relative;
+    top: 20px;
 }
 
-.formulario input {
-    background-color: #ADD8E6;
-    border: none;
-    border-radius: 12px;
-    padding: 7px;
-    text-align: left;
-    width: 30%;
+.formulario label {
+    font-weight: 800; 
+}
+
+.contenedor_formulario {
+    margin-left: 10px;
 }
 
 .icono {
     position: relative;
-    left: 330px;
-    bottom: 27px;
+    right: 6px;
+    top: 4px;
     margin-left: 7px;
-    width: 23px;
+    width: 20px;
 }
 
 table {
@@ -243,6 +244,10 @@ table .active:hover {
 
     .elemento a i {
         left: 71%;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        width: 10px;
     }
 
     aside {

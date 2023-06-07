@@ -17,3 +17,24 @@ window.addEventListener('click', function(e){
         modal.style.display = 'none';
     }
 });
+
+// Ventana modal --
+let modall = document.getElementById('miModal-');
+let flexx = document.getElementById('flex-');
+let abrirr = document.getElementById('abrir-');
+let cerrarr = document.getElementById('close-');
+
+abrirr.addEventListener('click', function(){
+    modall.style.display = 'block';
+});
+
+cerrarr.addEventListener('click', function(){
+    modall.style.display = 'none';
+});
+
+window.addEventListener('click', function(e){
+    console.log(e.target);
+    if(e.target == flexx){
+        modall.style.display = 'none';
+    }
+});

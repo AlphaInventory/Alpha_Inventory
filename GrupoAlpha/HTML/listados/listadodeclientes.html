@@ -58,7 +58,7 @@
                         <a href="../movimientos/costodeinventario.html" class="sub-elemento">COSTO DE INVENTARIO</a>
                         <a href="../movimientos/movimientosdiario.html" class="sub-elemento">DIARIOS</a>
                         <a href="../movimientos/movimientoporarticulo.html" class="sub-elemento">ARTICULO</a>
-                        <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a>
+                        <!-- <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a> -->
                     </div>
                 </div>
                 <div class="elemento">
@@ -69,7 +69,7 @@
                         <a href="../listados/listadodeprecios.html" class="sub-elemento">LISTADO DE PRECIOS</a>
                         <a href="../listados/listadodecompras.html" class="sub-elemento">LISTADO DE COMPRAS</a>
                         <a href="../listados/listadodeventas.html" class="sub-elemento">LISTADO DE VENTAS</a>
-                        <a href="../listados/listadodearticulos.html" class="sub-elemento">LISTADO DE ARTICULOS</a>
+                        <!-- <a href="../listados/listadodearticulos.html" class="sub-elemento">LISTADO DE ARTICULOS</a> -->
                         <a href="../listados/listadodeclientes.html" class="sub-elemento">LISTADO DE CLIENTES</a>
                         <a href="../listados/listadodesuplidores.html" class="sub-elemento">LISTADO DE SUPLIDORES</a>
                     </div> 
@@ -106,8 +106,15 @@
         <aside>
             <h1>Listado De Clientes</h1>
             <form class="formulario">
-                <input type="text" placeholder="BUSCAR CLIENTES">
-                <img src="../../icons/magnifier.png" alt="Buscar" class="icono">
+                <div class="contenedor_formulario">
+                    <label for="des-codigo">Desde El Codigo:</label>
+                    <input type="text" id="des-codigo">
+                </div>
+                <div class="contenedor_formulario">
+                    <label for="has-codigo">Hasta El Codigo:</label>
+                    <input type="text" id="has-codigo">
+                    <a href="#" target="_self"><img src="../../icons/magnifier.png" alt="buscar" class="icono"></a>
+                </div>
             </form>
             <div class="contentedor_table">
                 <table class="table">

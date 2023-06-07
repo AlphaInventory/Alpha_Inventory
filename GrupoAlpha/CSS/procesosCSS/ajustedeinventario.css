@@ -34,7 +34,6 @@ header, .barra-lateral {
     height: 100vh;
     position: fixed;
     top: 0;
-    /* left: -250px; */
     overflow-y: auto;
     transition: 0.6s ease;
     transition-property: left;
@@ -114,7 +113,6 @@ header h1 {
 }
    
 .barra-lateral .menu .elemento .sub-menu {
-    /* background: #EAEBEF; */
     display: none;
 }
    
@@ -151,7 +149,7 @@ aside h1 {
     padding: 10px;
     text-align: center;
     text-transform: uppercase;
-    width: 1040px;
+    width: 95%;
 }
 
 .icono {
@@ -168,6 +166,28 @@ aside h1 {
     position: relative;
     top: 20px;
 }
+
+.contenedor_formulario, .contenedor_formulario_flex {
+    font-weight: 800;
+}
+
+.contenedor_formulario_flex {
+    position: relative;
+    right: 4%;
+    font-weight: 800;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.contenedor_formulario_flex .campo_flex {
+    display: inline;
+    padding: 5px;
+}
+
+.formulario .contenedor_formulario_flex .campo_flex label{
+    font-size: 16px;
+} 
+
 
 table {
     background-color: #ADD8E6;
@@ -315,12 +335,14 @@ h2 {
     border-right: 1px solid;
     padding: 7px;
     text-align: center;
+    font-size: 16px;
 }
 
 .tabla td {
     border-right: 1px solid;
     padding: 7px;
     text-align: center;
+    font-size: 16px;
 }
 
 @media screen and (max-width: 1224px) {
@@ -349,6 +371,10 @@ h2 {
         left: 71%;
     }
 
+    .barra-lateral .menu .elemento a .dropdown {
+        width: 10px;
+    }
+
     aside {
         bottom: 0;
         left: 22%;
@@ -375,7 +401,7 @@ h2 {
     }
 
     .formulario label {
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 800;
     }
 
@@ -388,10 +414,21 @@ h2 {
         margin-left: 10px;
     }
 
-    .formulario_arriba {
+    .contenedor_formulario_flex {
         position: relative;
-        left: 1.2%;
+        right: 7%;
     }
+
+
+    .formulario .contenedor_formulario_flex .campo_flex label{
+        font-size: 15px;
+    } 
+
+    .formulario .contenedor_formulario_flex .campo_flex input{
+        width: 15px;
+        height: auto;
+    }
+
 
     table {
         margin-top: 20px;
@@ -411,16 +448,13 @@ h2 {
         font-size: 16px;
     }
 
-    .contenido-modal {
-        width: 40%;
-    }
-
     .contenedor_formulario- input {
-        margin-left: 20px;
+        margin-left: 14px;
     }
 
     .tabla {
-        width: 350px;
+        margin-left: 14px;
+        width: 95%;
     }
 }
 
@@ -449,17 +483,15 @@ h2 {
     }
 
     table th {
-        font-size: 12px;
+        font-size: 13px;
     }
 
-    .formulario_arriba {
-        position: relative;
-        left: 1.8%;
+    .formulario .contenedor_formulario_flex .campo_flex label{
         font-size: 14px;
-    }
+    } 
 
     table td {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .boton {
@@ -471,16 +503,7 @@ h2 {
     }
 
     .contenido-modal {
-        width: 40%;
-    }
-
-    .contenedor_formulario- input {
-        margin-left: 20px;
-        width: 44%;
-    }
-
-    .tabla {
-        width: 200px;
+        width: 53%;
     }
 }
 
@@ -538,14 +561,19 @@ h2 {
         left: 50px;
     }
 
-    .formulario label {
-        font-size: 14px;
+
+    .formulario .contenedor_formulario label {
+        font-size: 15px;
     }
 
     .formulario input {
         height: 20px;
         width: 116px;
     }
+
+    .formulario .contenedor_formulario_flex .campo_flex label{
+        font-size: 14px;
+    } 
 
     .cerrar-boton,
     .menu-boton {
@@ -555,15 +583,15 @@ h2 {
     table {
         position: relative;
         left: 3%;
-        width: 90%;
+        width: 92%;
     }
 
     table th {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     table td {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .boton {
@@ -571,12 +599,16 @@ h2 {
     }
 
     .contenido-modal {
-        width: 70%;
+        width: 60%;
     }
 
     .contenedor_formulario- input {
-        margin-left: 34px;
-        width: 40%;
+        margin-left: 20px;
+    }
+
+    .tabla {
+        margin-left: 7px;
+        width: 91%;
     }
 }
 
@@ -585,59 +617,71 @@ h2 {
         padding: 10px;
     }
 
-    .formulario label {
-        font-size: 12px;
+    .formulario .contenedor_formulario h3{
+        font-size: 17px;
+
+    }
+
+    .formulario .contenedor_formulario label {
+        font-size: 14px;
     }
 
     .formulario input {
-        height: 16px;
+        height: 19px;
         width: 110px;
     }
+
+    .formulario .contenedor_formulario_flex .campo_flex label{
+        font-size: 13px;
+    } 
 
     table {
         margin-left: 20px;
     }
 
     table th {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     table td {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .boton {
         font-size: 13px;
     }
-
-    .contenedor_formulario- input {
-        margin-left: 30px;
-        height: 26px;
-        width: 40%;
-    } 
 }
 
 @media screen and (max-width: 624px) {
-    .formulario label {
-        font-size: 11px;
 
+    .formulario .contenedor_formulario h3{
+        font-size: 16px;
+    }
+    
+    .formulario .contenedor_formulario label {
+        font-size: 13px;
     }
 
     .formulario input {
-        height: 14px;
-        width: 90px;
+        height: 18px;
+        width: 100px;
     }
+
+    .formulario .contenedor_formulario_flex .campo_flex label{
+        font-size: 13px;
+    } 
+
 
     table {
         width: 90%;
     }
 
     table th {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     table td {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     .boton {
@@ -645,11 +689,20 @@ h2 {
     }
 
     .contenido-modal {
-        width: 60%;
+        width: 70%;
     }
 
     .contenedor_formulario- input {
-        width: 45%;
+        margin-left: 10px;
+    }
+
+    .tabla {
+        margin-left: 0px;
+        width: 94%;
+    }
+
+    .tabla th, .tabla td {
+        font-size: 14px;
     }
 }
 
@@ -697,11 +750,11 @@ h2 {
     }
 
     table th {
-        font-size: 7px;
+        font-size: 10px;
     }
 
     table td {
-        font-size: 7px;
+        font-size: 10px;
     }
 
     .boton {
@@ -711,11 +764,9 @@ h2 {
     h2 {
         font-size: 16px;
     }
-
+    
     .contenedor_formulario- input {
-        margin-left: 26px;
-        font-size: 10px;
-        height: 22px;
-        width: 40%;
+        font-size: 12px;
+        width: 45%;
     }
 }

@@ -53,7 +53,7 @@
                         <a href="../movimientos/costodeinventario.html" class="sub-elemento">COSTO DE INVENTARIO</a>
                         <a href="../movimientos/movimientosdiario.html" class="sub-elemento">DIARIOS</a>
                         <a href="../movimientos/movimientoporarticulo.html" class="sub-elemento">ARTICULO</a>
-                        <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a>
+                        <!-- <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a> -->
                     </div>
                 </div>
                 <div class="elemento">
@@ -64,7 +64,7 @@
                         <a href="../listados/listadodeprecios.html" class="sub-elemento">LISTADO DE PRECIOS</a>
                         <a href="../listados/listadodecompras.html" class="sub-elemento">LISTADO DE COMPRAS</a>
                         <a href="../listados/listadodeventas.html" class="sub-elemento">LISTADO DE VENTAS</a>
-                        <a href="../listados/listadodearticulos.html" class="sub-elemento">LISTADO DE ARTICULOS</a>
+                        <!-- <a href="../listados/listadodearticulos.html" class="sub-elemento">LISTADO DE ARTICULOS</a> -->
                         <a href="../listados/listadodeclientes.html" class="sub-elemento">LISTADO DE CLIENTES</a>
                         <a href="../listados/listadodesuplidores.html" class="sub-elemento">LISTADO DE SUPLIDORES</a>
                     </div> 
@@ -160,10 +160,6 @@
                     </select>
                 </div>
                 <div class="campo">
-                    <label for="encargado">Encargado De Ventas</label>
-                    <input type="text" id="encargado">
-                </div>
-                <div class="campo">
                     <label for="limite">Limite de Credito</label>
                     <input type="text" id="limite">
                 </div>
@@ -175,6 +171,9 @@
                     <label for="descuento">Descuentos</label>
                     <input type="text" id="descuento">
                 </div>
+                <div class="buscador-">
+                    <a href="#" class="abrir-" id="abrir-">CREADOR DE ENC DE COMPRAS</a>
+                </div>
                 <div class="buscador">
                     <a href="#" class="abrir" id="abrir">CREADOR DE MARCAS</a>
                 </div>
@@ -185,29 +184,53 @@
             </form>
         </aside>
         <div id="miModal" class="modal">
-        <div class="flex" id="flex">
-            <div class="contenido-modal">
-                <div class="modal-header flex">
-                    <h2>CREADOR DE MARCAS</h2>
-                    <span class="close" id="close">&times;</span>
-                </div>
-                <div class="modal-body">
-                    <form class="formulario-">
-                        <div class="campo-">
-                            <input type="text" name="codigo" id="codigo" placeholder="Ingrese el Codigo" class="control">
+            <div class="flex" id="flex">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>CREADOR DE MARCAS</h2>
+                        <span class="close" id="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form class="formulario-">
+                            <div class="campo-">
+                                <input type="text" name="codigo" id="codigo" placeholder="Ingrese el Codigo" class="control">
+                            </div>
+                            <div class="campo-">
+                                <input type="text" name="nombre" id="nombre" placeholder="Ingrese el Nombre" class="control">
+                            </div>
+                        </form>
+                        <div class="botones-">
+                            <button type="reset" class="boton-">Borrar</button>
+                            <button type="submit" class="boton-">Guardar</button>
                         </div>
-                        <div class="campo-">
-                            <input type="text" name="nombre" id="nombre" placeholder="Ingrese el Nombre" class="control">
-                        </div>
-                    </form>
-                    <div class="botones-">
-                        <button type="reset" class="boton-">Borrar</button>
-                        <button type="submit" class="boton-">Guardar</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div id="miModal-" class="modal-">
+            <div class="flex-" id="flex-">
+                <div class="contenido-modal-">
+                    <div class="modal-header- flex-">
+                        <h2 class="titulo_modal">CREADOR DE ENCARGADO DE VENTAS</h2>
+                        <span class="close-" id="close-">&times;</span>
+                    </div>
+                    <div class="modal-body-">
+                        <form class="formulario--">
+                            <div class="campo--">
+                                <input type="text" name="codigo" id="codigo-" placeholder="Ingrese el Codigo" class="control-">
+                            </div>
+                            <div class="campo-">
+                                <input type="text" name="nombre" id="nombre-" placeholder="Ingrese el Nombre" class="control-">
+                            </div>
+                        </form>
+                        <div class="botones--">
+                            <button type="reset" class="boton--">Borrar</button>
+                            <button type="submit" class="boton--">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="../../JS/menuDesplegable.js"></script>
     <script src="../../JS/ventanaModal.js"></script>

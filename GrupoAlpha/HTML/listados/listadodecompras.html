@@ -58,7 +58,7 @@
                         <a href="../movimientos/costodeinventario.html" class="sub-elemento">COSTO DE INVENTARIO</a>
                         <a href="../movimientos/movimientosdiario.html" class="sub-elemento">DIARIOS</a>
                         <a href="../movimientos/movimientoporarticulo.html" class="sub-elemento">ARTICULO</a>
-                        <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a>
+                        <!-- <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a> -->
                     </div>
                 </div>
                 <div class="elemento">
@@ -69,7 +69,7 @@
                         <a href="../listados/listadodeprecios.html" class="sub-elemento">LISTADO DE PRECIOS</a>
                         <a href="../listados/listadodecompras.html" class="sub-elemento">LISTADO DE COMPRAS</a>
                         <a href="../listados/listadodeventas.html" class="sub-elemento">LISTADO DE VENTAS</a>
-                        <a href="../listados/listadodearticulos.html" class="sub-elemento">LISTADO DE ARTICULOS</a>
+                        <!-- <a href="../listados/listadodearticulos.html" class="sub-elemento">LISTADO DE ARTICULOS</a> -->
                         <a href="../listados/listadodeclientes.html" class="sub-elemento">LISTADO DE CLIENTES</a>
                         <a href="../listados/listadodesuplidores.html" class="sub-elemento">LISTADO DE SUPLIDORES</a>
                     </div> 
@@ -127,14 +127,14 @@
             <div class="contentedor_table">
                 <table class="table">
                     <tr>
-                        <th>Fecha</th>
-                        <th>Facturas</th>
-                        <th>Codigo</th>
-                        <th>Descripcion</th>
-                        <th>Itbis</th>
-                        <th>Cantidad</th>
-                        <th>Costo</th>
-                        <th>Total</th>
+                        <th class="background">Fecha</th>
+                        <th class="background">Facturas</th>
+                        <th class="background">Codigo</th>
+                        <th class="background">Descripcion</th>
+                        <th class="background">Itbis</th>
+                        <th class="background">Cantidad</th>
+                        <th class="background">Costo</th>
+                        <th class="background">Total</th>
                     </tr>
                     <tr class="active">
                         <td>---</td>
@@ -215,10 +215,14 @@
                         <td>00</td>
                         <td>00.00</td>
                         <td>00.00</td>
+                    </tr>
+                    <tr>
+                        <th colspan="4" class="background">Total De Ordenes = 00</th>
+                        <th colspan="4" class="background">Costo Total De Ordenes = 00.00</th>
                     </tr>
                 </table>
             </div>
-            <button type="submit" class="boton" value="Grabar" onclick="confirmacion()">Grabar</button>
+            <button type="submit" class="boton" value="Grabar" onclick="confirmacion()">Imprimir</button>
         </aside>
         <div id="miModal" class="modal">
             <div class="flex" id="flex">

@@ -210,11 +210,25 @@ select {
 }
 
 .abrir {
-    font-size: 14px;
+    font-size: 10px;
     text-decoration: none;
     background: #0029FF;
-    padding: 9px 44px;
-    margin-right: 8px;
+    padding: 9px 61px;
+    margin-right: 9px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.buscador- {
+    margin-top: 30px;
+    margin-left: 9px;
+}
+
+.abrir- {
+    font-size: 10px;
+    text-decoration: none;
+    background: #0029FF;
+    padding: 9px 40px;
     border-radius: 5px;
     color: #fff;
 }
@@ -239,7 +253,7 @@ select {
     width: 120px;
 }
 
-.flex {
+.flex, .flex- {
     width: 100%;
     height: 100%;
     display: flex;
@@ -247,7 +261,7 @@ select {
     align-items: center;
 }
 
-.modal {
+.modal, .modal- {
     display: none;
     position: fixed;
     z-index: 1;
@@ -260,7 +274,7 @@ select {
     backdrop-filter: blur(3px);
 }
 
-.contenido-modal {
+.contenido-modal, .contenido-modal- {
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -282,25 +296,25 @@ select {
     }
 }
 
-.close {
+.close, .close- {
     color: #f2f2f2;
     font-size: 30px;
     font-weight: bold;
 }
 
-.close:hover {
+.close:hover, .close-:hover {
     color: #7f8c8d;
     text-decoration: none;
     cursor: pointer;
 }
 
-.modal-header {
+.modal-header, .modal-header- {
     padding: 8px 16px;
     background: #0029FF;
     color: #f2f2f2;
 }
 
-.modal-body {
+.modal-body, .modal-body- {
     padding: 20px 16px;
 }
 
@@ -308,14 +322,14 @@ select {
     width: 100%;
 }
 
-h2 {
+h2, .titulo_modal {
     color: #fff;
     font-size: 26px;
     font-weight: bold;
     padding: 10px 0;
 }
 
-.formulario- {
+.formulario-, .formulario-- {
     margin-top: 40px;
     display: flex;
     align-items: center;
@@ -324,11 +338,11 @@ h2 {
     gap: 10px;
 }
 
-.campo- {
+.campo-, .campo-- {
     padding: 0 10px;
 }
 
-.campo- input {
+.campo- input, .campo-- input {
     border: 2px solid #ADD8E6;
     border-radius: 5px;
     color: #000;
@@ -348,13 +362,13 @@ input::placeholder {
     padding: 2px;
 }
 
-.botones- {
+.botones-, .botones-- {
     display: flex;
     justify-content: center;
     padding-top: 30px;
 }
 
-.boton- {
+.boton-, .boton-- {
     background-color: #2CF30B;
     border-radius: 6px;
     cursor: pointer;
@@ -389,6 +403,10 @@ input::placeholder {
 
     .elemento a i {
         left: 71%;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        width: 10px;
     }
 
     aside {
@@ -429,15 +447,6 @@ input::placeholder {
         height: 2.2rem;
     }
 
-    .buscador {
-        margin-left: 150px;
-        width: 240px;
-    }
-
-    .abrir {
-        font-size: 15px;
-    }
-
     .botones {
         margin-top: 40px;
     }
@@ -445,6 +454,17 @@ input::placeholder {
     .boton {
         font-size: 18px;
         width: 170px;
+    }
+
+    .abrir {
+        font-size: 10px;
+        padding: 9px 53px;
+        margin-left: 27px;
+    }
+
+    .abrir- {
+        font-size: 10px;
+        padding: 9px 33px;
     }
 }
 
@@ -482,17 +502,23 @@ input::placeholder {
         height: 2.1rem;
     }
 
-    .buscador {
-        margin-left: 150px;
-        width: 182px;
+    .boton {
+        font-size: 14px;
     }
 
     .abrir {
-        font-size: 9px;
+        font-size: 10px;
+        padding: 9px 37px;
+        margin-left: 1px;
     }
 
-    .boton {
-        font-size: 14px;
+    .abrir- {
+        font-size: 10px;
+        padding: 9px 16px;
+    }
+
+    .titulo_modal {
+        font-size: 28px;
     }
 }
 
@@ -567,15 +593,6 @@ input::placeholder {
         height: 2rem;
     }
 
-    .buscador {
-        margin-left: 150px;
-        width: 182px;
-    }
-
-    .abrir {
-        font-size: 9px;
-    }
-
     .cerrar-boton,
     .menu-boton {
         display: unset;
@@ -588,6 +605,20 @@ input::placeholder {
     .boton {
         font-size: 16px;
         width: 160px;
+    }
+
+    .abrir {
+        font-size: 10px;
+        padding: 9px 37px;
+    }
+
+    .abrir- {
+        font-size: 10px;
+        padding: 9px 18px;
+    }
+
+    .titulo_modal {
+        font-size: 24px;
     }
 }
 
@@ -619,28 +650,38 @@ input::placeholder {
         height: 1.8rem;
     }
 
-    .buscador {
-        margin-left: 200px;
-    }
-
-    .abrir {
-        font-size: 9px;
-    }
-
     .boton {
         font-size: 11px;
     }
 
-    .campo- input {
+    .campo- input, .campo-- input {
         font-size: 12px;
         height: 34px;
         width: 200px;
     }
 
-    .boton- {
+    .boton-, .boton-- {
         font-size: 14px;
         height: 30px;
         width: 120px;
+    }
+
+    .abrir {
+        font-size: 9px;
+        padding: 9px 42px;
+    }
+
+    .abrir- {
+        font-size: 9px;
+        padding: 9px 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .titulo_modal {
+        font-size: 22px;
     }
 }
 
@@ -667,16 +708,21 @@ input::placeholder {
         height: 1.8rem;
     }
 
-    .buscador {
-        margin-left: 185px;
+    .boton {
+        font-size: 11px;
     }
 
     .abrir {
-        font-size: 7.5px;
+        padding: 9px 36px;
     }
 
-    .boton {
-        font-size: 11px;
+    .abrir- {
+        padding: 9px 18px;
+    }
+    
+    
+    h2, .titulo_modal {
+        font-size: 18px;
     }
 }
 
@@ -723,15 +769,6 @@ input::placeholder {
         height: 1.8rem;
     }
 
-    .buscador {
-        margin-left: 175px;
-        width: 155px;
-    }
-
-    .abrir {
-        font-size: 6px;
-    }
-
     .boton {
         font-size: 11px;
         width: 110px;
@@ -741,14 +778,26 @@ input::placeholder {
         font-size: 16px;
     }
 
-    .campo- input {
+    .titulo_modal {
+        font-size: 14px;
+    }
+
+    .campo- input, .campo-- input {
         font-size: 12px;
         height: 28px;
     }
 
-    .boton- {
+    .boton-, .boton-- {
         font-size: 12px;
         height: 28px;
         width: 110px;
+    }
+
+    .abrir {
+        padding: 9px 28px;
+    }
+
+    .abrir- {
+        padding: 9px 10px;
     }
 }

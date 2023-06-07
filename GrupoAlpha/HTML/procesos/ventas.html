@@ -14,7 +14,7 @@
 <body>
     <script>
         function confirmacion() {
-            alert("Estas seguro de que quieres GRABAR");
+            alert("Estas seguro de que quieres GUARDAR");
         }
     </script>
     <div class="menu-boton">
@@ -36,7 +36,7 @@
                     </a>
                     <div class="sub-menu">
                         <a href="../registros/registrodearticulos.html" class="sub-elemento">ARTICULOS</a>
-                        <a href="../registros/registrotrodeclientes.html" class="sub-elemento">CLIENTES</a>
+                        <a href="../registros/registrodeclientes.html" class="sub-elemento">CLIENTES</a>
                         <a href="../registros/registrodesuplidores.html" class="sub-elemento">SUPLIDORES</a>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <a href="../movimientos/costodeinventario.html" class="sub-elemento">COSTO DE INVENTARIO</a>
                         <a href="../movimientos/movimientosdiario.html" class="sub-elemento">DIARIOS</a>
                         <a href="../movimientos/movimientoporarticulo.html" class="sub-elemento">ARTICULO</a>
-                        <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a>
+                        <!-- <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a> -->
                     </div>
                 </div>
                 <div class="elemento">
@@ -69,7 +69,7 @@
                         <a href="../listados/listadodeprecios.html" class="sub-elemento">LISTADO DE PRECIOS</a>
                         <a href="../listados/listadodecompras.html" class="sub-elemento">LISTADO DE COMPRAS</a>
                         <a href="../listados/listadodeventas.html" class="sub-elemento">LISTADO DE VENTAS</a>
-                        <a href="../listados/listadodearticulos.html" class="sub-elemento">LISTADO DE ARTICULOS</a>
+                        <!-- <a href="../listados/listadodearticulos.html" class="sub-elemento">LISTADO DE ARTICULOS</a> -->
                         <a href="../listados/listadodeclientes.html" class="sub-elemento">LISTADO DE CLIENTES</a>
                         <a href="../listados/listadodesuplidores.html" class="sub-elemento">LISTADO DE SUPLIDORES</a>
                     </div> 
@@ -108,7 +108,7 @@
             <form class="formulario">
                 <div class="contenedor_formulario">
                     <label for="num-fact">Numero De Factura:</label>
-                    <input type="number" id="num-fact">
+                    <input type="text" id="num-fact">
                 </div>
                 <div class="contenedor_formulario">
                     <label for="date">Fecha:</label>
@@ -125,9 +125,16 @@
                 <div class="contenedor_formulario">
                     <h3>INFORMACION DEL ARTICULO</h3>
                     <label for="codigo">Codigo:</label>
-                    <input type="number" id="codigo">
+                    <input type="text" id="codigo">
                     <label for="cantidad">Cantidad:</label>
-                    <input type="number" id="cantidad">
+                    <input type="text" id="cantidad">
+                    <label for="itbis">Itbis</label>
+                    <select name="itbis" id="itbis">
+                        <option selected disabled>Sel. impuesto</option>
+                        <option>18%</option>
+                        <option>16%</option>
+                        <option>excento</option>
+                    </select>
                 </div>
             </form>
             <div class="contentedor_table">
@@ -135,55 +142,48 @@
                     <tr>
                         <th>CODIGO</th>
                         <th>DESCRIPCION</th>
-                        <th>ITBIS</th>
                         <th>CANTIDAD</th>
                         <th>TOTAL</th>
                     </tr>
                     <tr class="active">
                         <td>0000000</td>
                         <td>Ropa</td>
-                        <td>18%</td>
                         <td>00</td>
                         <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>0000000</td>
                         <td>Ropa</td>
-                        <td>18%</td>
                         <td>00</td>
                         <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>0000000</td>
                         <td>Ropa</td>
-                        <td>18%</td>
                         <td>00</td>
                         <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>0000000</td>
                         <td>Ropa</td>
-                        <td>18%</td>
                         <td>00</td>
                         <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>0000000</td>
                         <td>Ropa</td>
-                        <td>18%</td>
                         <td>00</td>
                         <td>00.00</td>
                     </tr>
                     <tr class="active">
                         <td>0000000</td>
                         <td>Ropa</td>
-                        <td>18%</td>
                         <td>00</td>
                         <td>00.00</td>
                     </tr>
                 </table>
             </div>
-            <button type="submit" class="boton" value="Grabar" onclick="confirmacion()">GRABAR</button>
+            <button type="submit" class="boton" value="Grabar" onclick="confirmacion()">GUARDAR</button>
         </aside>
         <div id="miModal" class="modal">
             <div class="flex" id="flex">

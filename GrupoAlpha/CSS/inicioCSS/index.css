@@ -108,7 +108,7 @@ input {
 }
 
 input::placeholder {
-    color: #0029FF;
+    font-size: 11px;
     padding: 2px;
     text-transform: uppercase;
 }
@@ -134,6 +134,7 @@ input::placeholder {
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
+    height: 42px;
     width: 120px;
 }
 

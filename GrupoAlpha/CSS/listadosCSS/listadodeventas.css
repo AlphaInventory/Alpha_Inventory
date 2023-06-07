@@ -208,6 +208,10 @@ table .active:hover {
     background-color: #009BEF;
 }
 
+table .background {
+    background-color: #009BEF;
+}
+
 
 .boton {
     background-color: #2CF30B;
@@ -354,6 +358,10 @@ h2 {
 
     .elemento a i {
         left: 71%;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        width: 10px;
     }
 
     aside {
