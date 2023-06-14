@@ -61,13 +61,28 @@ input {
 }
 
 input::placeholder {
-    color: #0029FF;
     padding: 2px;
 }
 
 .nomape {
     margin: 0 5px 0 0;
     width: 50%;
+}
+
+.moscontra {
+    position: relative;
+    left: 363px;
+    bottom: 168px;
+    height: 23px;
+    width: 23px;
+}
+
+.moscontra_ {
+    position: relative;
+    left: 363px;
+    bottom: 132px;
+    height: 23px;
+    width: 23px;
 }
 
 .botones {

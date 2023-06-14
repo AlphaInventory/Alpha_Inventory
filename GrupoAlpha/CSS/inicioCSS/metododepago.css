@@ -27,103 +27,274 @@ h1 {
     width: 100%;
 }
 
-main {
-    align-items: center;
-    display: flex;
-    flex-flow: column;
-    padding: 20px 0 0 15px;
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	padding: 40px 20px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-
-.iconos_tar {
-    display: flex;
-    font-size: 40px;
-    height: 100%;
-    justify-content: right;
-    position: relative;
-    top: 50px;
-    width: 100%;
+.tarjeta {
+	width: 100%;
+	max-width: 550px;
+	position: relative;
+	color: #fff;
+	transition: .3s ease all;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
+	cursor: pointer;
+	z-index: 2;
 }
 
-.fa-cc-visa {
-    background: #fff;
-    border-radius: 5px;
-    color: blue;
+.tarjeta.active {
+	transform: rotateY(180deg);
 }
 
-.fa-cc-mastercard {
-    background: #000;
-    border-radius: 5px;
-    color: orangered;
-    margin-left: 5px;
+.tarjeta > div {
+	padding: 30px;
+	border-radius: 15px;
+	min-height: 315px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: 0 10px 10px 0 rgba(90,116,148,0.3);
 }
 
-.nomape_tar {
-    align-items: center;
-    display: flex;
-    flex-flow: column;
-    padding-bottom: 40px;
-    text-transform: uppercase;
+.tarjeta .delantera {
+	width: 100%;
+	background: url(../../img/logos/bg-tarjeta.jpg);
+	background-size: cover;
 }
 
-label {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 8px 0 0 0;
-    margin: 10px;
+.delantera .logo-marca {
+	text-align: right;
+	min-height: 50px;
 }
 
-input {
-    border: 2px solid #ADD8E6;
-    border-radius: 5px;
-    box-shadow: none;
-    color: #000;
-    height: 35px;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 10px 0 0 0;
-    padding: 8px;
-    text-align: center;
-    text-transform: uppercase;
-    width: 100%;
+.delantera .logo-marca img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	max-width: 80px;
 }
 
-input::placeholder {
-    color: #0029FF;
-    padding: 2px;
+.delantera .chip {
+	width: 100%;
+	max-width: 50px;
+	margin-bottom: 20px;
 }
 
-.contenedor_mac {
-    margin: 0 8px;
-    text-transform: uppercase;
-    width: 100%;
+.delantera .grupo .label {
+	font-size: 16px;
+	color: #7d8994;
+	margin-bottom: 5px;
 }
 
-.contenedor_mac label {
-    font-size: 16px;
+.delantera .grupo .numero,
+.delantera .grupo .nombre,
+.delantera .grupo .expiracion {
+	color: #fff;
+	font-size: 22px;
+	text-transform: uppercase;
 }
 
-.contenedor_mac input {
-    width: 80px;
+.delantera .flexbox {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
 }
 
-
-.botones {
-    display: flex;
-    justify-content: center;
-    padding-top: 60px;
+.trasera {
+	background: url(../../img/logos/bg-tarjeta.jpg);
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
 }
 
-.boton {
-    background-color: #2CF30B;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
+.trasera .barra-magnetica {
+	height: 40px;
+	background: #EAEBEF;
+	width: 100%;
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+
+.trasera .datos {
+	margin-top: 60px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.trasera .datos p {
+	margin-bottom: 5px;
+}
+
+.trasera .datos #firma {
+	width: 70%;
+}
+
+.trasera .datos #firma .firma {
+	height: 40px;
+	background: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+}
+
+.trasera .datos #firma .firma p {
+	line-height: 40px;
+	color: #000;
+	font-size: 30px;
+	padding: 0 10px;
+	text-transform: capitalize;
+}
+
+.trasera .datos #ccv {
+	width: 20%;
+}
+
+.trasera .datos #ccv .ccv {
+	background: #EAEBEF;
+	height: 40px;
+	color: #000;
+	padding: 10px;
+	text-align: center;
+}
+
+.trasera .leyenda {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.trasera .link-banco {
+	font-size: 14px;
+	color: #EAEBEF;
+}
+
+.contenedor-btn .btn-abrir-formulario {
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 20px;
+	background: #2364d2;
+	color: #fff;
+	position: relative;
+	top: -25px;
+	z-index: 3;
+	border-radius: 100%;
+	box-shadow: -5px 4px 8px rgba(24,56,182,0.4);
+	padding: 5px;
+	transition: all .2s ease;
+	border: none;
+	cursor: pointer;
+}
+
+.contenedor-btn .btn-abrir-formulario:hover {
+	background: #1850b1;
+}
+
+.contenedor-btn .btn-abrir-formulario.active {
+	transform: rotate(45deg);
+}
+
+.formulario-tarjeta {
+	background: #fff;
+	width: 100%;
+	max-width: 700px;
+	padding: 150px 30px 30px 30px;
+	border-radius: 10px;
+	position: relative;
+	top: -150px;
+	z-index: 1;
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	transition: clip-path .3s ease-out;
+}
+
+.formulario-tarjeta.active {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.formulario-tarjeta input,
+.formulario-tarjeta select,
+.btn-enviar {
+	border: 2px solid #CED6E0;
+	font-size: 18px;
+	height: 50px;
+	width: 100%;
+	padding: 5px 12px;
+	transition: .3s ease all;
+	border-radius: 5px;
+}
+
+.formulario-tarjeta input:hover,
+.formulario-tarjeta select:hover {
+	border: 2px solid #93BDED;
+}
+
+.formulario-tarjeta input:focus,
+.formulario-tarjeta select:focus {
+	outline: rgb(4,4,4);
+	box-shadow: 1px 7px 10px -5px rgba(90,116,148,0.3);
+}
+
+.formulario-tarjeta input {
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.formulario-tarjeta .flexbox {
+	display: flex;
+	justify-content: space-between;
+}
+
+.formulario-tarjeta .expira {
+	width: 100%;
+}
+
+.formulario-tarjeta .ccv {
+	min-width: 100px;
+}
+
+.formulario-tarjeta .grupo-select {
+	width: 100%;
+	margin-right: 15px;
+	position: relative;
+}
+
+.formulario-tarjeta select {
+	-webkit-appearance: none;
+    appearance: none;
+}
+
+.formulario-tarjeta .grupo-select i {
+	position: absolute;
+	color: #CED6E0;
+	top: 18px;
+	right: 15px;
+	transition: .3s ease all;
+}
+
+.formulario-tarjeta .grupo-select:hover i {
+	color: #93bfed;
+}
+
+.formulario-tarjeta .btn-enviar {
+	border: none;
+	padding: 10px;
+    margin-top: 20px;
+	font-size: 22px;
     font-weight: 700;
-    margin: 0 10px;
-    padding: 8px;
-    text-transform: uppercase;
-    width: 120px;
+	color: #000;
+	background: #2CF30B;
+	cursor: pointer;
+    width: 318px;
+}
+
+.boton_e {
+    text-decoration: none;
 }
 
 @media screen and (max-width: 1024px) {

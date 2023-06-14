@@ -58,7 +58,6 @@
                         <a href="../movimientos/costodeinventario.html" class="sub-elemento">COSTO DE INVENTARIO</a>
                         <a href="../movimientos/movimientosdiario.html" class="sub-elemento">DIARIOS</a>
                         <a href="../movimientos/movimientoporarticulo.html" class="sub-elemento">ARTICULO</a>
-                        <!-- <a href="../movimientos/movimientoporsuplidor.html" class="sub-elemento">SUPLIDOR</a> -->
                     </div>
                 </div>
                 <div class="elemento">
@@ -69,7 +68,6 @@
                         <a href="../listados/listadodeprecios.html" class="sub-elemento">LISTADO DE PRECIOS</a>
                         <a href="../listados/listadodecompras.html" class="sub-elemento">LISTADO DE COMPRAS</a>
                         <a href="../listados/listadodeventas.html" class="sub-elemento">LISTADO DE VENTAS</a>
-                        <!-- <a href="../listados/listadodearticulos.html" class="sub-elemento">LISTADO DE ARTICULOS</a> -->
                         <a href="../listados/listadodeclientes.html" class="sub-elemento">LISTADO DE CLIENTES</a>
                         <a href="../listados/listadodesuplidores.html" class="sub-elemento">LISTADO DE SUPLIDORES</a>
                     </div> 
@@ -108,24 +106,23 @@
         </div>
         <div class="grid">  
             <div class="informacion_empresa">
-                <h2>Nombre De La Empresa</h2>
-                <figure>
-                    <img src="../../icons/empresa.jpg" alt="Imagen-Empresa" class="imagen-empresa">
-                </figure>
+                <div class="empresa">
+                    <input type="text" placeholder="Nombre Empresa">
+                </div>
+                <div class="empresa_img">
+                    <input type="file" class="imagen_empresa" name="img_empresa" id="empresa" aria-describedby="" placeholder="Seleccione la imagen">
+                </div>
             </div>
             <div class="contenedor_formulario">
                 <form>
                     <div class="campo">
-                        <label for="user">Usuario:</label>
-                        <input type="text" id="user">
+                        <input type="text" id="user" placeholder="Usuario">
                     </div>
                     <div class="campo">
-                        <label for="email">Correo Electronico:</label>
-                        <input type="email" id="email">
+                        <input type="email" id="email" placeholder="Correo Electronico">
                     </div>
                     <div class="campo">
-                        <label for="localizacion">Ubicacion:</label>
-                        <input type="text" id="localizacion">
+                        <input type="tel" id="tel" placeholder="Telefono">
                     </div>
                     <div class="botones">
                         <button type="submit" class="boton" onclick="confirmacion()">Guardar Cambios</button>

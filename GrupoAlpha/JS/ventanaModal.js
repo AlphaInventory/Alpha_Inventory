@@ -18,7 +18,6 @@ window.addEventListener('click', function(e){
     }
 });
 
-// Ventana modal --
 let modall = document.getElementById('miModal-');
 let flexx = document.getElementById('flex-');
 let abrirr = document.getElementById('abrir-');

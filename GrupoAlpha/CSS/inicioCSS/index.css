@@ -127,6 +127,14 @@ input::placeholder {
     right: 130px;
 }
 
+.moscontra {
+    position: relative;
+    left: 207px;
+    bottom: 307px;
+    height: 23px;
+    width: 23px;
+}
+
 .boton_inicio {
     background-color: #2CF30B;
     border-radius: 6px;
