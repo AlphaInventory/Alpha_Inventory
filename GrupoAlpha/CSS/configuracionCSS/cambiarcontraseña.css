@@ -82,7 +82,7 @@ header h1 {
     font-weight: bold;
     line-height: 10px;
     text-decoration: none;
- }
+}
    
 .barra-lateral .menu .elemento a span {
     bottom: 24px;
@@ -263,12 +263,7 @@ input::placeholder {
     }
 
     main {
-        bottom: 0;
         left: 22%;
-        position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
     main h1 {
@@ -276,7 +271,6 @@ input::placeholder {
         padding: 7px;
         margin-left: 18px;
         width: 90%;
-
     }
 
     .indicaciones_cta p {
@@ -297,23 +291,34 @@ input::placeholder {
         width: 340px;
     }
 
+    .moscontra {
+        left: 152px;
+        bottom: 210px;
+        height: 21px;
+        width: 21px;
+    }
+
+    .moscontra_ {
+        left: 152px;
+        bottom: 156px;
+        height: 21px;
+        width: 21px;
+    }
+
     .boton {
         font-size: 16px;
     }
 }
 
 @media screen and (max-width: 924px) {
-
     main {
         left: 26%;
-        position: fixed;
     }
 
     main h1 {
         font-size: 22px;
         padding: 7px;
     }
-
 
     .indicaciones_cta p {
         font-size: 14px;
@@ -333,13 +338,26 @@ input::placeholder {
         width: 300px;
     }
 
+    .moscontra {
+        left: 134px;
+        bottom: 200px;
+        height: 21px;
+        width: 21px;
+    }
+
+    .moscontra_ {
+        left: 134px;
+        bottom: 152px;
+        height: 21px;
+        width: 21px;
+    }
+
     .boton {
         font-size: 14px;
     }
 }
 
 @media screen and (max-width: 824px) {
-
     .logo {
         width: 180px;
         height: 50px;
@@ -384,7 +402,6 @@ input::placeholder {
 
     main {
         left: -3%;
-        position: fixed;
     }
 
     main h1 {
@@ -419,19 +436,27 @@ input::placeholder {
         padding: 5px;
     }
 
+    .moscontra {
+        left: 125px;
+        bottom: 188px;
+        height: 21px;
+        width: 21px;
+    }
+
+    .moscontra_ {
+        left: 125px;
+        bottom: 145px;
+        height: 21px;
+        width: 21px;
+    }
+
     .boton {
         font-size: 12px;
         margin-left: 63px;
     }
 }
 
-
 @media screen and (max-width: 724px) {
-    .logo {
-        width: 180px;
-        height: 50px;
-    }
-
     header h1 {
         font-size: 26px;
         margin-right: 20px;
@@ -452,8 +477,6 @@ input::placeholder {
     .elemento a i {
         left: 66%;
     }
-
-
 
     main h1 {
         font-size: 18px;
@@ -479,21 +502,27 @@ input::placeholder {
         width: 250px;
     }
 
+    .moscontra {
+        left: 110px;
+        bottom: 182px;
+        height: 20px;
+        width: 20px;
+    }
+
+    .moscontra_ {
+        left: 110px;
+        bottom: 140px;
+        height: 20px;
+        width: 20px;
+    }
+
     .boton {
         font-size: 10px;
         margin-left: 53px;
     }
-
-
 }
 
-
 @media screen and (max-width: 624px) {
-    .logo {
-        width: 180px;
-        height: 50px;
-    }
-
     header h1 {
         font-size: 26px;
         margin-right: 20px;
@@ -514,8 +543,6 @@ input::placeholder {
     .elemento a i {
         left: 66%;
     }
-
-
 
     main h1 {
         font-size: 20px;
@@ -541,6 +568,19 @@ input::placeholder {
         width: 200px;
     }
 
+    .moscontra {
+        bottom: 173px;
+        height: 18px;
+        width: 18px;
+    }
+
+    .moscontra_ {
+        left: 86px;
+        bottom: 134px;
+        height: 18px;
+        width: 18px;
+    }
+
     .boton {
         font-size: 9px;
         margin-left: 36px;
@@ -548,11 +588,6 @@ input::placeholder {
 }
 
 @media screen and (max-width: 524px) {
-    .logo {
-        width: 180px;
-        height: 50px;
-    }
-
     header h1 {
         font-size: 26px;
         margin-right: 20px;
@@ -598,7 +633,6 @@ input::placeholder {
 
     main {
         left: -4%;
-        position: fixed;
         width: 100%;
     }
 
@@ -626,9 +660,22 @@ input::placeholder {
         width: 190px;
     }
 
+    .moscontra {
+        left: 80px;
+        bottom: 163px;
+        height: 18px;
+        width: 18px;
+    }
+
+    .moscontra_ {
+        left: 80px;
+        bottom: 130px;
+        height: 18px;
+        width: 18px;
+    }
+
     .boton {
         font-size: 8px;
         margin-left: 38px;
-
     }
 }

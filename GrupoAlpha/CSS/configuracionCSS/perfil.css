@@ -266,12 +266,7 @@ input {
     }
 
     main {
-        bottom: 0;
         left: 24%;
-        position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
     main h1 {
@@ -308,11 +303,6 @@ input {
 }
 
 @media screen and (max-width: 1024px) {
-    .logo {
-        width: 200px;
-        height: 60px;
-    }
-
     header h1 {
         font-size: 28px;
     }
@@ -471,13 +461,7 @@ input {
     }
 }
 
-
 @media screen and (max-width: 724px) {
-    .logo {
-        width: 180px;
-        height: 50px;
-    }
-
     header h1 {
         font-size: 26px;
         margin-right: 20px;
@@ -508,11 +492,6 @@ input {
 
 
 @media screen and (max-width: 624px) {
-    .logo {
-        width: 180px;
-        height: 50px;
-    }
-
     header h1 {
         font-size: 26px;
         margin-right: 20px;
@@ -542,11 +521,6 @@ input {
 }
 
 @media screen and (max-width: 524px) {
-    .logo {
-        width: 180px;
-        height: 50px;
-    }
-
     header h1 {
         font-size: 26px;
         margin-right: 20px;

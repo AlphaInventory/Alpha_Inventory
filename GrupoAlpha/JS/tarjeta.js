@@ -59,12 +59,12 @@ formulario.inputNumero.addEventListener('keyup', (e) => {
 	if(valorInput[0] == 4){
 		logoMarca.innerHTML = '';
 		const imagen = document.createElement('img');
-		imagen.src = '../../img/logos/visa.png';
+		imagen.src = '../../icons/visa.png';
 		logoMarca.appendChild(imagen);
 	} else if(valorInput[0] == 5){
 		logoMarca.innerHTML = '';
 		const imagen = document.createElement('img');
-		imagen.src = '../../img/logos/mastercard.png';
+		imagen.src = '../../icons/mastercard.png';
 		logoMarca.appendChild(imagen);
 	}
 	mostrarFrente();

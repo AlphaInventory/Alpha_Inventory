@@ -120,6 +120,22 @@ input::placeholder {
         width: 100%;
     }
 
+    .moscontra {
+        position: relative;
+        left: 324px;
+        bottom: 170px;
+        height: 21px;
+        width: 21px;
+    }
+    
+    .moscontra_ {
+        position: relative;
+        left: 324px;
+        bottom: 135px;
+        height: 21px;
+        width: 21px;
+    }
+
     .botones {
         padding-top: 40px;
     }

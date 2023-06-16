@@ -82,7 +82,7 @@ header h1 {
     font-weight: bold;
     line-height: 10px;
     text-decoration: none;
- }
+}
    
 .barra-lateral .menu .elemento a span {
     bottom: 24px;
@@ -99,7 +99,6 @@ header h1 {
     background: #ADD8E6;
     transition: 0.3s ease;
 }
-   
    
 .barra-lateral .menu .elemento a .dropdown {
     margin: 20px;
@@ -252,12 +251,7 @@ table td {
     }
 
     aside {
-        bottom: 0;
         left: 22%;
-        position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
     aside h1 {
@@ -310,7 +304,6 @@ table td {
 @media screen and (max-width: 924px) {
     aside {
         left: 24%;
-        position: fixed;
     }
 
     aside h1 {
@@ -391,7 +384,6 @@ table td {
 
     aside {
         left: -3%;
-        position: fixed;
     }
 
     aside h1 {
@@ -438,7 +430,6 @@ table td {
     }
 }
 
-
 @media screen and (max-width: 724px) {
     aside h1 {
         padding: 9px;
@@ -473,7 +464,6 @@ table td {
 @media screen and (max-width: 624px) {
     .formulario label {
         font-size: 13px;
-
     }
 
     .formulario input {
@@ -516,7 +506,6 @@ table td {
 
     aside {
         left: -4%;
-        position: fixed;
     }
 
     .formulario label {

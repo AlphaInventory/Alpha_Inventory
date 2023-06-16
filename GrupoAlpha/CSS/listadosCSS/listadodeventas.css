@@ -98,8 +98,7 @@ header h1 {
 .barra-lateral .menu .elemento a:hover {
     background: #ADD8E6;
     transition: 0.3s ease;
-}
-   
+} 
    
 .barra-lateral .menu .elemento a .dropdown {
     margin: 20px;
@@ -209,7 +208,6 @@ table .active:hover {
 table .background {
     background-color: #009BEF;
 }
-
 
 .boton {
     background-color: #2CF30B;
@@ -363,12 +361,7 @@ h2 {
     }
 
     aside {
-        bottom: 0;
         left: 22%;
-        position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
     aside h1 {
@@ -437,7 +430,6 @@ h2 {
 @media screen and (max-width: 924px) {
     aside {
         left: 24%;
-        position: fixed;
     }
 
     aside h1 {
@@ -535,7 +527,6 @@ h2 {
 
     aside {
         left: -3%;
-        position: fixed;
     }
 
     aside h1 {
@@ -591,7 +582,6 @@ h2 {
     }
 }
 
-
 @media screen and (max-width: 724px) {
     aside h1 {
         padding: 9px;
@@ -632,7 +622,6 @@ h2 {
 @media screen and (max-width: 624px) {
     .formulario label {
         font-size: 12px;
-
     }
 
     .formulario input {
@@ -679,7 +668,6 @@ h2 {
 
     aside {
         left: -4%;
-        position: fixed;
     }
 
     .formulario label {

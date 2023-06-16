@@ -82,7 +82,7 @@ header h1 {
     font-weight: bold;
     line-height: 10px;
     text-decoration: none;
- }
+}
    
 .barra-lateral .menu .elemento a span {
     bottom: 24px;
@@ -547,10 +547,8 @@ table td {
 }
 
 @media screen and (max-width: 924px) {
-
     aside {
         left: 26%;
-        position: fixed;
     }
 
     aside h1 {
@@ -683,7 +681,6 @@ table td {
 
 
 @media screen and (max-width: 824px) {
-
     .logo {
         width: 180px;
         height: 50px;
@@ -726,10 +723,8 @@ table td {
         margin-left: 160px;
     }
 
-
     aside {
         left: -3%;
-        position: fixed;
     }
 
     aside h1 {
@@ -753,172 +748,143 @@ table td {
     }
 
     .eliminar {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 128px;
     }
 
     .eliminar1 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 160px;
     }
 
     .eliminar2 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 191px;
     }
 
     .eliminar3 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 222px;
     }
 
     .eliminar4 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 252px;
     }
 
     .eliminar5 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 283px;
     }
 
     .eliminar6 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 314px;
     }
 
     .eliminar7 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 345px;
     }
 
     .eliminar8 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 376px;
     }
 
     .eliminar9 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 408px;
     }
 
     .eliminar10 {
-        position: fixed;
         z-index: 1;
         right: 36px;
         top: 438px;
     }
 
     .descargar {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 131px;
     }
 
     .descargar1 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 161px;
     }
 
     .descargar2 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 192px;
     }
 
     .descargar3 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 222px;
     }
 
     .descargar4 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 253px;
     }
 
     .descargar5 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 284px;
     }
 
     .descargar6 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 315px;
     }
 
     .descargar7 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 346px;
     }
 
     .descargar8 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 377px;
     }
 
     .descargar9 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 409px;
     }
 
     .descargar10 {
-        position: fixed;
         z-index: 1;
         right: 64px;
         top: 440px;
     }
-
 
     .boton {
         font-size: 15px;
     }
 }
 
-
 @media screen and (max-width: 724px) {
-    .logo {
-        width: 180px;
-        height: 50px;
-    }
-
     header h1 {
         font-size: 26px;
         margin-right: 20px;
@@ -944,7 +910,6 @@ table td {
         font-size: 20px;
         width: 100%;
     }
-
 
     table {
         width: 90%;
@@ -1073,13 +1038,7 @@ table td {
     }
 }
 
-
 @media screen and (max-width: 624px) {
-    .logo {
-        width: 180px;
-        height: 50px;
-    }
-
     header h1 {
         font-size: 26px;
         margin-right: 20px;
@@ -1283,16 +1242,10 @@ table td {
 }
 
 @media screen and (max-width: 524px) {
-    .logo {
-        width: 180px;
-        height: 50px;
-    }
-
     header h1 {
         font-size: 26px;
         margin-right: 20px;
     }
-
 
     .barra-lateral {
         width: 195px;

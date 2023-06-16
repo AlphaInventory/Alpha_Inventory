@@ -92,7 +92,7 @@ input::placeholder {
     border: none;
     color: #000;
     position: relative;
-    left: 398px;
+    left: 377px;
     bottom: 54px;
     font-size: 12px;
     height: 32px;
@@ -126,6 +126,10 @@ input::placeholder {
     .boton {
         font-size: 16px;
         width: 110px;
+    }
+
+    .boton_ {
+        left: 358px;
     }
 }
 
@@ -187,7 +191,6 @@ input::placeholder {
         width: 90px;
     }
 }
-
 
 @media screen and (max-width: 320px) {
     h1 {

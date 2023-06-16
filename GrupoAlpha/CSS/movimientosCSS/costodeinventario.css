@@ -254,12 +254,7 @@ table tr:hover {
     }
 
     aside {
-        bottom: 0;
         left: 22%;
-        position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
     aside h1 {
@@ -311,7 +306,6 @@ table tr:hover {
 @media screen and (max-width: 924px) {
     aside {
         left: 24%;
-        position: fixed;
     }
 
     aside h1 {
@@ -392,7 +386,6 @@ table tr:hover {
 
     aside {
         left: -3%;
-        position: fixed;
     }
 
     aside h1 {
@@ -439,7 +432,6 @@ table tr:hover {
     }
 }
 
-
 @media screen and (max-width: 724px) {
     aside h1 {
         padding: 9px;
@@ -474,7 +466,6 @@ table tr:hover {
 @media screen and (max-width: 624px) {
     .formulario label {
         font-size: 12px;
-
     }
 
     .formulario input {

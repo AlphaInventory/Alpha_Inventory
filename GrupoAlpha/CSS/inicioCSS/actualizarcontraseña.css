@@ -136,6 +136,22 @@ input::placeholder {
         width: 400px;
     }
 
+    .moscontra {
+        position: relative;
+        left: 380px;
+        bottom: 182px;
+        height: 21px;
+        width: 21px;
+    }
+
+    .moscontra_ {
+        position: relative;
+        left: 380px;
+        bottom: 135px;
+        height: 21px;
+        width: 21px;
+    }
+
     .boton {
         font-size: 16px;
         width: 110px;
@@ -170,7 +186,6 @@ input::placeholder {
         font-size: 15px;
         width: 100px;
     }
-
 }
 
 @media screen and (max-width: 375px) {

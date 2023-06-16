@@ -100,7 +100,6 @@ header h1 {
     transition: 0.3s ease;
 }
    
-   
 .barra-lateral .menu .elemento a .dropdown {
     margin: 20px;
     position: absolute;
@@ -250,12 +249,7 @@ table td {
     }
 
     aside {
-        bottom: 0;
         left: 22%;
-        position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
     aside h1 {
@@ -307,7 +301,6 @@ table td {
 @media screen and (max-width: 924px) {
     aside {
         left: 24%;
-        position: fixed;
     }
 
     aside h1 {
@@ -388,7 +381,6 @@ table td {
 
     aside {
         left: -3%;
-        position: fixed;
     }
 
     aside h1 {
@@ -470,7 +462,6 @@ table td {
 @media screen and (max-width: 624px) {
     .formulario label {
         font-size: 13px;
-
     }
 
     .formulario input {
@@ -513,7 +504,6 @@ table td {
 
     aside {
         left: -4%;
-        position: fixed;
     }
 
     .formulario label {

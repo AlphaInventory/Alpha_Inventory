@@ -214,7 +214,6 @@ a button i {
 }
 
 @media screen and (max-width: 1024px) {
-
     body,
     header,
     main {
@@ -279,6 +278,14 @@ a button i {
     .enlace_olvcon {
         margin-top: 0;
         font-size: 13px;
+    }
+
+    .moscontra {
+        position: relative;
+        left: 131px;
+        bottom: 261px;
+        height: 21px;
+        width: 21px;
     }
 
     .boton_inicio {
@@ -409,7 +416,6 @@ a button i {
 }
 
 @media screen and (max-width: 375px) {
-
     header,
     .logo {
         padding-top: 0px;
@@ -506,7 +512,6 @@ a button i {
 }
 
 @media screen and (max-width: 320px) {
-
     header,
     .logo {
         padding-top: 0px;
@@ -603,7 +608,6 @@ a button i {
 }
 
 @media screen and (max-width: 280px) {
-
     header,
     .logo {
         padding-top: 0px;

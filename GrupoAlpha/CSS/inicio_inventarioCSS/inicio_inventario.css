@@ -82,7 +82,7 @@ header h1 {
     font-weight: bold;
     line-height: 10px;
     text-decoration: none;
- }
+}
    
 .barra-lateral .menu .elemento a span {
     bottom: 24px;
@@ -98,8 +98,7 @@ header h1 {
 .barra-lateral .menu .elemento a:hover {
     background: #ADD8E6;
     transition: 0.3s ease;
-}
-   
+}  
    
 .barra-lateral .menu .elemento a .dropdown {
     margin: 20px;
@@ -197,7 +196,6 @@ main {
         width: 195px;
         left: -205px;
     }
-
 
     .barra-lateral .elemento span {
         font-size: 11px;

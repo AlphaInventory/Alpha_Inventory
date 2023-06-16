@@ -376,12 +376,7 @@ h2 {
     }
 
     aside {
-        bottom: 0;
         left: 22%;
-        position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
     aside h1 {
@@ -419,7 +414,6 @@ h2 {
         right: 7%;
     }
 
-
     .formulario .contenedor_formulario_flex .campo_flex label{
         font-size: 15px;
     } 
@@ -428,7 +422,6 @@ h2 {
         width: 15px;
         height: auto;
     }
-
 
     table {
         margin-top: 20px;
@@ -461,7 +454,6 @@ h2 {
 @media screen and (max-width: 924px) {
     aside {
         left: 24%;
-        position: fixed;
     }
 
     aside h1 {
@@ -547,7 +539,6 @@ h2 {
 
     aside {
         left: -3%;
-        position: fixed;
     }
 
     aside h1 {
@@ -560,7 +551,6 @@ h2 {
         position: relative;
         left: 50px;
     }
-
 
     .formulario .contenedor_formulario label {
         font-size: 15px;
@@ -671,7 +661,6 @@ h2 {
         font-size: 13px;
     } 
 
-
     table {
         width: 90%;
     }
@@ -724,7 +713,6 @@ h2 {
 
     aside {
         left: -4%;
-        position: fixed;
     }
 
     .formulario h3 {
