@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO | RECUPERAR TU CONTRASEÑA</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/recuperar_contrasena.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recuperar_contrasena.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="titulo">Recuperar Tu Contraseña</h1>
+    </header>
+    <main>
+        <div class="indicaciones_cta">
+            <p>-La contraseña debe contener 8 caracteres máximo.</p>
+            <p>-Debe incluir un signo especial y letras en mayúscula y minúscula.</p>
+            <p>-La contraseña no debe ser la misma que el usuario.</p>
+        </div>
+        <div class="contenedor_formulario">
+            <form action="/recuperarcontrasena/bd" method="post" enctype="multipart/form-data">
+                {% for contrasena in recuperar_contrasena %}
+                <input type="hidden" value="{{ contrasena[0] }}" name="id_registro" id="id_registro">
+                {% endfor %}
+                <div class="campo">
+                    <input type="password" name="password" id="password" required>
+                    <span class="icono_label" title="Contraseña"><i class="fa-solid fa-key"></i></span>
+                    <span class="moscontra"><i class="fa-regular fa-eye-slash mostrar"></i></span>
+                    <label for="password" class="password">Nueva Contraseña</label>
+                </div>
+                <div class="campo">
+                    <input type="password" name="password-" id="password-" required>
+                    <span class="icono_label" title="Contraseña"><i class="fa-solid fa-key"></i></span>
+                    <span class="moscontra"><i class="fa-regular fa-eye-slash mostrar-"></i></span>
+                    <label for="password-" class="password-">Confirmar Contraseña</label>
+                </div>
+                <div class="botones">
+                    <a href="/olvidastetucontrasena">
+                        <button type="button" class="boton">Atras</button>
+                    </a>
+                        <button type="submit" class="boton">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/mostrarContrasena.js') }}"></script>
+</body>
+</html>

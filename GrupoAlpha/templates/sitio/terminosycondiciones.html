@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFIGURACIONES | TERMINOS & CONDICIONES</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/terminos_condiciones.png') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/terminosycondiciones.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+   <div class="menu-boton">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="barra-lateral">
+        <header>
+            <div class="cerrar-boton">
+                <i class="fas fa-times"></i>
+            </div>
+            <a href="/inicio_inventario" class="inicio">
+                <img src="{{ url_for('static', filename='icons/logo.png') }}" class="logo">
+                <h1>Inventory</h1>
+            </a>
+            <div class="menu">
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="registros">
+                        <img class="icon" src="{{ url_for('static', filename='icons/registros.png') }}"><span>REGISTROS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/registrodearticulos" class="sub-elemento">ARTICULOS</a>
+                        <a href="/registrodeclientes" class="sub-elemento">CLIENTES</a>
+                        <a href="/registrodesuplidores" class="sub-elemento">SUPLIDORES</a>
+                        <a href="#" class="sub-elemento" id="abrir">MARCAS</a>
+                        <a href="#" class="sub-elemento" id="abrir-">ENCARGADO DE VENTAS</a>
+                        <a href="#" class="sub-elemento" id="abrir--">ENCARGADO DE COMPRAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="procesos">
+                        <img class="icon" src="{{ url_for('static', filename='icons/procesos.png') }}"><span>PROCESOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/compras" class="sub-elemento">COMPRAS</a>
+                        <a href="/ventas" class="sub-elemento">VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="movimientos">
+                        <img class="icon" src="{{ url_for('static', filename='icons/movimientos.png') }}"><span>MOVIMIENTOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/movimientosdiario" class="sub-elemento">DIARIOS</a>
+                        <a href="/movimientoporarticulo" class="sub-elemento">ARTICULO</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="listados">
+                        <img class="icon" src="{{ url_for('static', filename='icons/listados.png') }}"><span>LISTADOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/listadodearticulos" class="sub-elemento">LISTADO DE ARTICULOS</a>
+                        <a href="/listadodeprecios" class="sub-elemento">LISTADO DE PRECIOS</a>
+                        <a href="/listadodecompras" class="sub-elemento">LISTADO DE COMPRAS</a>
+                        <a href="/listadodeventas" class="sub-elemento">LISTADO DE VENTAS</a>
+                        <a href="/listadodeclientes" class="sub-elemento">LISTADO DE CLIENTES</a>
+                        <a href="/listadodesuplidores" class="sub-elemento">LISTADO DE SUPLIDORES</a>
+                    </div>
+                </div>
+                <div class="elemento ">
+                    <a href="/respaldos" class="toggle" id="respaldos">
+                        <img class="icon" src="{{ url_for('static', filename='icons/respaldos.png') }}" alt=""><span>RESPALDOS</span>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="configuraciones">
+                        <img class="icon"
+                            src="{{ url_for('static', filename='icons/configuraciones.png') }}"><span>CONFIGURACIONES</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/perfil" class="sub-elemento">PERFIL</a>
+                        <a href="/cambiarcontrasena" class="sub-elemento">CAMBIAR CONTRASEÑA</a>
+                        <a href="#" class="sub-elemento" id="abrirEC">ELIMINAR CUENTA</a>
+                        <a href="/terminosycondiciones" class="sub-elemento">TERMINOS & CONDICIONES</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a href="/cerrar_sesion">
+                        <img class="icon" src="{{ url_for('static', filename='icons/cerrar-sesion.png') }}"><span>CERRAR-SESION</span>
+                    </a>
+                </div>
+                <!-- <div class="elemento">
+                    <a href="#" class="abajo">
+                        <img class="icon" src="{{ url_for('static', filename='icons/ayuda.png') }}"><span>AYUDA</span>
+                    </a>
+                </div> -->
+            </div>
+        </header>
+    </div>
+    <main>
+        <aside>
+            <div class="cabecera_main">
+                <h1 class="titulo">Terminos & Condiciones</h1>
+            </div>
+            <div class="parrafos">
+                <p>Esta pagina web es propiedad y esta operando por [nombre del operador de tu pagina web]. Estos terminos y condiciones
+                    describen como debes usar nuestra pagina web y servicios ofrecidos por nuestra empresa. Esta pagina web ofrece a los
+                    visitantes [descripcion de lo que se ofrece en tu sitio web]. Al acceder o usar estapagina web, usted acepta que ha
+                    leido y entendido que esta sujeto a estos terminos.</p>
+                <p>Cuando recibimos un reclamo de garantia valido de un producto que vendemos, reparamos el defecto relevante o
+                    reemplazamos el producto. si no podemos reparar o reemplazar el producto dentro de un tiempo razonable, el cliente
+                    tiene derecho a un reembolso total cuando nos devuelva el producto. Pagaremos el envio de los productos reparados o
+                    reemplazados al cliente y el cliente sera responsable de devolvernos el producto.</p>
+            </div>
+        </aside>
+        <div id="miModal" class="modal">
+            <div class="flex" id="flex">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>CREADOR DE MARCAS</h2>
+                        <span class="close" id="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/terminosycondiciones/marcas/bd" method="post" enctype="multipart/form-data" class="formulario-">
+                            <div class="campo-">
+                                <input type="text" name="codigo_marca" id="codigo_marca" placeholder="Ingrese el Codigo" class="control">
+                            </div>
+                            <div class="campo-">
+                                <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre" class="control">
+                            </div>
+                            <div class="botones-">
+                                <button type="reset" class="boton-">Borrar</button>
+                                <button type="submit" class="boton-">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModal-" class="modal">
+            <div class="flex" id="flex-">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>CREADOR DE ENCARGADO DE VENTAS</h2>
+                        <span class="close" id="close-">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/terminosycondiciones/encVentas/bd" method="post" enctype="multipart/form-data" class="formulario-">
+                            <div class="campo-">
+                                <input type="text" name="codigo_enc_ventas" id="codigo_enc_ventas" placeholder="Ingrese el Codigo" class="control-">
+                            </div>
+                            <div class="campo-">
+                                <input type="text" name="nombre_enc_ventas" id="nombre_enc_ventas" placeholder="Ingrese el Nombre" class="control-">
+                            </div>
+                            <div class="botones-">
+                                <button type="reset" class="boton-">Borrar</button>
+                                <button type="submit" class="boton-">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModal--" class="modal">
+            <div class="flex" id="flex--">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>CREADOR DE ENCARGADO DE COMPRAS</h2>
+                        <span class="close" id="close--">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/terminosycondiciones/encCompras/bd" method="post" enctype="multipart/form-data" class="formulario-">
+                            <div class="campo-">
+                                <input type="text" name="codigo_enc_compras" id="codigo_enc_compras" placeholder="Ingrese el Codigo" class="control">
+                            </div>
+                            <div class="campo-">
+                                <input type="text" name="nombre_enc_compras" id="nombre_enc_compras" placeholder="Ingrese el Nombre" class="control">
+                            </div>
+                            <div class="botones-">
+                                <button type="reset" class="boton-">Borrar</button>
+                                <button type="submit" class="boton-">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalEC" class="modal">
+        <div class="flex" id="flexEC">
+            <div class="contenido-modal">
+                <div class="modal-header flex">
+                    <h2>ELIMINACION DE CUENTA</h2>
+                    <span class="close" id="closeEC">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <form action="/terminosycondiciones/eliminar_cuenta/bd" method="post" enctype="multipart/form-data"
+                        class="formulario-">
+                        {% for usuario in eliminar_cuenta %}
+                            <input type="hidden" value="{{ usuario[0] }}" name="id_registro_usuario" id="id_registro_usuario">
+                        {% endfor %}
+                        <div class="campo">
+                            <p>¿Seguro que desea eliminar su cuenta?</p>
+                        </div>
+                        <div class="botones-">
+                            <a href="/terminosycondiciones"><button type="button" class="boton-">Atras</button></a>
+                            <button type="submit" class="boton-">Eliminar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <script src="{{ url_for('static', filename='JS/menuDesplegable.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/ventanaModalEC.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
+    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+</body>
+</html>

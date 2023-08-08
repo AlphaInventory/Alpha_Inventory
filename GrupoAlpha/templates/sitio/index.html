@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/iniciar_sesion.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script>
+        function funcion_no_agregada() {
+            alert("Esta funcion no esta implementada por el momento.")
+        }
+    </script>
+    <header>
+        <div class="logo">
+            <figure>
+                <img src="{{ url_for('static', filename='icons/logo.png') }}" alt="Logo" class="logo_inicio">
+            </figure>
+            <h1 class="titulo">Inventory</h1>
+        </div>
+    </header>
+    <main>
+        <div class="cabecera_main">
+            <h2 class="subtitulo">Inicio De Sesion</h2>
+        </div>
+        <div class="contenedor_formulario">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                {% if category == 'error' %}
+                <button class="mensaje">{{ message }}</button>
+                {% endif %}
+
+                {% if category == 'warning' %}
+                <button class="mensaje">{{ message }}</button>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <form method="post">
+                <div class="campo">
+                    <input type="text" id="email"
+                    name="email" required>
+                    <span class="icono_correo" title="Correo Electronico"><i class="fa-regular fa-envelope"></i></span>
+                    <label for="email">CORREO ELECTRONICO</label>
+                </div>
+                <div class="campo">
+                    <input class="input_password" type="password" id="password" name="password" required>
+                    <span class="icono_contrasena" title="Contraseña"><i class="fa-solid fa-key"></i></span>
+                    <label for="password" class="centrar">CONTRASEÑA</label>
+                    <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar"></i></span>
+                </div>
+            </div>
+                <div class="olvcon">
+                    <a href="/olvidastetucontrasena" class="enlace_olvcon">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="boton_ini">
+                    <button type="submit" class="boton_inicio" onclick="validar()">Entrar</button>
+                </div>
+                <div class="reg_usuario">
+                    <h4 class="subtitulo-">¿Eres un nuevo usuario?</h4>
+                    <a href="/registrate" class="enlace_reg">Registrate</a>
+                </div>
+                <div class="enlaces_reg_iconos">
+                    <div class="enlaces_reg" onclick="funcion_no_agregada()">
+                        <i class="fab fa-google"></i>
+                        <span class="texto_icono">
+                           Continuar Con Google
+                        </span>
+                        <span class="icono_background"></span>
+                    </div>
+                    <div class="enlaces_reg" onclick="funcion_no_agregada()">
+                        <i class="fab fa-facebook"></i>
+                        <span class="texto_icono">
+                            Continuar Con Facebook 
+                        </span>
+                        <span class="icono_background"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/mostrarContrasena.js') }}"></script>
+</body>
+</html>
