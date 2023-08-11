@@ -200,7 +200,7 @@ p {
     }
 
     .barra-lateral .menu .elemento a .dropdown {
-        left: 75%;
+        left: 80%;
         width: 10px;
     }
 
@@ -255,6 +255,10 @@ p {
 
     .barra-lateral .elemento .sub-menu a {
         font-size: 10px;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        left: 75%;
     }
 
     .elemento a i {

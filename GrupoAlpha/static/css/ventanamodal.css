@@ -93,7 +93,6 @@ h2 {
 }
 
 .campo- input {
-    border: 2px solid #ADD8E6;
     border-radius: 5px;
     color: #000;
     display: flex;
@@ -108,7 +107,6 @@ h2 {
 }
 
 input::placeholder {
-    color: #0029FF;
     padding: 2px;
 }
 
@@ -168,4 +166,13 @@ p {
     height: 34px;
     margin: 0 10px;
     width: 130px;
+}
+
+.icono_email {
+    font-size: 20px;
+    position: absolute;
+    left: 150px;
+    bottom: 99px;
+    color: #ea4335;
+    cursor: pointer;
 }

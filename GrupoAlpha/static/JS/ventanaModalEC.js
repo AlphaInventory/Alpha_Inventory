@@ -1,4 +1,3 @@
-
 let modalEC = document.getElementById('miModalEC');
 let flexEC = document.getElementById('flexEC');
 let abrirEC = document.getElementById('abrirEC');

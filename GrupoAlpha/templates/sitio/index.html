@@ -7,6 +7,7 @@
     <title>INICIO</title>
     <link rel="icon" href="{{ url_for('static', filename='icons/iniciar_sesion.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -24,8 +25,8 @@
         </div>
     </header>
     <main>
-        <div class="cabecera_main">
-            <h2 class="subtitulo">Inicio De Sesion</h2>
+        <div class="cabecera_main-">
+            <h3 class="subtitulo">Inicio De Sesion</h3>
         </div>
         <div class="contenedor_formulario">
             {% with messages = get_flashed_messages(with_categories=true) %}
@@ -56,7 +57,7 @@
                 </div>
             </div>
                 <div class="olvcon">
-                    <a href="/olvidastetucontrasena" class="enlace_olvcon">¿Olvidaste tu contraseña?</a>
+                    <a href="#" id="abrirOC" class="enlace_olvcon">¿Olvidaste tu contraseña?</a>
                 </div>
                 <div class="boton_ini">
                     <button type="submit" class="boton_inicio" onclick="validar()">Entrar</button>
@@ -83,8 +84,30 @@
                 </div>
             </form>
         </div>
+        <div id="miModalOC" class="modal">
+        <div class="flex" id="flexOC">
+            <div class="contenido-modal">
+                <div class="modal-header flex">
+                    <h2>¿Tienes problemas para iniciar sesion?</h2>
+                    <span class="close" id="closeOC">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <form action="/registrate/olvidastetucontrasena/bd" method="post" enctype="multipart/form-data" id="form" class="formulario-"> 
+                        <div class="campo-">
+                            <input type="email" id="correo" name="correo" class="control-" placeholder="Ingrese su correo Electronico" required>
+                            <span class="icono_email" title="Correo Electronico"><i class="fa-regular fa-envelope"></i></span>
+                        </div>
+                        <div class="botones-">
+                            <a href="/"><button type="button" class="boton-">Atras</button></a>
+                            <button type="submit" id="button" class="boton-" value="Send Email">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='JS/mostrarContrasena.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/ventanaModalOC.js') }}"></script>
 </body>
 </html>

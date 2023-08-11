@@ -55,7 +55,7 @@
 							<p class="ccv"></p>
 						</div>
 					</div>
-					<p class="leyenda">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus exercitationem, voluptates illo.</p>
+					<p class="leyenda">Authorized signature / Firma autorizada. Not valid unless signed / No es valida sin firma.</p>
 					<a href="#" class="link-banco"></a>
 				</div>
 			</section>
@@ -65,6 +65,7 @@
 				</button>
 			</div>
 			<form action="/metododepago/bd" method="post" id="formulario-tarjeta" class="formulario-tarjeta" enctype="multipart/form-data">
+                	<input type="hidden" value="{{ registro_usuario|length }}" name="id_usuario" id="id_usuario">
 				<div class="grupo">
 					<input type="text" id="inputNumero" name="inputNumero" maxlength="19" autocomplete="off" placeholder="Numero Tarjeta">
 				</div>
@@ -93,7 +94,7 @@
 					</div>
 				</div>
 				<div class="botones">
-					<a href="/registrate">
+					<a href="/metododepago">
 						<button type="button" class="btn-enviar">Atras</button>
 					</a>
 					<button type="submit" class="btn-enviar">Enviar</button>

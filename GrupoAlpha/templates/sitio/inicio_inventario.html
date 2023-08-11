@@ -189,15 +189,12 @@
                 <div class="modal-body">
                     <form action="/inicio_inventario/eliminar_cuenta/bd" method="post" enctype="multipart/form-data"
                         class="formulario-">
-                        {% for usuario in eliminar_cuenta %}
-                            <input type="hidden" value="{{ usuario[0] }}" name="id_registro_usuario" id="id_registro_usuario">
-                        {% endfor %}
                         <div class="campo">
                             <p>¿Seguro que desea eliminar su cuenta?</p>
                         </div>
                         <div class="botones-">
                             <a href="/inicio_inventario"><button type="button" class="boton-">Atras</button></a>
-                            <button type="submit" class="boton-">Eliminar</button>
+                            <a href="/inicio_inventario/eliminar_cuenta/bd"><button type="submit" id="id_registro_usuario" name="id_registro_usuario" class="boton-">Eliminar</button></a>
                         </div>
                     </form>
                 </div>

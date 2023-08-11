@@ -284,9 +284,6 @@
                 <div class="modal-body">
                     <form action="/registrodearticulos/eliminar_cuenta/bd" method="post" enctype="multipart/form-data"
                         class="formulario-">
-                        {% for usuario in eliminar_cuenta %}
-                            <input type="hidden" value="{{ usuario[0] }}" name="id_registro_usuario" id="id_registro_usuario">
-                        {% endfor %}
                         <div class="campo">
                             <p>¿Seguro que desea eliminar su cuenta?</p>
                         </div>

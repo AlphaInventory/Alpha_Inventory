@@ -26,7 +26,7 @@ app.config['MYSQL_DATABASE_DB']='alphainventory'
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'grupoalpha.infotep@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ubfbitjdyikoqxev'
+app.config['MAIL_PASSWORD'] = 'qmasvsogjgbpavqz'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -51,8 +51,8 @@ def index_entrar():
     contrasena=request.form['password']
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE correo_electronico = %s AND contrasena = %s", (correo_electronico, contrasena))
-    registro_usuario=bdsql.fetchall()
+    bdsql.execute("SELECT id_usuario, correo_electronico, contrasena FROM `registro_usuario` WHERE correo_electronico = %s AND contrasena = %s", (correo_electronico, contrasena))
+    registro_usuario=bdsql.fetchone()
 
     bdsql=mysql.connect().cursor()
     bdsql.execute("SELECT * FROM `registro_usuario` WHERE correo_electronico = %s", (correo_electronico))
@@ -60,10 +60,11 @@ def index_entrar():
 
     if registro_usuario:
         session['logueado'] = True
-        session['id_usuario'] = list(registro_usuario[0])
+        session['id_usuario'] = list(str(registro_usuario[0]))
+        # return f"el id es {session['id_usuario']}"
         return redirect('/inicio_inventario')
     if not correo_electronicoR:
-        flash("El usuario no esta registrado", 'error')
+        flash("El correo electronico no esta registrado", 'error')
         return redirect('/')
     if not registro_usuario:
         flash("El correo electronico o la contraseña son incorrectos", 'warning')
@@ -81,24 +82,21 @@ def inicio_inventario():
 
     if not 'logueado' in session:
         return redirect('/')
-    
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
+
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
     
-    return render_template('sitio/inicio_inventario.html', eliminar_cuenta=eliminar_cuenta, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('sitio/inicio_inventario.html', marcas=marcas, encargado_ventas=encargado_ventas,encargado_compras=encargado_compras)
     
 @app.route('/inicio_inventario/marcas/bd', methods=['post'])
 def inicio_inventario_marcas_bd():
@@ -106,9 +104,9 @@ def inicio_inventario_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s,%s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca,session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -123,9 +121,9 @@ def inicio_inventario_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`, `id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas,nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -140,9 +138,9 @@ def inicio_inventario_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras,session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -154,57 +152,50 @@ def inicio_inventario_enc_compras_bd():
 @app.route('/inicio_inventario/eliminar_cuenta/bd', methods=['post'])
 def inicio_inventario_eliminar_cuenta_bd():
 
-    # session['id_usuario']
+    bd=mysql.connect()
+    bdsql=bd.cursor()
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
+    eliminar_cuenta=bdsql.fetchall()
+    bd.commit()
+    print(eliminar_cuenta)
 
-    if 'id_usuario' in session:
-        bd=mysql.connect()
-        bdsql=bd.cursor()
-        bdsql.execute("SELECT id_usuario FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
-        eliminar_cuenta=bdsql.fetchone()
-        bd.commit()
-        print(eliminar_cuenta)
+    bd=mysql.connect()
+    bdsql=bd.cursor()
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
+    bd.commit()
 
-        bd=mysql.connect()
-        bdsql=bd.cursor()
-        bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
-        bd.commit()
-
-        return redirect('/')
+    return redirect('/')
 
 @app.route('/movimientosdiario')
 def movimiento_diario():
 
     if not 'logueado' in session:
-        return redirect('/')
+        return redirect('/')   
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()    
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `ventas`")
+    bdsql.execute("SELECT * FROM `ventas` WHERE id_usuario=%s",(session['id_usuario']))
     ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `compras`")
+    bdsql.execute("SELECT * FROM `compras` WHERE id_usuario=%s",(session['id_usuario']))
     compras=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
     global costo_total
     global precio_total
 
-    return render_template ('sitio/movimientosdiario.html', eliminar_cuenta=eliminar_cuenta, ventas=ventas, compras=compras, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras, costo_total=costo_total, precio_total=precio_total)
+    return render_template ('sitio/movimientosdiario.html', ventas=ventas, compras=compras, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras, costo_total=costo_total, precio_total=precio_total)
 
 @app.route('/movimientosdiario/marcas/bd', methods=['post'])
 def movimientosdiario_marcas_bd():
@@ -212,9 +203,9 @@ def movimientosdiario_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -229,9 +220,9 @@ def movimientosdiario_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -246,9 +237,9 @@ def movimientosdiario_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -260,18 +251,16 @@ def movimientosdiario_enc_compras_bd():
 @app.route('/movimientosdiario/eliminar_cuenta/bd', methods=['post'])
 def movimientosdiario_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -283,30 +272,26 @@ def movimiento_articulo():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `ventas`")
+    bdsql.execute("SELECT * FROM `ventas` WHERE id_usuario=%s",(session['id_usuario']))
     ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `compras`")
+    bdsql.execute("SELECT * FROM `compras` WHERE id_usuario=%s",(session['id_usuario']))
     compras=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template ('sitio/movimientoporarticulo.html', eliminar_cuenta=eliminar_cuenta, ventas=ventas, compras=compras, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template ('sitio/movimientoporarticulo.html', ventas=ventas, compras=compras, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/movimientoporarticulo/marcas/bd', methods=['post'])
 def movimientoporarticulo_marcas_bd():
@@ -314,9 +299,9 @@ def movimientoporarticulo_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -331,9 +316,9 @@ def movimientoporarticulo_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -348,9 +333,9 @@ def movimientoporarticulo_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -362,18 +347,16 @@ def movimientoporarticulo_enc_compras_bd():
 @app.route('/movimientoporarticulo/eliminar_cuenta/bd', methods=['post'])
 def movimientoporarticulo_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -383,30 +366,26 @@ def costo_inventario():
 
     if not 'logueado' in session:
         return redirect('/')
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
     
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `articulos`")
+    bdsql.execute("SELECT * FROM `articulos` WHERE id_usuario=%s",(session['id_usuario']))
     articulos=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
     global precio_total_articulos
 
-    return render_template ('sitio/listadodearticulos.html', eliminar_cuenta=eliminar_cuenta, articulos=articulos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras, precio_total_articulos=precio_total_articulos)
+    return render_template ('sitio/listadodearticulos.html', articulos=articulos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras, precio_total_articulos=precio_total_articulos)
 
 @app.route('/listadodearticulos/marcas/bd', methods=['post'])
 def listadodearticulos_marcas_bd():
@@ -414,9 +393,9 @@ def listadodearticulos_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -431,9 +410,9 @@ def listadodearticulos_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -448,9 +427,9 @@ def listadodearticulos_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -462,18 +441,16 @@ def listadodearticulos_enc_compras_bd():
 @app.route('/listadodearticulos/eliminar_cuenta/bd', methods=['post'])
 def listadodearticulos_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -483,28 +460,24 @@ def listado_precios():
 
     if not 'logueado' in session:
         return redirect('/')
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
     
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `articulos`")
+    bdsql.execute("SELECT * FROM `articulos` WHERE id_usuario=%s",(session['id_usuario']))
     precios=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template('sitio/listadodeprecios.html', eliminar_cuenta=eliminar_cuenta, articulos=precios, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('sitio/listadodeprecios.html', articulos=precios, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/listadodeprecios/marcas/bd', methods=['post'])
 def listadodeprecios_marcas_bd():
@@ -512,9 +485,9 @@ def listadodeprecios_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -529,9 +502,9 @@ def listadodeprecios_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -546,9 +519,9 @@ def listadodeprecios_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -560,18 +533,16 @@ def listadodeprecios_enc_compras_bd():
 @app.route('/listadodeprecios/eliminar_cuenta/bd', methods=['post'])
 def listadodeprecios_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -581,34 +552,30 @@ def listado_compras():
 
     if not 'logueado' in session:
         return redirect('/')
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
     
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `compras`")
+    bdsql.execute("SELECT * FROM `compras` WHERE id_usuario=%s",(session['id_usuario']))
     compras=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `suplidores`")
+    bdsql.execute("SELECT * FROM `suplidores` WHERE id_usuario=%s",(session['id_usuario']))
     suplidores=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
     global costo_total
 
-    return render_template('sitio/listadodecompras.html', eliminar_cuenta=eliminar_cuenta, compras=compras, suplidores=suplidores, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras, costo_total=costo_total)
+    return render_template('sitio/listadodecompras.html', compras=compras, suplidores=suplidores, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras, costo_total=costo_total)
 
 @app.route('/listadodecompras/marcas/bd', methods=['post'])
 def listadodecompras_marcas_bd():
@@ -616,9 +583,9 @@ def listadodecompras_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -633,9 +600,9 @@ def listadodecompras_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -650,9 +617,9 @@ def listadodecompras_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -664,18 +631,16 @@ def listadodecompras_enc_compras_bd():
 @app.route('/listadodecompras/eliminar_cuenta/bd', methods=['post'])
 def listadodecompras_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -685,34 +650,30 @@ def listado_ventas():
 
     if not 'logueado' in session:
         return redirect('/')
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
     
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `ventas`")
+    bdsql.execute("SELECT * FROM `ventas` WHERE id_usuario=%s",(session['id_usuario']))
     ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `clientes`")
+    bdsql.execute("SELECT * FROM `clientes` WHERE id_usuario=%s",(session['id_usuario']))
     clientes=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
     global precio_total
 
-    return render_template('sitio/listadodeventas.html', eliminar_cuenta=eliminar_cuenta, ventas=ventas, clientes=clientes, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras, precio_total=precio_total)
+    return render_template('sitio/listadodeventas.html', ventas=ventas, clientes=clientes, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras, precio_total=precio_total)
 
 @app.route('/listadodeventas/marcas/bd', methods=['post'])
 def listadodeventas_marcas_bd():
@@ -720,9 +681,9 @@ def listadodeventas_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -737,9 +698,9 @@ def listadodeventas_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas,session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -754,9 +715,9 @@ def listadodeventas_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -768,18 +729,16 @@ def listadodeventas_enc_compras_bd():
 @app.route('/listadodeventas/eliminar_cuenta/bd', methods=['post'])
 def listadodeventas_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -791,26 +750,22 @@ def listado_clientes():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `clientes`")
+    bdsql.execute("SELECT * FROM `clientes` WHERE id_usuario=%s",(session['id_usuario']))
     clientes=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
     
-    return render_template('sitio/listadodeclientes.html', eliminar_cuenta=eliminar_cuenta, clientes=clientes, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('sitio/listadodeclientes.html', clientes=clientes, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/listadodeclientes/marcas/bd', methods=['post'])
 def listadodeclientes_marcas_bd():
@@ -818,9 +773,9 @@ def listadodeclientes_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca,session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -835,9 +790,9 @@ def listadodeclientes_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -852,9 +807,9 @@ def listadodeclientes_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -866,18 +821,16 @@ def listadodeclientes_enc_compras_bd():
 @app.route('/listadodeclientes/eliminar_cuenta/bd', methods=['post'])
 def listadodeclientes_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -889,26 +842,22 @@ def listado_suplidores():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `suplidores`")
+    bdsql.execute("SELECT * FROM `suplidores` WHERE id_usuario=%s",(session['id_usuario']))
     suplidores=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template('sitio/listadodesuplidores.html', eliminar_cuenta=eliminar_cuenta, suplidores=suplidores, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('sitio/listadodesuplidores.html', suplidores=suplidores, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/listadodesuplidores/marcas/bd', methods=['post'])
 def listadodesuplidores_marcas_bd():
@@ -916,9 +865,9 @@ def listadodesuplidores_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -933,9 +882,9 @@ def listadodesuplidores_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -950,9 +899,9 @@ def listadodesuplidores_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -964,18 +913,16 @@ def listadodesuplidores_enc_compras_bd():
 @app.route('/listadodesuplidores/eliminar_cuenta/bd', methods=['post'])
 def listadodesuplidores_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -985,28 +932,24 @@ def perfil():
 
     if not 'logueado' in session:
         return redirect('/')
-    
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     perfil=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template('sitio/perfil.html', eliminar_cuenta=eliminar_cuenta, perfil=perfil, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('sitio/perfil.html', perfil=perfil, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/perfil/marcas/bd', methods=['post'])
 def perfil_marcas_bd():
@@ -1014,9 +957,9 @@ def perfil_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1031,9 +974,9 @@ def perfil_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1048,13 +991,13 @@ def perfil_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute(sql_enc_compras, datos_enc_compras)
+    bdsql.execute(sql_enc_compras, datos_enc_compras,)
     bd.commit()
 
     return redirect('/perfil')
@@ -1062,18 +1005,16 @@ def perfil_enc_compras_bd():
 @app.route('/perfil/eliminar_cuenta/bd', methods=['post'])
 def perfil_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -1085,22 +1026,18 @@ def terminos_condiciones():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template ('sitio/terminosycondiciones.html', eliminar_cuenta=eliminar_cuenta, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template ('sitio/terminosycondiciones.html', marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/terminosycondiciones/marcas/bd', methods=['post'])
 def terminosycondiciones_marcas_bd():
@@ -1108,9 +1045,9 @@ def terminosycondiciones_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1125,9 +1062,9 @@ def terminosycondiciones_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1142,9 +1079,9 @@ def terminosycondiciones_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1156,18 +1093,16 @@ def terminosycondiciones_enc_compras_bd():
 @app.route('/terminosycondiciones/eliminar_cuenta/bd', methods=['post'])
 def terminosycondiciones_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -1178,7 +1113,6 @@ def admin():
 
     if not 'logueado' in session:
         return redirect('/')
-    
     return render_template('/admin/')
 
 @app.route('/registrate')
@@ -1226,48 +1160,7 @@ def registro_usuario():
     else:
         return redirect('/registrate')
 
-@app.route('/metododepago')
-def metodo_pago():
-
-    if not 'contrasena_iguales' in session:
-        return redirect('/registrate')
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `metodo_pago`")
-    metodo_pago=bdsql.fetchall()
-
-    return render_template('admin/metododepago.html', metodo_pago=metodo_pago)
-
-@app.route('/metododepago/bd', methods=['post'])
-def metodo_pago_bd():
-
-    numero_tarjeta=request.form['inputNumero']
-    nombre_tarjeta=request.form['inputNombre']
-    mes=request.form['selectMes']
-    año=request.form['selectYear']
-    cvv=request.form['inputCCV']
-
-    sql_met_pag= ("INSERT INTO `metodo_pago` (`id_metodo_pago`,`numero_tarjeta`,`nombre_tarjeta`,`mes`, `año`, `cvv`) VALUES (NULL, %s, %s, %s, %s, %s);")
-
-    datos_metodo_pago=(numero_tarjeta, nombre_tarjeta, mes, año, cvv)
-
-    bd=mysql.connect()
-    bdsql=bd.cursor()
-    bdsql.execute(sql_met_pag, datos_metodo_pago)
-    bd.commit()
-
-    return redirect('/')
-
-@app.route('/olvidastetucontrasena')
-def olvidaste_contrasena():
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    olvidaste_contrasena=bdsql.fetchall()
-
-    return render_template('admin/olvidastetucontrasena.html', olvidaste_contrasena=olvidaste_contrasena)
-
-@app.route('/olvidastetucontrasena/bd', methods=['post'])
+@app.route('/registrate/olvidastetucontrasena/bd', methods=['post'])
 def olvidaste_contrasena_bd():
 
     recipients=request.form['correo']
@@ -1285,6 +1178,43 @@ def olvidaste_contrasena_bd():
         return redirect('/')
     else:
         return redirect('/registrate')
+    
+@app.route('/metododepago')
+def metodo_pago():
+
+    if not 'contrasena_iguales' in session:
+        return redirect('/registrate')
+
+    bdsql=mysql.connect().cursor()
+    bdsql.execute("SELECT * FROM `metodo_pago`")
+    metodo_pago=bdsql.fetchall()
+
+    bdsql=mysql.connect().cursor()
+    bdsql.execute("SELECT * FROM `registro_usuario`")
+    registro_usuario=bdsql.fetchall()
+
+    return render_template('admin/metododepago.html', metodo_pago=metodo_pago, registro_usuario=registro_usuario)
+
+@app.route('/metododepago/bd', methods=['post'])
+def metodo_pago_bd():
+    
+    numero_tarjeta=request.form['inputNumero']
+    nombre_tarjeta=request.form['inputNombre']
+    mes=request.form['selectMes']
+    año=request.form['selectYear']
+    cvv=request.form['inputCCV']
+    id_usuario=request.form['id_usuario']
+
+    sql_met_pag= ("INSERT INTO `metodo_pago` (`id_metodo_pago`,`numero_tarjeta`,`nombre_tarjeta`,`mes`,`año`,`cvv`,`id_usuario`) VALUES (NULL, %s, %s, %s, %s, %s, %s);")
+
+    datos_metodo_pago=(numero_tarjeta, nombre_tarjeta, mes, año, cvv, id_usuario)
+
+    bd=mysql.connect()
+    bdsql=bd.cursor()
+    bdsql.execute(sql_met_pag, datos_metodo_pago)
+    bd.commit()
+
+    return redirect('/')
 
 @app.route('/recuperarcontrasena')
 def recuperar_contrasena():
@@ -1326,26 +1256,22 @@ def registro_articulos():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `articulos`")
+    bdsql.execute("SELECT * FROM `articulos` WHERE id_usuario=%s",(session['id_usuario']))
     articulos=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template('admin/registrodearticulos.html', eliminar_cuenta=eliminar_cuenta, articulos=articulos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('admin/registrodearticulos.html', articulos=articulos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/registrodearticulos/bd', methods=['post'])
 def registro_articulos_bd():
@@ -1368,9 +1294,9 @@ def registro_articulos_bd():
     global precio_total_articulos
     precio_total_articulos =  total_articulos + precio_total_articulos
 
-    sql_articulos=('INSERT INTO `articulos` (`id_articulo`,`codigo`,`descripcion`,`talla`,`marca`,`referencia`,`ubicacion`,`costo`,`precio`,`itbis`,`cantidad`,`margen_beneficio`,`unidad_medida`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)')
+    sql_articulos=('INSERT INTO `articulos` (`id_articulo`,`codigo`,`descripcion`,`talla`,`marca`,`referencia`,`ubicacion`,`costo`,`precio`,`itbis`,`cantidad`,`margen_beneficio`,`unidad_medida`,`id_usuario`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)')
 
-    datos_articulos=(codigo,descripcion,talla,marca,referencia,ubicacion,costo,precio,itbis,cantidad,margen_beneficio,unidad_medida)
+    datos_articulos=(codigo,descripcion,talla,marca,referencia,ubicacion,costo,precio,itbis,cantidad,margen_beneficio,unidad_medida, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1385,9 +1311,9 @@ def registrodearticulos_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1402,9 +1328,9 @@ def registrodearticulos_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1419,9 +1345,9 @@ def registrodearticulos_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1430,21 +1356,19 @@ def registrodearticulos_enc_compras_bd():
 
     return redirect('/registrodearticulos')
 
-@app.route('/regitrodearticulos/eliminar_cuenta/bd', methods=['post'])
+@app.route('/registrodearticulos/eliminar_cuenta/bd', methods=['post'])
 def regitrodearticulos_eliminar_cuenta_bd():
-
-    id=request.form['id_registro_usuario']
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -1456,26 +1380,22 @@ def registro_clientes():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `clientes`")
+    bdsql.execute("SELECT * FROM `clientes` WHERE id_usuario=%s",(session['id_usuario']))
     clientes=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template('admin/registrodeclientes.html', eliminar_cuenta=eliminar_cuenta, clientes=clientes, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('admin/registrodeclientes.html', clientes=clientes, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/registrodeclientes/bd', methods=['post'])
 def registro_clientes_bd():
@@ -1490,9 +1410,9 @@ def registro_clientes_bd():
     rnc=request.form['rnc']
     descuentos=request.form['descuento']
 
-    sql_clientes=('INSERT INTO `clientes` (`id_cliente`,`codigo`,`nombre`,`direccion`,`ciudad`,`telefono`,`cedula`,`email`,`rnc`,`descuentos`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s)')
+    sql_clientes=('INSERT INTO `clientes` (`id_cliente`,`codigo`,`nombre`,`direccion`,`ciudad`,`telefono`,`cedula`,`email`,`rnc`,`descuentos`,`id_usuario`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)')
 
-    datos_clientes=(codigo,nombre,direccion,cuidad,telefono,cedula,email,rnc,descuentos)
+    datos_clientes=(codigo,nombre,direccion,cuidad,telefono,cedula,email,rnc,descuentos, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1507,9 +1427,9 @@ def registrodeclientes_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1524,9 +1444,9 @@ def registrodeclientes_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1541,9 +1461,9 @@ def registrodeclientes_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1555,18 +1475,16 @@ def registrodeclientes_enc_compras_bd():
 @app.route('/registrodeclientes/eliminar_cuenta/bd', methods=['post'])
 def registrodeclientes_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -1578,26 +1496,22 @@ def registro_suplidores():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `suplidores`")
+    bdsql.execute("SELECT * FROM `suplidores` WHERE id_usuario=%s",(session['id_usuario']))
     suplidores=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template('admin/registrodesuplidores.html', eliminar_cuenta=eliminar_cuenta, suplidores=suplidores, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('admin/registrodesuplidores.html', suplidores=suplidores, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/registrodesuplidores/bd', methods=['post'])
 def registro_suplidores_bd():
@@ -1612,9 +1526,9 @@ def registro_suplidores_bd():
     rnc=request.form['rnc']
     descuentos=request.form['descuento']
 
-    sql_suplidores= ("INSERT INTO `suplidores` (`id_suplidor`,`codigo`,`nombre`,`direccion`,`ciudad`,`telefono`,`limite_credito`,`condiciones`,`rnc`,`descuentos`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+    sql_suplidores= ("INSERT INTO `suplidores` (`id_suplidor`,`codigo`,`nombre`,`direccion`,`ciudad`,`telefono`,`limite_credito`,`condiciones`,`rnc`,`descuentos`,`id_usuario`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
 
-    datos_suplidores=(codigo,nombre,direccion,ciudad,telefono,limite_credito,condiciones,rnc,descuentos)
+    datos_suplidores=(codigo,nombre,direccion,ciudad,telefono,limite_credito,condiciones,rnc,descuentos, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1629,9 +1543,9 @@ def registrodesuplidores_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1646,9 +1560,9 @@ def registrodesuplidores_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1663,9 +1577,9 @@ def registrodesuplidores_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1677,18 +1591,16 @@ def registrodesuplidores_enc_compras_bd():
 @app.route('/registrodesuplidores/eliminar_cuenta/bd', methods=['post'])
 def registrodesuplidores_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -1700,34 +1612,30 @@ def compras():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM compras")
+    bdsql.execute("SELECT * FROM `compras` WHERE id_usuario=%s",(session['id_usuario']))
     compras=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `suplidores`")
+    bdsql.execute("SELECT * FROM `suplidores` WHERE id_usuario=%s",(session['id_usuario']))
     suplidores=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM articulos")
+    bdsql.execute("SELECT * FROM `articulos` WHERE id_usuario=%s",(session['id_usuario']))
     articulos=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template ('admin/compras.html', eliminar_cuenta=eliminar_cuenta, compras=compras, suplidores=suplidores, articulos=articulos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template ('admin/compras.html', compras=compras, suplidores=suplidores, articulos=articulos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/compras/bd', methods=['post'])
 def compras_registro_bd():
@@ -1749,9 +1657,9 @@ def compras_registro_bd():
     global costo_total
     costo_total = total_compra + costo_total
 
-    sql=("INSERT INTO `compras`(`id_compra`,`numero_facturaC`,`horaCompra`,`fecha_compra`,`encargado_compra`,`suplidor`,`codigo`,`cantidad`,`itbis`,`costo`,`total_compra`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);")
+    sql=("INSERT INTO `compras`(`id_compra`,`numero_facturaC`,`horaCompra`,`fecha_compra`,`encargado_compra`,`suplidor`,`codigo`,`cantidad`,`itbis`,`costo`,`total_compra`,`id_usuario`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);")
 
-    datos=(numero_facturaC,horaCompra,fecha_compra,encargado_compra,suplidor,codigo,cantidad,itbis,costo,total_compra)
+    datos=(numero_facturaC,horaCompra,fecha_compra,encargado_compra,suplidor,codigo,cantidad,itbis,costo,total_compra, session['id_usuario'])
     
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1766,9 +1674,9 @@ def compras_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1783,9 +1691,9 @@ def compras_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1800,9 +1708,9 @@ def compras_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1814,18 +1722,16 @@ def compras_enc_compras_bd():
 @app.route('/compras/eliminar_cuenta/bd', methods=['post'])
 def compras_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -1837,34 +1743,30 @@ def ventas():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM ventas")
+    bdsql.execute("SELECT * FROM `ventas` WHERE id_usuario=%s",(session['id_usuario']))
     ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `clientes`")
+    bdsql.execute("SELECT * FROM `clientes` WHERE id_usuario=%s",(session['id_usuario']))
     clientes=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM articulos")
+    bdsql.execute("SELECT * FROM `articulos` WHERE id_usuario=%s",(session['id_usuario']))
     articulos=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template ('admin/ventas.html', eliminar_cuenta=eliminar_cuenta, ventas=ventas, clientes=clientes, articulos=articulos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template ('admin/ventas.html', ventas=ventas, clientes=clientes, articulos=articulos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/ventas/bd', methods=['post'])
 def ventas_registro_bd():
@@ -1886,25 +1788,13 @@ def ventas_registro_bd():
     global precio_total
     precio_total = total_venta + precio_total
 
-    sql=("INSERT INTO `ventas`(`id_venta`,`numero_facturaV`,`horaVenta`,`fecha_venta`,`encargado_venta`,`cliente`,`codigo`,`cantidad`,`itbis`,`precio`,`total_venta`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);")
+    sql=("INSERT INTO `ventas`(`id_venta`,`numero_facturaV`,`horaVenta`,`fecha_venta`,`encargado_venta`,`cliente`,`codigo`,`cantidad`,`itbis`,`precio`,`total_venta`,`id_usuario`) VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);")
 
-    datos=(numero_facturaV,horaVenta,fecha_venta,encargado_venta,cliente,codigo,cantidad,itbis,precio,total_venta)
+    datos=(numero_facturaV,horaVenta,fecha_venta,encargado_venta,cliente,codigo,cantidad,itbis,precio,total_venta, session['id_usuario'])
     
     bd=mysql.connect()
     bdsql=bd.cursor()
     bdsql.execute(sql,datos)
-    bd.commit()
-
-    bd=mysql.connect()
-    bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `articulos` WHERE codigo=%s",(codigo))
-    articulos=bdsql.fetchall()
-    bd.commit()
-    print(articulos)
-
-    bd=mysql.connect()
-    bdsql=bd.cursor()
-    bdsql.execute("UPDATE articulos SET cantidad = (cantidad - cantidad=%s) WHERE codigo=%s",(cantidad,codigo))
     bd.commit()
 
     return redirect('/ventas')
@@ -1932,9 +1822,9 @@ def ventas_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1949,9 +1839,9 @@ def ventas_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -1963,18 +1853,16 @@ def ventas_enc_compras_bd():
 @app.route('/ventas/eliminar_cuenta/bd', methods=['post'])
 def ventas_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -1986,26 +1874,22 @@ def respaldos():
         return redirect('/')
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
-
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `respaldos`")
+    bdsql.execute("SELECT * FROM `respaldos` WHERE id_usuario=%s",(session['id_usuario']))
     respaldos=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template('admin/respaldos.html', eliminar_cuenta=eliminar_cuenta, respaldos=respaldos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('admin/respaldos.html', respaldos=respaldos, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/respaldos/bd', methods=['post'])
 def respaldos_bd():
@@ -2013,9 +1897,9 @@ def respaldos_bd():
     fecha=datetime.now()
     fechaRespaldo=fecha.strftime('%Y-%m-%d')
 
-    sql_respaldos= ("INSERT INTO `respaldos` (`id_respaldo`,`fecha_respaldo`) VALUES (NULL, %s)")
+    sql_respaldos= ("INSERT INTO `respaldos` (`id_respaldo`,`fecha_respaldo`,`id_usuario`) VALUES (NULL, %s, %s)")
 
-    datos_respaldos=(fechaRespaldo)
+    datos_respaldos=(fechaRespaldo, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -2027,18 +1911,16 @@ def respaldos_bd():
 @app.route('/respaldos/eliminar/bd', methods=['post'])
 def respaldos_eliminar_bd():
 
-    id=request.form['id_respaldo']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `respaldos` WHERE id_respaldo=%s",(id))
+    bdsql.execute("SELECT * FROM `respaldos` WHERE id_respaldo=%s",(session['id_usuario']))
     respaldos=bdsql.fetchall()
     bd.commit()
     print(respaldos)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `respaldos` WHERE id_respaldo=%s",(id))
+    bdsql.execute("DELETE FROM `respaldos` WHERE id_respaldo=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/respaldos')
@@ -2049,9 +1931,9 @@ def respaldos_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -2066,9 +1948,9 @@ def respaldos_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -2083,9 +1965,9 @@ def respaldos_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -2097,18 +1979,16 @@ def respaldos_enc_compras_bd():
 @app.route('/respaldos/eliminar_cuenta/bd', methods=['post'])
 def respaldos_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -2118,33 +1998,27 @@ def perfil_editar():
 
     if not 'logueado' in session:
         return redirect('/')
-    
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     perfil=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
     
-    return render_template('admin/perfileditar.html', eliminar_cuenta=eliminar_cuenta, perfil=perfil, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template('admin/perfileditar.html', perfil=perfil, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/perfileditar/bd', methods=['post'])
 def perfil_bd():
-
-    id=request.form['id_registro']
 
     correo_electronico=request.form['email']
     direccion=request.form['dir']
@@ -2152,14 +2026,14 @@ def perfil_bd():
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     backup=bdsql.fetchall()
     bd.commit()
     print(backup)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("UPDATE registro_usuario SET direccion = %s, telefono = %s, correo_electronico = %s WHERE id_usuario=%s",(direccion, telefono, correo_electronico, id))
+    bdsql.execute("UPDATE registro_usuario SET direccion = %s, telefono = %s, correo_electronico = %s WHERE id_usuario=%s",(direccion, telefono, correo_electronico, session['id_usuario']))
     bd.commit()
     
     return redirect('/inicio_inventario')
@@ -2170,9 +2044,9 @@ def perfileditar_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -2187,9 +2061,9 @@ def perfileditar_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -2204,9 +2078,9 @@ def perfileditar_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -2218,18 +2092,16 @@ def perfileditar_enc_compras_bd():
 @app.route('/perfileditar/eliminar_cuenta/bd', methods=['post'])
 def perfileditar_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')
@@ -2239,45 +2111,40 @@ def cambiar_contrasena():
 
     if not 'logueado' in session:
         return redirect('/')
-    
-    bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
-    eliminar_cuenta=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario`")
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     cambiar_contrasena=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `marcas`")
+    bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
     marcas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_ven`")
+    bdsql.execute("SELECT * FROM `encargados_ven` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_ventas=bdsql.fetchall()
 
     bdsql=mysql.connect().cursor()
-    bdsql.execute("SELECT * FROM `encargados_com`")
+    bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
 
-    return render_template ('admin/cambiarcontrasena.html', eliminar_cuenta=eliminar_cuenta, cambiar_contrasena=cambiar_contrasena, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
+    return render_template ('admin/cambiarcontrasena.html', cambiar_contrasena=cambiar_contrasena, marcas=marcas, encargado_ventas=encargado_ventas, encargado_compras=encargado_compras)
 
 @app.route('/cambiarcontrasena/bd', methods=['post'])
 def cambiar_contrasena_bd():
 
     contrasena=request.form['password']
-    id=request.form['id_registro']
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     cambiar_contrasena=bdsql.fetchall()
     bd.commit()
     print(cambiar_contrasena)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("UPDATE registro_usuario SET contrasena = %s WHERE id=%s",(contrasena, id))
+    bdsql.execute("UPDATE registro_usuario SET contrasena = %s WHERE id_usuario=%s",(contrasena, session['id_usuario']))
     bd.commit()
 
     return redirect('/inicio_inventario')
@@ -2288,9 +2155,9 @@ def cambiarcontrasena_marcas_bd():
     codigo_marca=request.form['codigo_marca']
     nombre_marca=request.form['nombre_marca']
 
-    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`) VALUES (NULL, %s, %s)")
+    sql_marcas= ("INSERT INTO `marcas` (`id_marca`,`codigo_marca`,`nombre_marca`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_marcas=(codigo_marca, nombre_marca)
+    datos_marcas=(codigo_marca, nombre_marca, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -2305,14 +2172,14 @@ def cambiarcontrasena_enc_ventas_bd():
     codigo_enc_ventas=request.form['codigo_enc_ventas']
     nombre_enc_ventas=request.form['nombre_enc_ventas']
 
-    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`) VALUES (NULL, %s, %s)")
+    sql_enc_ventas= ("INSERT INTO `encargados_ven` (`id_encargadoV`,`codigo_encargadoV`,`nombre_encargadoV`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas)
+    datos_enc_ventas=(codigo_enc_ventas, nombre_enc_ventas, session['id_usuario'])
 
-    bdsql=mysql.connect()
-    bdsql=bdsql.cursor()
+    bd=mysql.connect()
+    bdsql=bd.cursor()
     bdsql.execute(sql_enc_ventas, datos_enc_ventas)
-    bdsql.commit()
+    bd.commit()
 
     return redirect('/cambiarcontrasena')
 
@@ -2322,9 +2189,9 @@ def cambiarcontrasena_enc_compras_bd():
     codigo_enc_compras=request.form['codigo_enc_compras']
     nombre_enc_compras=request.form['nombre_enc_compras']
 
-    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`) VALUES (NULL, %s, %s)")
+    sql_enc_compras= ("INSERT INTO `encargados_com` (`id_encargadoC`,`codigo_encargadoC`,`nombre_encargadoC`,`id_usuario`) VALUES (NULL, %s, %s, %s)")
 
-    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras)
+    datos_enc_compras=(codigo_enc_compras, nombre_enc_compras, session['id_usuario'])
 
     bd=mysql.connect()
     bdsql=bd.cursor()
@@ -2336,18 +2203,16 @@ def cambiarcontrasena_enc_compras_bd():
 @app.route('/cambiarcontrasena/eliminar_cuenta/bd', methods=['post'])
 def cambiarcontrasena_eliminar_cuenta_bd():
 
-    id=request.form['id_registro_usuario']
-
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     eliminar_cuenta=bdsql.fetchall()
     bd.commit()
     print(eliminar_cuenta)
 
     bd=mysql.connect()
     bdsql=bd.cursor()
-    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(id))
+    bdsql.execute("DELETE FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
     bd.commit()
 
     return redirect('/')

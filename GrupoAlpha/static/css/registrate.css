@@ -125,7 +125,7 @@ input:is(:focus-visible, :valid) {
 .moscontra {
     font-size: 15px;
     position: relative;
-    left: 332px;
+    left: 350px;
     bottom: 28px;
     cursor: pointer;
 }
@@ -142,7 +142,7 @@ input:is(:focus-visible, :valid) {
     cursor: pointer;
     font-size: 16px;
     font-weight: 700;
-    margin: 0 10px;
+    margin: 20px 20px;
     padding: 8px;
     text-transform: uppercase;
     width: 120px;
@@ -171,7 +171,7 @@ input:is(:focus-visible, :valid) {
 @media screen and (max-width: 1024px) {
     h1 {
         font-size: 20px;
-        padding: 15px;
+        padding: 10px;
     }
 
     input {
@@ -197,12 +197,10 @@ input:is(:focus-visible, :valid) {
 
     .moscontra {
         font-size: 14px;
-        left: 332px;
     }
 
     .boton {
         font-size: 15px;
-        margin: 0 10px;
         height: 38px;
         width: 110px;
     }
@@ -211,4 +209,10 @@ input:is(:focus-visible, :valid) {
         width: 110px;
     }
 
+}
+
+@media screen and (max-width: 525px) {
+    header {
+        padding: 30px 0;
+    }
 }
