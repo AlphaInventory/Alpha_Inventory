@@ -1,0 +1,757 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #EAEBEF;
+    background-position: center;
+    background-size: cover;
+    color: #000;
+    min-height: 100vh;
+}
+   
+header, .barra-lateral {
+    z-index: 1;
+}
+
+.inicio {
+    text-decoration: none;
+}
+   
+.logo {
+    height: 70px;
+    margin-top: 10px;
+    width: 230px;
+}
+   
+.barra-lateral {
+    background: #FFF;
+    backdrop-filter: blur(15px);
+    border-radius: 0 13px 13px 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    transition: 0.6s ease;
+    transition-property: left;
+    overflow-y: auto;
+    width: 240px;
+}
+
+.barra-lateral::-webkit-scrollbar {
+     width: 0px;
+}
+   
+.barra-lateral.active {
+    left: 0;
+}
+   
+header h1 {
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    top: -15px;
+    right: 2%;
+}
+   
+.icon {
+    height: 35px;
+    width: 35px;
+}
+   
+.barra-lateral .menu {
+    margin-top: 5px;
+    width: 250px;
+}
+   
+.barra-lateral .menu .elemento {
+    cursor: pointer;
+    left: -10px;
+    position: relative;
+}
+   
+.barra-lateral .menu .elemento a {
+    align-content: center;
+    color: #000;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 10px;
+    text-decoration: none;
+ }
+   
+.barra-lateral .menu .elemento a span {
+    bottom: 24px;
+    position: relative;
+}
+   
+.barra-lateral .menu .elemento a i {
+    margin-right: 15px;
+    position: relative;
+    top: 4px;
+}
+   
+.barra-lateral .menu .elemento .sub-menu .sub-elemento:hover {
+    background: #ADD8E6;
+}
+   
+.activado {
+    background-color: #009BEF;
+}
+   
+.barra-lateral .menu .elemento a .dropdown {
+    margin: 24.5px 16px 0 0;
+    position: absolute;
+    transition: 0.3s ease;
+    right: 0;
+}
+
+.barra-lateral .menu .elemento a img {
+    margin: 15px;
+}
+   
+.barra-lateral .menu .elemento .sub-menu {
+    display: none;
+}
+   
+.barra-lateral .menu .elemento .sub-menu a {
+    border-left: 2px solid #303440;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 30px;
+    padding: 15px;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.menu-boton, .cerrar-boton {
+    display: none;
+}
+
+aside {
+    bottom: 0;
+    left: 20%;
+    position: fixed;
+    text-transform: uppercase;
+    top: 5%;
+    right: 0;
+}
+
+aside h1 {
+    background-color: #009BEF;
+    color: #000;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 97%
+}
+
+.contenedor_formulario {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1100px;
+    padding-top: 40px;
+    overflow: hidden;
+}
+
+.informacion_empresa {
+    grid-column: 1/7;
+}
+
+.grid__ {
+    grid-column: 7/12;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.imagen_empresa {
+    height: 320px;
+    margin-top: 5px;
+    margin-left: 50px;
+    width: 320px;
+}
+
+.campo {
+    position: relative;
+    margin-top: 30px;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #303030;
+    display: flex;
+    height: 36px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    outline: 2px solid #009BEF;
+    width: 350px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(30px, 6px);
+    transform-origin: left;
+    transition: transform 0.25s;
+}
+
+input:focus-visible~label,
+input:valid~label {
+    color: #000;
+    font-size: 20px;
+    transform: translate(0, -20px) scale(0.8);
+    margin-top: -10px;
+}
+
+
+input:is(:focus-visible, :valid) {
+    outline-color: #000;
+}
+
+.icono_label {
+    position: relative;
+    top: -28px;
+    left: 5px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.fa-location-dot {
+    color: #cb0010;
+}
+
+.fa-phone {
+    color: #3ade56;
+}
+
+.fa-envelope {
+    color: #ea4335;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-right: 55px;
+}
+
+.botones a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.botones a img {
+    height: 20px;
+    width: 20px;
+}
+
+.boton {
+    background-color: #009BEF;
+    color: #000;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    height: 38px;
+    font-weight: 700;
+    grid-column: 6/11;
+    margin-top: 40px;
+    text-transform: uppercase;
+    width: 140px;
+}
+
+
+@media screen and (max-width: 1224px) {
+    .logo {
+        height: 60px;
+        width: 200px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .barra-lateral {
+        width: 210px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 12px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 11px;
+    }
+
+    .elemento a i {
+        left: 71%;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        left: 80%;
+        width: 10px;
+    }
+
+    aside {
+        bottom: 0;
+        left: 22%;
+        position: fixed;
+        text-transform: uppercase;
+        top: 5%;
+        right: 0;
+    }
+
+    aside h1 {
+        font-size: 26px;
+        padding: 7px;
+        width: 94%;
+    }
+    
+    .contenedor_formulario {
+        max-width: 1100px;
+        padding-top: 40px;
+    }
+
+    .grid__ {
+        margin-top: 40px;
+        margin-right: 30px;
+    }
+    
+    .atras a img {
+        top: 15%;
+        margin-left: 320px;
+        height: 50px;
+        width: 50px;
+    }
+    
+    .imagen_empresa {
+        height: 300px;
+        margin-top: 5px;
+        margin-left: 50px;
+        width: 300px;
+    }
+    
+    input {
+        width: 300px;
+    }
+    
+    .botones {
+        display: block;
+        position: relative;
+        left: 18%;
+    }
+    
+    .boton {
+        font-size: 15px;
+        margin-top: 50px;
+        width: 210px;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    aside h1 {
+        font-size: 24px;
+        width: 96%; 
+    }
+    
+    .atras a img {
+        top: 15%;
+        margin-left: 299px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .logo {
+        width: 200px;
+        height: 60px;
+    }
+    
+    header h1 {
+        font-size: 28px;
+    }
+
+    .barra-lateral {
+        width: 210px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 12px;
+    }
+
+    .elemento a i {
+        left: 71%;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 11px;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        width: 10px;
+    }
+
+    aside h1 {
+        margin-left: 10px;
+        width: 95%; 
+    }
+
+    .grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        padding-top: 0px;
+        padding-right: 105px;
+    }
+
+    .contenedor_formulario {
+        margin-left: 42px;
+        padding-top: 0px;
+    }
+
+    .atras a img {
+        top: 16%;
+        margin-left: 520px;
+        height: 45px;
+        width: 45px;
+    }
+
+    .imagen_empresa {
+        height: 220px;
+        margin-top: 10px;
+        margin-left: 40px;
+        width: 220px;
+    }
+
+   .campo {
+        margin-top: 10px;
+        margin-left: 77px;
+    }
+
+    input {
+        height: 30px;
+        font-size: 13px;
+        width: 300px;
+    }
+
+    label {
+        font-size: 13px;
+        transform: translate(30px, 6px);
+    }
+
+    input:focus-visible~label,
+    input:valid~label {
+        font-size: 16px;
+        transform: translate(0, -12px) scale(0.8);
+    }
+
+    .icono_label {
+        top: -27px;
+        left: 5px;
+        font-size: 15px;
+    } 
+
+    .botones {
+        left: 35%;
+    }
+
+    .boton {
+        font-size: 14px;
+        margin-top: 0px;
+        height: 34px;
+        width: 205px;
+    }
+
+    .boton:hover {
+        width: 205px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    aside {
+        left: 24%;
+        position: fixed;
+    }
+
+    aside h1 {
+        font-size: 22px;
+        padding: 8px;
+        margin-left: 20px;
+        width: 94%;
+    }
+
+    .contenedor_formulario {
+        margin-left: 62px;
+    }
+
+    .atras a img {
+        margin-left: 470px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        left: -205px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        left: 75%;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    aside {
+        left: -3%;
+        position: fixed;
+    }
+
+    aside h1 {
+        font-size: 20px;
+        padding: 9px;
+        width: 100%;
+    }
+
+    .grid {
+        margin-left: 40px;
+    }
+
+    .grid__ {
+        margin-top: 20px;
+    }
+
+    .atras a img {
+        top: 17%;
+        margin-left: 530px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .imagen_empresa {
+        height: 240px;
+        margin-top: 10px;
+        margin-left: 100px;
+        width: 240px;
+    }
+
+    .campo {
+        margin-left: 137px;
+    }
+
+    .botones {
+        left: 43%;
+    }
+
+    .boton {
+        font-size: 14px;
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .atras a img {
+        margin-left: 530px;
+        height: 43px;
+        width: 43px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .atras a img {
+        top: 18%;
+        margin-left: 490px;
+        height: 41px;
+        width: 41px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -205px;
+        overflow-y: auto;
+        transition: 0.6s ease;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .barra-lateral .elemento a i {
+        position: relative;
+        left: 65%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    aside {
+        left: -4%;
+        position: fixed;
+        width: 100%;
+    }
+
+    .grid {
+        margin-left: 90px;
+    }
+
+    .atras a img {
+        margin-left: 400px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .imagen_empresa {
+        height: 200px;
+        margin-top: 20px;
+        margin-left: 60px;
+        width: 200px;
+    }
+
+    .campo {
+        margin-left: 110px;
+        margin-top: 16px;
+    }
+
+    input {
+        width: 260px;
+    }
+
+    .botones {
+        left: 39%;
+        margin-top: 10px;
+    }
+}

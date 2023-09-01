@@ -1,0 +1,138 @@
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.452);
+    backdrop-filter: blur(3px);
+}
+
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
+.contenido-modal {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    width: 45%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+
+@keyframes modal {
+    from {
+        top: -330px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #000;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: #7f8c8d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 8px 16px;
+    background-color: #009BEF;
+    position: sticky;
+    top: 0;
+}
+
+.modal-body {
+    padding: 20px 16px;
+}
+
+.cabecera_main {
+    width: 100%;
+}
+
+h2 {
+    color: #000;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.input_modal {
+    border-radius: 5px;
+    border: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    height: 24px;
+    outline: 2px solid #009BEF;
+    width: 190px;
+}
+
+.contentedor_tabla_modal {
+    height: 70%;
+    overflow-y: scroll;
+}
+
+.tabla {
+    background-color: #fff;
+    border-collapse: collapse;
+    height: auto;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.tabla .activo:hover {
+    background-color: #f2f2f2;
+}
+
+.tabla thead {
+    position: sticky;
+    top: 11.8%;
+}
+
+.tabla th {
+    background-color: #009BEF;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    padding: 7px;
+    text-align: center;
+}
+
+.tabla td {
+    border-right: 1px solid;
+    padding: 7px;
+    text-align: center;
+}
+
+.eliminar {
+    height: 20px;
+    text-decoration: none;
+    width: 20px;
+}

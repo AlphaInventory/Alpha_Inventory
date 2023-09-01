@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es-Do">
+<head>
+	<!-- Reestructurar pagina completa -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO | M&Eacute;TODO DE PAGO</title>
+	<link rel="icon" href="{{ url_for('static', filename='icons/metodo_pago.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/metododepago.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body>
+	<script>
+		function vaciar(control) {
+            control.placeholder = ''
+        }
+	</script>
+    <header>
+        <h1 class="titulo">M&eacute;todo de Pago</h1>
+    </header>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for mensaje in messages %}
+			<button class="mensaje">{{ mensaje }}</button>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+    <main>
+        <div class="contenedor">
+			<section class="tarjeta" id="tarjeta">
+				<div class="delantera">
+					<div class="logo-marca" id="logo-marca">
+					</div>
+					<img src="{{ url_for('static', filename='icons/chip-tarjeta.png') }}" class="chip" alt="">
+					<div class="datos">
+						<div class="grupo" id="numero">
+							<p class="label">Número Tarjeta</p>
+							<p class="numero">#### #### #### ####</p>
+						</div>
+						<div class="flexbox">
+							<div class="grupo" id="nombre">
+								<p class="label">Nombre Tarjeta</p>
+								<p class="nombre">ej: Juan Rodriguez</p>
+							</div>
+							<div class="grupo" id="expiracion">
+								<p class="label">Expiraci&oacute;n</p>
+								<p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="trasera">
+					<div class="barra-magnetica"></div>
+					<div class="datos">
+						<div class="grupo" id="firma">
+							<p class="label">Firma</p>
+							<div class="firma"><p></p></div>
+						</div>
+						<div class="grupo" id="ccv">
+							<p class="label">CCV</p>
+							<p class="ccv"></p>
+						</div>
+					</div>
+					<p class="leyenda">Authorized signature / Firma autorizada. Not valid unless signed / No es valida sin firma.</p>
+					<a href="#" class="link-banco"></a>
+				</div>
+			</section>
+			<div class="contenedor-btn">
+				<button class="btn-abrir-formulario" id="btn-abrir-formulario">
+					<i class="fas fa-plus"></i>
+				</button>
+			</div>
+			<form action="/metododepago/bd" method="post" id="formulario-tarjeta" class="formulario-tarjeta" enctype="multipart/form-data">
+                	<input type="hidden" value="{{ registro_usuario[0] }}" name="id_usuario" id="id_usuario">
+				<div class="grupo">
+					<input type="text" id="inputNumero" name="inputNumero" maxlength="19" autocomplete="off" placeholder="N&uacute;mero Tarjeta" required>
+				</div>
+				<div class="grupo">
+					<input type="text" id="inputNombre" name="inputNombre" maxlength="19" autocomplete="off" placeholder="Nombre Tarjeta" required>
+				</div>
+				<div class="grupo">
+					<input type="text" id="correo" name="email" maxlength="19" autocomplete="off" placeholder="Correo Electr&oacute;nico" required>
+				</div>
+				<div class="flexbox">
+					<div class="grupo expira">
+						<div class="flexbox">
+							<div class="grupo-select">
+								<select name="selectMes" id="selectMes" required>
+									<option disabled selected>Mes</option>
+								</select>
+								<i class="fas fa-angle-down"></i>
+							</div>
+							<div class="grupo-select">
+								<select name="selectYear" id="selectYear" required>
+									<option disabled selected>Año</option>
+								</select>
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</div>
+					</div>
+					<div class="grupo ccv">
+						<input type="text" id="inputCCV" name="inputCCV" maxlength="3" placeholder="CVV" onfocus="vaciar(this)" required>
+					</div>
+				</div>
+				<div class="botones">
+					<a href="/metododepago">
+						<button type="button" class="btn-enviar">Atr&aacute;s</button>
+					</a>
+					<button type="submit" class="btn-enviar">Enviar</button>
+				</div>
+			</form>
+		</div>
+    </main>
+	<script src="{{ url_for('static', filename='JS/metodoPago.js') }}"></script>
+    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+</body>
+</html>

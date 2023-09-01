@@ -1,0 +1,601 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #EAEBEF;
+    background-position: center;
+    background-size: cover;
+    color: #000;
+    min-height: 100vh;
+}
+
+header,
+.barra-lateral {
+    z-index: 1;
+}
+
+.inicio {
+    text-decoration: none;
+}
+
+.logo {
+    height: 70px;
+    margin-top: 10px;
+    width: 230px;
+}
+
+.barra-lateral {
+    background: #FFF;
+    backdrop-filter: blur(15px);
+    border-radius: 0 13px 13px 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    transition: 0.6s ease;
+    transition-property: left;
+    overflow-y: auto;
+    width: 240px;
+}
+
+.barra-lateral::-webkit-scrollbar {
+    width: 0px;
+}
+
+.barra-lateral.active {
+    left: 0;
+}
+
+header h1 {
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    top: -15px;
+    right: 2%;
+}
+
+.icon {
+    height: 35px;
+    width: 35px;
+}
+
+.barra-lateral .menu {
+    margin-top: 5px;
+    width: 250px;
+}
+
+.barra-lateral .menu .elemento {
+    cursor: pointer;
+    left: -10px;
+    position: relative;
+}
+
+.barra-lateral .menu .elemento a {
+    align-content: center;
+    color: #000;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 10px;
+    text-decoration: none;
+}
+
+.barra-lateral .menu .elemento a span {
+    bottom: 24px;
+    position: relative;
+}
+
+.barra-lateral .menu .elemento a i {
+    margin-right: 15px;
+    position: relative;
+    top: 4px;
+}
+
+.barra-lateral .menu .elemento .sub-menu .sub-elemento:hover {
+    background: #ADD8E6;
+}
+
+.activado {
+    background-color: #009BEF;
+}
+
+.barra-lateral .menu .elemento a .dropdown {
+    margin: 24.5px 12px 0 0;
+    position: absolute;
+    transition: 0.3s ease;
+    right: 0;
+}
+
+.barra-lateral .menu .elemento a img {
+    margin: 15px;
+}
+
+.barra-lateral .menu .elemento .sub-menu {
+    display: none;
+}
+
+.barra-lateral .menu .elemento .sub-menu a {
+    border-left: 2px solid #303440;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 30px;
+    padding: 15px;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.menu-boton,
+.cerrar-boton {
+    display: none;
+}
+
+aside {
+    bottom: 0;
+    left: 20%;
+    position: absolute;
+    text-transform: uppercase;
+    top: 5%;
+    right: 0;
+}
+
+aside h1 {
+    background-color: #009BEF;
+    color: #000;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 97%;
+}
+
+.formulario {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 25px;
+    position: relative;
+    top: 20px;
+}
+
+.formulario label {
+    font-weight: 800;
+}
+
+.contenedor_formulario {
+    margin-left: 10px;
+}
+
+.icono {
+    position: relative;
+    right: 6px;
+    top: 4px;
+    margin-left: 7px;
+    width: 20px;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+}
+
+.contentedor_tabla {
+    height: 71%;
+    overflow-y: scroll;
+}
+
+.contentedor_tabla::-webkit-scrollbar {
+    display: none;
+}
+
+table {
+    background-color: #ADD8E6;
+    border-collapse: collapse;
+    height: auto;
+    margin-top: 20px;
+    width: 97%;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table .activo:hover {
+    background-color: #009BEF;
+}
+
+table th {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    padding: 7px;
+    text-align: center;
+    background-color: #009BEF;
+}
+
+table td {
+    border-right: 1px solid;
+    cursor: pointer;
+    padding: 7px;
+    text-align: center;
+}
+
+.boton {
+    background-color: #2CF30B;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-left: 42.5%;
+    padding: 7px 30px;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 1224px) {
+    .logo {
+        height: 60px;
+        width: 200px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .barra-lateral {
+        width: 210px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 12px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 11px;
+    }
+
+    .elemento a i {
+        left: 71%;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        left: 80%;
+        width: 10px;
+    }
+
+    aside {
+        bottom: 0;
+        left: 22%;
+        position: fixed;
+        text-transform: uppercase;
+        top: 5%;
+        right: 0;
+    }
+
+    aside h1 {
+        font-size: 26px;
+        padding: 7px;
+        width: 94%;
+    }
+
+    .formulario {
+        position: relative;
+        left: 14px;
+        font-size: 17px;
+    }
+
+    .formulario label {
+        font-size: 17px;
+        font-weight: 800;
+    }
+
+    .formulario input {
+        height: 22px;
+        width: 130px;
+    }
+
+    .contenedor_formulario {
+        margin-left: 10px;
+    }
+
+    table {
+        margin-top: 20px;
+        width: 94%;
+    }
+
+    table th {
+        font-size: 14px;
+    }
+
+
+    table td {
+        font-size: 14px;
+    }
+
+    .boton {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    aside h1 {
+        font-size: 24px;
+        width: 96%; 
+    }
+
+    table {
+        width: 96%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    aside h1 {
+        margin-left: 10px;
+        width: 95%; 
+    }
+
+    table {
+        margin-left: 10px;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    aside {
+        left: 24%;
+        position: fixed;
+    }
+
+    aside h1 {
+        font-size: 22px;
+        padding: 8px;
+        margin-left: 20px;
+        width: 94%;
+    }
+
+    .formulario {
+        position: relative;
+        left: 14px;
+    }
+
+    .formulario_arriba {
+        position: relative;
+        left: 1.8%;
+        font-size: 14px;
+    }
+
+    .formulario label {
+        font-size: 15px;
+    }
+
+    .formulario input {
+        height: 18px;
+        width: 120px;
+    }
+
+    table {
+        margin-left: 20px;
+        width: 94%;
+    }
+
+    table th {
+        font-size: 12px;
+    }
+
+    table td {
+        font-size: 12px;
+    }
+
+    .boton {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    .logo {
+        height: 50px;
+        width: 180px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        left: -205px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        left: 75%;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    aside {
+        left: -3%;
+        position: fixed;
+    }
+
+    aside h1 {
+        font-size: 20px;
+        padding: 9px;
+        width: 100%;
+    }
+
+    .formulario {
+        position: relative;
+        left: 6%;
+    }
+
+    .formulario label {
+        font-size: 14px;
+    }
+
+    .formulario input {
+        height: 20px;
+        width: 116px;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    table {
+        margin-left: 36px;
+        width: 94%;
+    }
+
+    table th {
+        font-size: 13px;
+    }
+
+    table td {
+        font-size: 13px;
+    }
+
+    .boton {
+        font-size: 15px;
+        margin-left: 43%;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    .formulario label {
+        font-size: 13px;
+    }
+
+    .formulario input {
+        height: 18px;
+        width: 110px;
+    }
+
+    table {
+        margin-left: 34px;
+    }
+
+    table th {
+        font-size: 13px;
+    }
+
+    table td {
+        font-size: 13px;
+    }
+
+    .boton {
+        font-size: 13px;
+        margin-left: 44%;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .formulario label {
+        font-size: 13px;
+    }
+
+    .formulario input {
+        height: 16px;
+        width: 100px;
+    }
+
+    table {
+        margin-left: 29px;
+    }
+
+    table th {
+        font-size: 13px;
+    }
+
+    table td {
+        font-size: 12px;
+    }
+
+    .boton {
+        font-size: 13px;
+        margin-left: 43%;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .barra-lateral .elemento a i {
+        position: relative;
+        left: 65%;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    aside {
+        left: -4%;
+        position: fixed;
+    }
+
+    .formulario label {
+        font-size: 12px;
+    }
+
+    .formulario input {
+        height: 16px;
+        width: 100px;
+    }
+
+    .icono {
+        width: 14px;
+        height: 14px;
+    }
+
+    aside .contentedor_tabla .tabla {
+        width: 90%;
+    }
+
+    table {
+        margin-left: 27px;
+    }
+
+    table th {
+        font-size: 11px;
+    }
+
+    table td {
+        font-size: 11px;
+    }
+
+    .boton {
+        font-size: 11px;
+        margin-left: 42%;
+    }
+}

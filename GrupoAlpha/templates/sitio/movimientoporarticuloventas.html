@@ -1,0 +1,276 @@
+<html lang="es-Do">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MOVIMIENTOS | ART&Iacute;CULOS - VENTAS</title>
+    <link rel="icon" href="{{ url_for('static', filename='icons/movimiento_articulos.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/movimientos.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <script>
+        function confirmacion() {
+            alert("Esta funcion no esta implementada por el momento.");
+        }
+    </script>
+    <div class="menu-boton">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="barra-lateral">
+        <header>
+            <div class="cerrar-boton">
+                <i class="fas fa-times"></i>
+            </div>
+            <a href="/inicio_inventario" class="inicio">
+                <img src="{{ url_for('static', filename='icons/logo.png') }}" class="logo">
+                <h1>Inventory</h1>
+            </a>
+            <div class="menu">
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="registros">
+                        <img class="icon" src="{{ url_for('static', filename='icons/registros.png') }}"><span>REGISTROS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/registrodearticulos" class="sub-elemento">ART&Iacute;CULOS</a>
+                        <a href="/registrodeclientes" class="sub-elemento">CLIENTES</a>
+                        <a href="/registrodesuplidores" class="sub-elemento">SUPLIDORES</a>
+                        <a href="#" class="sub-elemento" id="abrirM">MARCAS</a>
+                        <a href="#" class="sub-elemento" id="abrirENV">ENCARGADO DE VENTAS</a>
+                        <a href="#" class="sub-elemento" id="abrirENC">ENCARGADO DE COMPRAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="procesos">
+                        <img class="icon" src="{{ url_for('static', filename='icons/procesos.png') }}"><span>PROCESOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/compras" class="sub-elemento">COMPRAS</a>
+                        <a href="/ventas" class="sub-elemento">VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="movimientos">
+                        <img class="icon" src="{{ url_for('static', filename='icons/movimientos.png') }}"><span>MOVIMIENTOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/movimientosdiariocompras" class="sub-elemento">DIARIOS / COMPRAS</a>
+                        <a href="/movimientosdiarioventas" class="sub-elemento">DIARIOS / VENTAS</a>
+                        <a href="/movimientoporarticulocompras" class="sub-elemento">ART&Iacute;CULO / COMPRAS</a>
+                        <a href="/movimientoporarticuloventas" class="sub-elemento">ART&Iacute;CULO / VENTAS</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="listados">
+                        <img class="icon" src="{{ url_for('static', filename='icons/listados.png') }}"><span>LISTADOS</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/listadodearticulos" class="sub-elemento">LISTADO DE ART&Iacute;CULOS</a>
+                        <a href="/listadodeprecios" class="sub-elemento">LISTADO DE PRECIOS</a>
+                        <a href="/listadodecompras" class="sub-elemento">LISTADO DE COMPRAS</a>
+                        <a href="/listadodeventas" class="sub-elemento">LISTADO DE VENTAS</a>
+                        <a href="/listadodeclientes" class="sub-elemento">LISTADO DE CLIENTES</a>
+                        <a href="/listadodesuplidores" class="sub-elemento">LISTADO DE SUPLIDORES</a>
+                    </div>
+                </div>
+                <div class="elemento ">
+                    <a href="/respaldos" class="toggle" id="respaldos">
+                        <img class="icon" src="{{ url_for('static', filename='icons/respaldos.png') }}"
+                            alt=""><span>RESPALDOS</span>
+                    </a>
+                </div>
+                <div class="elemento">
+                    <a class="sub-boton toggle" id="configuraciones">
+                        <img class="icon"
+                            src="{{ url_for('static', filename='icons/configuraciones.png') }}"><span>CONFIGURACIONES</span><i
+                            class="fas fa-angle-right dropdown"></i>
+                    </a>
+                    <div class="sub-menu">
+                        <a href="/perfil" class="sub-elemento">PERFIL</a>
+                        <a href="/cambiarcontrasena" class="sub-elemento">CAMBIAR CONTRASEÑA</a>
+                        <a href="#" class="sub-elemento" id="abrirEC">ELIMINAR CUENTA</a>
+                        <a href="/terminosycondiciones" class="sub-elemento">T&Eacute;RMINOS & CONDICIONES</a>
+                    </div>
+                </div>
+                <div class="elemento">
+                    <a href="/cerrar_sesion">
+                        <img class="icon" src="{{ url_for('static', filename='icons/cerrar-sesion.png') }}"><span>CERRAR
+                            SESI&Oacute;N</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <main>
+        <aside>
+            <h1>Movimientos Por Articulos | Ventas</h1>
+            <div class="formularios">
+                <form action="/movimientoporarticuloventas/filtrobd" method="post" enctype="multipart/form-data" class="formularios">
+                    <div class="contenedor_formulario">
+                        <label for="des-codigo">Desde El C&oacute;digo:</label>
+                        <input type="text" id="des-codigo" name="des-codigo" autocomplete="off">
+                    </div>
+                    <div class="contenedor_formulario">
+                        <label for="has-codigo">Hasta El C&oacute;digo:</label>
+                        <input type="text" id="has-codigo" name="has-codigo" autocomplete="off">
+                    </div>
+                    <button type="submit" class="filtro"><img src="{{ url_for('static', filename='icons/filtrar.png') }}" alt="buscar" class="icono"></button>
+                </form>
+                <form action="/movimientoporarticuloventas" method="post" enctype="multipart/form-data" class="formularios">
+                    <button type="submit" class="reiniciar"><img src="{{ url_for('static', filename='icons/reiniciar.png') }}" alt="Reiniciar" class="icono"></button>
+                </form>
+            </div>
+            <div class="contentedor_tabla">
+                <table>
+                    <thead>
+                        <th>Fecha</th>
+                        <th>C&oacute;digo</th>
+                        <th>Cliente</th>
+                        <th>Precio</th>
+                        <th>Salida</th>
+                    </thead>
+                    {% if mArticuloVentas_filtro %}
+                        {% for filtro in mArticuloVentas_filtro %}
+                        <tbody class="activo">
+                            <td>{{ filtro[3] }}</td>
+                            <td>{{ filtro[6] }}</td>
+                            <td>{{ filtro[5] }}</td>
+                            <td>{{ filtro[9] }}</td>
+                            <td>{{ filtro[7] }}</td>
+                        </tbody>
+                        {% endfor %}
+                    {% else %}
+                        {% for venta in ventas %}
+                        <tbody class="activo">
+                            <td>{{ venta[3] }}</td>
+                            <td>{{ venta[6] }}</td>
+                            <td>{{ venta[5] }}</td>
+                            <td>{{ venta[9] }}</td>
+                            <td>{{ venta[7] }}</td>
+                        </tbody>
+                        {% endfor %}
+                    {% endif %}
+                    <tfoot>
+                        <th colspan="8">Total De Movimientos = {{ ventas|length }}</th>
+                    </tfoot>
+                </table>
+            </div>
+            <button type="submit" class="boton" onclick="confirmacion()">
+                <a href="movimientoporarticulo.html" download="Movimiento_por_articulo">Imprimir</a>
+            </button>
+        </aside>
+        <div id="miModalM" class="modal">
+            <div class="flex" id="flexM">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>CREADOR DE MARCAS</h2>
+                        <span class="close" id="closeM">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/movimientoporarticuloventas/marcas/bd" method="post" enctype="multipart/form-data"
+                            class="formulario-">
+                            <div class="campo-">
+                                <input type="text" name="codigo_marca" id="codigo_marca" placeholder="Ingrese el C&oacute;digo">
+                            </div>
+                            <div class="campo-">
+                                <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
+                            </div>
+                            <div class="botones-">
+                                <button type="reset" class="boton-">Borrar</button>
+                                <button type="submit" class="boton-">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalENV" class="modal">
+            <div class="flex" id="flexENV">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>CREADOR DE ENCARGADO DE VENTAS</h2>
+                        <span class="close" id="closeENV">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/movimientoporarticuloventas/encVentas/bd" method="post" enctype="multipart/form-data"
+                            class="formulario-">
+                            <div class="campo-">
+                                <input type="text" name="codigo_enc_ventas" id="codigo_enc_ventas"
+                                    placeholder="Ingrese el C&oacute;digo">
+                            </div>
+                            <div class="campo-">
+                                <input type="text" name="nombre_enc_ventas" id="nombre_enc_ventas"
+                                    placeholder="Ingrese el Nombre">
+                            </div>
+                            <div class="botones-">
+                                <button type="reset" class="boton-">Borrar</button>
+                                <button type="submit" class="boton-">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalENC" class="modal">
+            <div class="flex" id="flexENC">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>CREADOR DE ENCARGADO DE COMPRAS</h2>
+                        <span class="close" id="closeENC">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/movimientoporarticuloventas/encCompras/bd" method="post" enctype="multipart/form-data"
+                            class="formulario-">
+                            <div class="campo-">
+                                <input type="text" name="codigo_enc_compras" id="codigo_enc_compras"
+                                    placeholder="Ingrese el C&oacute;digo">
+                            </div>
+                            <div class="campo-">
+                                <input type="text" name="nombre_enc_compras" id="nombre_enc_compras"
+                                    placeholder="Ingrese el Nombre">
+                            </div>
+                            <div class="botones-">
+                                <button type="reset" class="boton-">Borrar</button>
+                                <button type="submit" class="boton-">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="miModalEC" class="modal">
+            <div class="flex" id="flexEC">
+                <div class="contenido-modal">
+                    <div class="modal-header flex">
+                        <h2>ELIMINACI&oacute;N DE CUENTA</h2>
+                        <span class="close" id="closeEC">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/movimientoporarticuloventas/eliminar_cuenta/bd" method="post" enctype="multipart/form-data"
+                            class="formulario-">
+                            <div class="campo">
+                                <p>¿Seguro que desea eliminar su cuenta?</p>
+                            </div>
+                            <div class="botones-">
+                                <a href="/movimientoporarticuloventas"><button type="button" class="boton-">Atr&aacute;s</button></a>
+                                <a href="/movimientoporarticuloventas/eliminar_cuenta/bd"><button type="submit" id="id_registro_usuario"
+                                        name="id_registro_usuario" class="boton-">Eliminar</button></a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='JS/menuDesplegable.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
+    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+</body>
+</html>

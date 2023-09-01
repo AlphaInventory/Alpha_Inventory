@@ -1,0 +1,430 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #EAEBEF;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1100px;
+    height: 100%;
+    margin: auto;
+    gap: 10px;
+    overflow: hidden;
+    align-items: center
+}
+
+header {
+    background-color: #00000010;
+    backdrop-filter: blur(12px);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+}
+
+.logo {
+    align-items: center;
+    display: grid;
+    flex-flow: column;
+    justify-content: center;
+    grid-column: 1/6;
+    width: 100%;
+}
+
+.titulo {
+    font-family: 'Open Sans', italic;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+.logo_inicio {
+    height: 300%;
+    padding: 5px 0;
+    width: 450px;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    grid-column: 6/12;
+    padding-top: 30px;
+}
+
+.subtitulo {
+    background-color: #009BEF;
+    color: #000;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 600px;
+}
+
+.contenedor_formulario form {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.campo {
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+input {
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    height: 44px;
+    padding: 10px;
+    text-align: center;
+    outline: 2px solid #009BEF;
+    width: 380px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 5%;
+    transform: translate(34px, 9px);
+    transform-origin: left;
+    transition: transform 0.25s;
+}
+
+.centrar {
+    transform: translate(34px, 7px);
+}
+
+.icono_correo {
+    position: absolute;
+    bottom: 8px;
+    left: 5px;
+    font-size: 22px;
+    color: #ea4335;
+    cursor: pointer;
+}
+
+.icono_contrasena {
+    position: absolute;
+    left: 6px;
+    bottom: 36px;
+    font-size: 19px;
+    color: #e5be01;
+    cursor: pointer;
+}
+
+.moscontra {
+    position: relative;
+    bottom: 36px;
+    left: 348px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+input:focus-visible~label,
+input:valid~label {
+    color: #000;
+    font-size: 22px;
+    transform: translate(0, -30px) scale(0.8);
+    margin-top: -10px;
+}
+
+input:is(:focus-visible, :valid) {
+    outline-color: #000;
+}
+
+.olvcon {
+    padding: 2px 0 0 0;
+}
+
+.enlace_olvcon {
+    color: #009BEF;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-weight: 700;
+    position: relative;
+    text-decoration: none;
+    top: -45px;
+    right: 95px;
+}
+
+.enlace_olvcon:hover {
+    color: #0029FF;
+}
+
+.boton_inicio {
+    background-color: #009BEF;
+    color: #000;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: 42px;
+    width: 120px;
+}
+
+.boton_inicio:hover {
+    background-color: #0029FF;
+    color: #FFF;
+    width: 120px;
+    transition: all .4s ease-out;
+}
+
+.reg_usuario {
+    display: flex;
+    align-items: center;
+    padding: 20px 0 0 0;
+}
+
+.subtitulo- {
+    font-family: 'Open Sans', italic;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 2px;
+}
+
+.enlace_reg {
+    color: #009BEF;
+    font-family: 'Open Sans', italic;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 2.4px 5px;
+}
+
+.enlace_reg:hover{
+    color: #0029FF;
+}
+
+.enlaces_reg_iconos {
+    height: 100px;
+    width: 500px;
+    border-radius: 20px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    column-gap: 20px;
+    padding: 0 35px;
+    margin-left: 20px;
+}
+
+.enlaces_reg {
+    height: 50px;
+    width: 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all 1s ease;
+}
+
+.enlaces_reg i {
+    font-size: 24px;
+}
+
+.enlaces_reg:hover {
+    width: 240px;
+    justify-content: space-around;
+}
+
+.enlaces_reg:nth-child(1) {
+    border: 2px solid #ea4335;
+}
+
+.enlaces_reg:nth-child(2) {
+    border: 2px solid #1778F2;
+}
+
+.enlaces_reg:hover i {
+    font-size: 40px;
+}
+
+.enlaces_reg:hover i,
+.enlaces_reg:hover .texto_icono {
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+}
+
+.enlaces_reg .texto_icono {
+    width: 0;
+    overflow: hidden;
+}
+
+.enlaces_reg:hover .texto_icono {
+    width: max-content;
+    transition: all 1s ease-in-out;
+}
+
+.enlaces_reg i,
+.enlaces_reg .texto_icono {
+    z-index: 2;
+}
+
+.enlaces_reg .icono_background {
+    position: absolute;
+    height: 110%;
+    width: 110%;
+    border-radius: 10px;
+    clip-path: circle(50% at -100% 50%);
+    z-index: 1;
+}
+
+.enlaces_reg:hover .icono_background {
+    clip-path: circle(160% at 10% 60%);
+    transition: all 0.7s ease;
+}
+
+.enlaces_reg:nth-child(1) .icono_background {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+}
+
+.enlaces_reg:nth-child(2) .icono_background {
+    background-color: #1778F2;
+}
+
+.mensaje {
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px;
+    margin-top: 10px;
+    background-color: #dc3545;
+}
+
+@media screen and (max-width: 1024px) {
+    body,
+    header,
+    main {
+        align-items: center;
+        display: flex;
+        flex-flow: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    header,
+    .logo {
+        background: none;
+        padding-top: 0px;
+    }
+
+    .logo_inicio {
+        height: 80px;
+        width: 260px;
+    }
+
+    .titulo {
+        font-size: 35px
+    }
+
+    .subtitulo {
+        font-size: 25px;
+        padding: 8px;
+        width: 800px;
+    }
+
+    .campo {
+        margin-left: 30px;
+        margin-top: 20px;
+    }
+
+    input {
+        font-size: 14px;
+        height: 40px;
+        width: 350px;
+    }
+
+    label {
+        font-size: 15px;
+        transform: translate(36px, 8px);
+    }
+
+    .centrar {
+        transform: translate(34px, 8px);
+    }
+
+    .icono_correo {
+        bottom: 6px;
+        font-size: 20px;
+    }
+
+    .icono_contrasena {
+        bottom: 10px;
+        font-size: 17px;
+    }
+
+    .moscontra {
+        bottom: 0;
+        left: -30px;
+        font-size: 18px;
+    }
+
+    input:focus-visible~label,
+    input:valid~label {
+        font-size: 19px;
+        transform: translate(0, -20px) scale(0.8);
+    }
+
+    .enlace_olvcon {
+        font-size: 14px;
+        top: -25px;
+        right: 82px;
+    }
+
+    .subtitulo- {
+        font-size: 15px;
+    }
+
+    .enlace_reg {
+        font-size: 15px;
+    }
+
+    .enlaces_reg_iconos {
+        height: 80px;
+        width: 400px;
+        margin-left: 14px;
+    }
+
+    .enlaces_reg {
+        height: 50px;
+        width: 200px;
+    }
+
+    .enlaces_reg i {
+        font-size: 22px;
+    }
+
+    .enlaces_reg:hover {
+        width: 220px;
+    }
+
+    .enlaces_reg:hover i {
+        font-size: 35px;
+    }
+
+    .enlaces_reg:hover i,
+    .enlaces_reg:hover .texto_icono {
+        font-size: 14px;
+    }
+}

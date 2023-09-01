@@ -1,0 +1,646 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #EAEBEF;
+    background-position: center;
+    background-size: cover;
+    color: #000;
+    min-height: 100vh;
+}
+   
+header, .barra-lateral {
+    z-index: 1;
+}
+
+.inicio {
+    text-decoration: none;
+}
+   
+.logo {
+    height: 70px;
+    margin-top: 10px;
+    width: 230px;
+}
+   
+.barra-lateral {
+    background: #FFF;
+    backdrop-filter: blur(15px);
+    border-radius: 0 13px 13px 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    transition: 0.6s ease;
+    transition-property: left;
+    overflow-y: auto;
+    width: 240px;
+}
+
+.barra-lateral::-webkit-scrollbar {
+     width: 0px;
+}
+   
+.barra-lateral.active {
+    left: 0;
+}
+   
+header h1 {
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    top: -15px;
+    right: 2%;
+}
+   
+.icon {
+    height: 35px;
+    width: 35px;
+}
+   
+.barra-lateral .menu {
+    margin-top: 5px;
+    width: 250px;
+}
+   
+.barra-lateral .menu .elemento {
+    cursor: pointer;
+    left: -10px;
+    position: relative;
+}
+   
+.barra-lateral .menu .elemento a {
+    align-content: center;
+    color: #000;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 10px;
+    text-decoration: none;
+}
+   
+.barra-lateral .menu .elemento a span {
+    bottom: 24px;
+    position: relative;
+}
+   
+.barra-lateral .menu .elemento a i {
+    margin-right: 15px;
+    position: relative;
+    top: 4px;
+}
+   
+.barra-lateral .menu .elemento .sub-menu .sub-elemento:hover {
+    background: #ADD8E6;
+}
+   
+.activado {
+    background-color: #009BEF;
+}
+   
+.barra-lateral .menu .elemento a .dropdown {
+    margin: 24.5px 16px 0 0;
+    position: absolute;
+    transition: 0.3s ease;
+    right: 0;
+}
+
+.barra-lateral .menu .elemento a img {
+    margin: 15px;
+}
+   
+.barra-lateral .menu .elemento .sub-menu {
+    display: none;
+}
+   
+.barra-lateral .menu .elemento .sub-menu a {
+    border-left: 2px solid #303440;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 30px;
+    padding: 15px;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.menu-boton, .cerrar-boton {
+    display: none;
+}
+
+aside {
+    bottom: 0;
+    left: 20%;
+    position: fixed;
+    text-transform: uppercase;
+    top: 5%;
+    right: 0;
+}
+
+aside h1 {
+    background-color: #009BEF;
+    color: #000;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 97%
+}
+
+.contenedor_formulario {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1100px;
+    padding-top: 40px;
+    overflow: hidden;
+}
+
+.informacion_empresa {
+    grid-column: 1/7;
+}
+
+.grid__ {
+    grid-column: 7/12;
+    margin-top: 40px;
+}
+
+.editar a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.boton_editar {
+    background-color: #009BEF;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-left: 29%;
+    padding: 7px 30px;
+    text-transform: uppercase;
+}
+
+.editar a img {
+    height: 20px;
+    width: 20px;
+}
+
+.imagen_empresa {
+    height: 320px;
+    margin-top: 5px;
+    margin-left: 50px;
+    width: 320px;
+}
+
+.campo {
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.parrafos_bd {
+    border: none;
+    border-radius: 5px;
+    border-width: 1px;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 5px 0;
+    text-align: center;
+    outline: 2px solid #009BEF;
+}
+
+@media screen and (max-width: 1224px) {
+    .logo {
+        height: 60px;
+        width: 200px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .barra-lateral {
+        width: 210px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 12px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 11px;
+    }
+
+    .elemento a i {
+        left: 71%;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        left: 80%;
+        width: 10px;
+    }
+
+    aside {
+        bottom: 0;
+        left: 22%;
+        position: fixed;
+        text-transform: uppercase;
+        top: 5%;
+        right: 0;
+    }
+
+    aside h1 {
+        font-size: 26px;
+        padding: 7px;
+        width: 94%;
+    }
+
+    .contenedor_formulario {
+        max-width: 1100px;
+        padding-top: 40px;
+    }
+
+    .grid__ {
+        margin-top: 30px;
+        margin-right: 30px;
+    }
+
+    .imagen_empresa {
+        height: 300px;
+        margin-top: 5px;
+        margin-left: 50px;
+        width: 300px;
+    }
+
+    .parrafos_bd {
+        font-size: 16px;
+    }
+
+    .boton_editar {
+        margin-top: 30px;
+        margin-left: 25%;
+        font-size: 15px;
+        width: 185px;
+    }
+
+    .editar a img {
+        height: 17px;
+        width: 17px;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    aside h1 {
+        font-size: 24px;
+        width: 96%; 
+    }
+
+    .boton_editar {
+        margin-left: 24%;
+        font-size: 14px;
+        width: 180px;
+    }
+
+    .editar a img {
+        height: 16px;
+        width: 16px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .logo {
+        width: 200px;
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .barra-lateral {
+        width: 210px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 12px;
+    }
+
+    .elemento a i {
+        left: 71%;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 11px;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        width: 10px;
+    }
+
+    aside h1 {
+        margin-left: 10px;
+        width: 95%; 
+    }
+
+    .grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        padding-top: 10px;
+        padding-right: 105px;
+    }
+
+    .contenedor_formulario {
+        margin-left: 32px;
+        padding-top: 0px;
+    }
+
+    .imagen_empresa {
+        height: 240px;
+        margin-top: 15px;
+        margin-left: 40px;
+        width: 240px;
+    }
+
+    .campo {
+        padding-top: 0;
+        padding-left: 100px;
+    }
+
+    .parrafos_bd {
+        font-size: 17px;
+        width: 280px;
+    }
+
+    .boton_editar {
+        height: 34px;
+        margin-top: 10px;
+        margin-left: 40%;
+        font-size: 14px;
+        width: 175px;
+    }
+
+    .editar a img {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    aside {
+        left: 24%;
+        position: fixed;
+    }
+
+    aside h1 {
+        font-size: 22px;
+        padding: 8px;
+        margin-left: 20px;
+        width: 94%;
+    }
+
+    .contenedor_formulario {
+        margin-left: 62px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        left: -205px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .barra-lateral .menu .elemento a .dropdown {
+        left: 75%;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    aside {
+        left: -3%;
+        position: fixed;
+    }
+
+    aside h1 {
+        font-size: 20px;
+        padding: 9px;
+        width: 100%;
+    }
+
+    .grid {
+        margin-left: 40px;
+    }
+
+    .imagen_empresa {
+        height: 260px;
+        margin-top: 20px;
+        margin-left: 100px;
+        width: 260px;
+    }
+
+    .campo {
+        padding-left: 160px;
+    }
+
+    .parrafos_bd {
+        font-size: 18px;
+        width: 340px;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .editar a img {
+        margin-left: 590px;
+        height: 43px;
+        width: 43px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .elemento a i {
+        left: 66%;
+    }
+
+    .editar a img {
+        top: 18%;
+        margin-left: 540px;
+        height: 41px;
+        width: 41px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .logo {
+        width: 180px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .barra-lateral {
+        width: 195px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -205px;
+        overflow-y: auto;
+        transition: 0.6s ease;
+    }
+
+    .barra-lateral .elemento span {
+        font-size: 11px;
+    }
+
+    .barra-lateral .elemento .sub-menu a {
+        font-size: 10px;
+    }
+
+    .barra-lateral .elemento a i {
+        position: relative;
+        left: 65%;
+    }
+
+    .cerrar-boton,
+    .menu-boton {
+        display: unset;
+    }
+
+    .menu-boton {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .cerrar-boton {
+        font-size: 25px;
+        margin-left: 160px;
+    }
+
+    aside {
+        left: -4%;
+        position: fixed;
+        width: 100%;
+    }
+
+    .grid {
+        margin-left: 90px;
+    }
+
+    .editar a img {
+        margin-left: 480px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .imagen_empresa {
+        height: 250px;
+        margin-top: 20px;
+        margin-left: 60px;
+        width: 250px;
+    }
+
+    .campo {
+        padding-left: 130px;
+    }
+
+    .parrafos_bd {
+        font-size: 17px;
+        width: 330px;
+    }
+}

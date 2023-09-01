@@ -1,0 +1,260 @@
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.452);
+    backdrop-filter: blur(3px);
+}
+
+.contenido-modal {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    width: 45%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+
+@keyframes modal {
+    from {
+        top: -330px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #000;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: #7f8c8d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 8px 16px;
+    background-color: #009BEF;
+}
+
+.modal-body {
+    padding: 20px 16px;
+}
+
+.cabecera_main {
+    width: 100%;
+}
+
+h2 {
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.formulario- {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    gap: 10px;
+}
+
+.campo- {
+    padding: 0 10px;
+}
+
+.campo- input {
+    border-radius: 5px;
+    border: transparent;
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    text-align: center;
+    outline: 2px solid #009BEF;
+    width: 320px;
+}
+
+input::placeholder {
+    padding: 2px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.botones- {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.boton- {
+    background-color: #2CF30B;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    height: 34px;
+    margin: 0 10px;
+    text-transform: uppercase;
+    width: 130px;
+}
+
+.icono_email {
+    font-size: 20px;
+    position: absolute;
+    left: 150px;
+    bottom: 99px;
+    color: #ea4335;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1224px) {
+    h2 {
+        font-size: 22px;
+    }
+
+    .icono_email {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    h2 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    h2 {
+        font-size: 18px;
+    }
+
+    .campo- input {
+        font-size: 14px;
+        height: 34px;
+        width: 300px;
+    }
+
+    .campo- input::placeholder {
+        font-size: 11px;
+    }
+
+    .boton- {
+        font-size: 14px;
+        height: 31px;
+        width: 110px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    h2 {
+        font-size: 15px;
+    }
+
+    .campo- input {
+        font-size: 13px;
+        height: 32px;
+        width: 280px;
+    }
+
+    .boton- {
+        font-size: 13px;
+        height: 30px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    h2 {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    h2 {
+        font-size: 12px;
+    }
+
+    .campo- input {
+        height: 30px;
+        width: 230px;
+    }
+
+    .boton- {
+        height: 28px;
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    h2 {
+        font-size: 10px;
+    }
+
+    .campo- input {
+        height: 28px;
+        width: 200px;
+    }
+
+    .campo- input::placeholder {
+        font-size: 8px;
+    }
+
+    .boton- {
+        height: 26px;
+        width: 86px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    h2 {
+        font-size: 8px;
+    }
+
+    .campo- input {
+        height: 26px;
+        width: 196px;
+    }
+
+    .boton- {
+        height: 24px;
+        width: 74px;
+    }
+}
