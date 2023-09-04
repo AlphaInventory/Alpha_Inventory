@@ -7,27 +7,28 @@
     <title>INICIO | RECUPERAR TU CONTRASEÑA</title>
     <link rel="icon" href="{{ url_for('static', filename='icons/recuperar_contrasena.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/recuperar_contrasena.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1 class="titulo">Recuperar Tu Contraseña</h1>
     </header>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for mensaje in messages %}
+                <div class="mensaje_inicio">{{ mensaje }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <main>
         <div class="indicaciones_cta">
             <p>-La contraseña debe contener 8 caracteres m&aacute;ximo.</p>
-            <p>-Debe incluir un signo especial y letras en may&uacute;scula y min&uacute;scula.</p>
+            <p>-Debe incluir un signo especial y una letra may&uacute;scula.</p>
             <p>-La contraseña no debe ser la misma que el usuario.</p>
         </div>
         <div class="contenedor_formulario">
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for mensaje in messages %}
-                        <button class="mensaje">{{ mensaje }}</button>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <form action="/recuperarcontrasena/bd" method="post" enctype="multipart/form-data">
+            <form action="/recuperarcontrasena/bd" method="post" enctype="multipart/form-data" class="formulario">
                 {% for contrasena in recuperar_contrasena %}
                 <input type="hidden" value="{{ contrasena[0] }}" name="id_registro" id="id_registro">
                 {% endfor %}

@@ -301,17 +301,6 @@ input:is(:focus-visible, :valid) {
     background-color: #1778F2;
 }
 
-.mensaje {
-    text-decoration: none;
-    color: #fff;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 4px;
-    margin-top: 10px;
-    background-color: #dc3545;
-}
-
 @media screen and (max-width: 1024px) {
     body,
     header,

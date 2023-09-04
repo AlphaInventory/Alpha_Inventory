@@ -85,6 +85,10 @@ def inicio_inventario():
 
     if not 'logueado' in session:
         return redirect('/')
+    
+    bdsql=mysql.connect().cursor()
+    bdsql.execute("SELECT nombre FROM `registro_usuario` WHERE id_usuario=%s",(session['id_usuario']))
+    usuario=bdsql.fetchone()
 
     bdsql=mysql.connect().cursor()
     bdsql.execute("SELECT * FROM `marcas` WHERE id_usuario=%s",(session['id_usuario']))
@@ -98,7 +102,7 @@ def inicio_inventario():
     bdsql.execute("SELECT * FROM `encargados_com` WHERE id_usuario=%s",(session['id_usuario']))
     encargado_compras=bdsql.fetchall()
     
-    return render_template('sitio/inicio_inventario.html', marcas=marcas, encargado_ventas=encargado_ventas,encargado_compras=encargado_compras)
+    return render_template('sitio/inicio_inventario.html', usuario=usuario, marcas=marcas, encargado_ventas=encargado_ventas,encargado_compras=encargado_compras)
 
 # INICIO INVENTARIO - CREADOR DE MARCAS 
 @app.route('/inicio_inventario/marcas/bd', methods=['post'])
@@ -2562,7 +2566,7 @@ def registro_usuario_bd():
         return redirect('/registro_usuario')
     if contrasena != contrasena_:
         flash("Las contraseñas no coinciden")
-        return redirect('/registro')
+        return redirect('/registro_usuario')
     if contrasena == contrasena_:
         session['contrasena_iguales'] = True
 
@@ -2587,11 +2591,17 @@ def olvidaste_contrasena_bd():
     bdsql=mysql.connect().cursor()
     bdsql.execute("SELECT correo_electronico FROM `registro_usuario` WHERE correo_electronico=%s",(recipients))
     olvidaste_contrasena=bdsql.fetchall()
+
+    bdsql=mysql.connect().cursor()
+    bdsql.execute("SELECT nombre FROM `registro_usuario` WHERE correo_electronico=%s",(recipients))
+    usuario=bdsql.fetchone()
+
+    usuarios = usuario[0]
     
     if olvidaste_contrasena:
         session['registrado'] = recipients
-        msg = Message('AlphaInventory.SRL', sender = 'grupoalpha.infotep@gmail.com', recipients=[recipients])
-        msg.html = "Hola,<br>¡Hubo una solicitud para cambiar su contraseña!<br>Si no realizó esta solicitud, ignore este correo electrónico.<br>De lo contrario, ingrese a este enlace para cambiar su contraseña: <a href='http://127.0.0.1:5000/recuperarcontrasena' target='blank'>Enlace</a>"
+        msg = Message('AlphaInventory', sender = 'grupoalpha.infotep@gmail.com', recipients=[recipients])
+        msg.html = "Hola {0},<br>¡Hubo una solicitud para cambiar su contraseña!<br>Si no realizó esta solicitud, ignore este correo electrónico.<br>De lo contrario, ingrese a este enlace para cambiar su contraseña: <a href='http://127.0.0.1:5000/recuperarcontrasena' target='blank'>Enlace</a>".format(usuarios)
         mail.send(msg)
 
         return redirect('/')

@@ -8,6 +8,7 @@
     <title>INICIO | M&Eacute;TODO DE PAGO</title>
 	<link rel="icon" href="{{ url_for('static', filename='icons/metodo_pago.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/metododepago.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,7 +23,7 @@
 	{% with messages = get_flashed_messages() %}
 		{% if messages %}
 			{% for mensaje in messages %}
-			<button class="mensaje">{{ mensaje }}</button>
+			<div class="mensaje_inicio">{{ mensaje }}</div>
 			{% endfor %}
 		{% endif %}
 	{% endwith %}
@@ -80,7 +81,7 @@
 					<input type="text" id="inputNombre" name="inputNombre" maxlength="19" autocomplete="off" placeholder="Nombre Tarjeta" required>
 				</div>
 				<div class="grupo">
-					<input type="text" id="correo" name="email" maxlength="19" autocomplete="off" placeholder="Correo Electr&oacute;nico" required>
+					<input type="text" id="correo" name="email" autocomplete="off" placeholder="Correo Electr&oacute;nico" required>
 				</div>
 				<div class="flexbox">
 					<div class="grupo expira">

@@ -8,6 +8,7 @@
     <link rel="icon" href="{{ url_for('static', filename='icons/iniciar_sesion.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -32,7 +33,7 @@
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for mensaje in messages %}
-                        <button class="mensaje">{{ mensaje }}</button>
+                        <div class="mensaje">{{ mensaje }}</div>
                     {% endfor %}
                 {% endif %}
             {% endwith %}
@@ -93,7 +94,7 @@
                             </div>
                             <div class="botones-">
                                 <a href="/"><button type="button" class="boton-">Atr&aacute;s</button></a>
-                                <button type="submit" id="button" class="boton-" value="Send Email">Enviar</button>
+                                <input type="submit" id="boton" class="boton-" value="Enviar">
                             </div>
                         </form>
                     </div>
@@ -104,5 +105,6 @@
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='JS/mostrarContrasena.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModalOC.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/enviar.js') }}"></script>
 </body>
 </html>

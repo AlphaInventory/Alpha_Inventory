@@ -7,7 +7,9 @@
     <title>REGISTROS | REGISTRO DE SUPLIDORES</title>
     <link rel="icon" href="{{ url_for('static', filename='icons/suplidores.png') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/registros.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
@@ -111,7 +113,7 @@
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for mensaje in messages %}
-                        <button class="mensaje">{{ mensaje }}</button>
+                        <div class="mensajer">{{ mensaje }}</div>
                     {% endfor %}
                 {% endif %}
             {% endwith %}

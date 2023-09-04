@@ -6,31 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INICIO | REGISTRATE</title>
     <link rel="icon" href="{{ url_for('static', filename='icons/registro_usuario.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/registrate.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registro_usuario.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1 class="titulo_reg">Registro De Usuario</h1>
     </header>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for mensaje in messages %}
+            <div class="mensaje_inicio">{{ mensaje }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <main>
         <div class="contenedor_formulario">
             <form action="/registro_usuario/bd" method="post" enctype="multipart/form-data"> 
                 <div class="contenedor_nomape">
-                    {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                            {% for mensaje in messages %}
-                            <button class="mensaje">{{ mensaje }}</button>
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
-                    {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                            {% for mensaje in messages %}
-                            <button class="mensaje">{{ mensaje }}</button>
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
                     <div class="campo">
                         <input type="text" id="nom" name="nom" class="nomape" autocomplete="off" required>
                         <span class="icono_label" title="Nombre"><i class="fa-solid fa-signature"></i></span>
