@@ -9,13 +9,20 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/perfileditar.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
     <script>
         function confirmacion() {
-            alert("Estas seguro de que quieres GUARDAR CAMBIOS");
+            var conf =  confirm("¿Estas seguro de que quieres editar su perfil?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
         }
     </script>
     <div class="menu-boton">
@@ -114,6 +121,13 @@
             <div class="cabecera_main">
                 <h1 class="titulo">Perfil</h1>
             </div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for mensaje in messages %}
+                        <div class="mensajep">{{ mensaje }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <form class="contenedor_formulario grid" action="/perfileditar/bd" method="post" enctype="multipart/form-data">
                 {% for perfil in perfil %}
                 <input type="hidden" value="{{ perfil[0] }}" name="id_registro" id="id_registro">
@@ -149,7 +163,7 @@
                                 <img src="{{ url_for('static', filename='icons/atras.png') }}" alt="Atras" class="imagen_atras">Atr&aacute;s
                             </button>
                         </a>
-                        <button type="submit" class="boton" onclick="confirmacion()">Guardar</button>
+                        <button type="submit" class="boton" onclick="return confirmacion()">Guardar</button>
                     </div>
                 </div>
             </form>
@@ -171,8 +185,8 @@
                                 <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionM()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -198,8 +212,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEV()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -225,8 +239,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEC()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -237,7 +251,7 @@
             <div class="flex" id="flexEC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ELIMINACI&oacute;N DE CUENTA</h2>
+                        <h2>ELIMINACI&Oacute;N DE CUENTA</h2>
                         <span class="close" id="closeEC">&times;</span>
                     </div>
                     <div class="modal-body">
@@ -260,6 +274,7 @@
     <script src="{{ url_for('static', filename='JS/menuDesplegable.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modalConfirmacion.js') }}"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>

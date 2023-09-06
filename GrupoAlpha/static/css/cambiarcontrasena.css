@@ -9,7 +9,7 @@ aside {
 
 aside h1 {
     background-color: #009BEF;
-    color: #000;
+    color: #fff;
     font-size: 26px;
     font-weight: bold;
     padding: 10px;
@@ -357,4 +357,8 @@ input:is(:focus-visible, :valid) {
         margin-left: 95px;
         width: 180px;
     }
+}
+
+@media screen and (max-width: 500px) {
+    
 }

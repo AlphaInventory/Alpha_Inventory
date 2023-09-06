@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/terminosycondiciones.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
@@ -109,6 +110,13 @@
             <div class="cabecera_main">
                 <h1 class="titulo">T&eacute;rminos & Condiciones</h1>
             </div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for mensaje in messages %}
+                        <div class="mensajep">{{ mensaje }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <div class="parrafos">
                 <p>Este sistema es propiedad y est&aacute; siendo operado por Alpha Inventory SRL. Estos t&eacute;rminos y condiciones describen como debes usar nuestro sistema y servicios ofrecidos por nuestra empresa. Nuestra empresa ofrece a los usuarios, el uso adecuado y la protecci&oacute;n de sus datos. Al acceder o usar este sistema, usted acepta que ha le&iacute;do y entendido que est&aacute; sujeto a estos t&eacute;rminos.</p>
                 <p>Cuando recibimos un reclamo de garant&iacute;a v&aacute;lido de nuestro sistema, donde el mismo tenga un mal funcionamiento o mal uso de los datos que se recopilan de los usuarios, reparamos el defecto relevante o le reembolsamos su dinero en un lazo de tiempo razonable.</p>
@@ -131,8 +139,8 @@
                                 <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionM()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -158,8 +166,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEV()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -185,8 +193,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEC()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -197,7 +205,7 @@
             <div class="flex" id="flexEC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ELIMINACI&oacute;N DE CUENTA</h2>
+                        <h2>ELIMINACI&Oacute;N DE CUENTA</h2>
                         <span class="close" id="closeEC">&times;</span>
                     </div>
                     <div class="modal-body">
@@ -220,6 +228,7 @@
     <script src="{{ url_for('static', filename='JS/menuDesplegable.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modalConfirmacion.js') }}"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>

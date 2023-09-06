@@ -9,7 +9,7 @@ aside {
 
 aside h1 {
     background-color: #009BEF;
-    color: #000;
+    color: #fff;
     font-size: 26px;
     font-weight: bold;
     padding: 10px;
@@ -294,4 +294,8 @@ table td {
         font-size: 9px;
         width: 55px;
     }
+}
+
+@media screen and (max-width: 500px) {
+    
 }

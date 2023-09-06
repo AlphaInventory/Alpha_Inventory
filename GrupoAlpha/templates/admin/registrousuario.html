@@ -11,6 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <script>
+        function confirmacion() {
+            var conf =  confirm("¿Estas seguro de que tu informacion es correcta?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
     <header>
         <h1 class="titulo_reg">Registro De Usuario</h1>
     </header>
@@ -69,7 +80,7 @@
                         <button type="button" class="boton">Atr&aacute;s</button>
                     </a>
                     <div>
-                        <button type="submit" class="boton">Siguiente</button>
+                        <button type="submit" class="boton" onclick="return confirmacion()">Siguiente</button>
                     </div>
                 </div>
             </form>

@@ -1,6 +1,6 @@
 aside {
     bottom: 10%;
-    left: 12%;
+    left: 17%;
     position: fixed;
     top: 5%;
     right: 0;
@@ -58,4 +58,8 @@ aside {
         left: 2%;
         position: fixed;
     }
+}
+
+@media screen and (max-width: 500px) {
+    
 }

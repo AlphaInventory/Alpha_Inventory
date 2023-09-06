@@ -17,7 +17,13 @@
 <body>
     <script>
         function confirmacion() {
-            alert("Estas seguro de que quieres GUARDAR");
+            var conf =  confirm("¿Estas seguro de que quieres realizar la compra?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
         }
     </script>
     <div class="menu-boton">
@@ -130,7 +136,7 @@
                 </div>
                 <div class="contenedor_formulario">
                     <label for="fact">N&uacute;mero De Factura:</label>
-                    <input type="text" id="fact" name="fact" autocomplete="off" required>
+                    <input type="number" id="fact" name="fact" autocomplete="off" required>
                 </div>
                 <div class="contenedor_formulario">
                     <label for="date">Fecha:</label>
@@ -154,7 +160,7 @@
                         <th>Costo</th>
                     </tr>
                     <tr class="activo">
-                        <td><input type="text" id="codigo" name="codigo" placeholder="0000000" class="nth" autocomplete="off" required></td>
+                        <td><input type="number" id="codigo" name="codigo" placeholder="0000000" class="nth" autocomplete="off" required></td>
                         <td>
                             <select name="itbis" id="itbis" autocomplete="off" required>
                                 <option selected>Sel. impuesto</option>
@@ -163,11 +169,11 @@
                                 <option>0</option>
                             </select>
                         </td>
-                        <td><input type="text" id="cantidad" name="cantidad" placeholder="000" class="nth" autocomplete="off" required></td>
-                        <td><input type="text" id="costo" name="costo" placeholder="00.00" class="nth" autocomplete="off" required></td>
+                        <td><input type="number" id="cantidad" name="cantidad" placeholder="000" class="nth" autocomplete="off" required></td>
+                        <td><input type="number" id="costo" name="costo" placeholder="00.00" class="nth" autocomplete="off" required></td>
                     </tr>
                     <tr class="activo">
-                        <td><input type="text" id="codigo_" name="codigo_" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="codigo_" name="codigo_" placeholder="0000000" class="nth" autocomplete="off"></td>
                         <td>
                             <select id="itbis_" name="itbis_"
                             autocomplete="off">
@@ -177,11 +183,11 @@
                                 <option>0</option>
                             </select>
                         </td>
-                        <td><input type="text" id="cantidad_" name="cantidad_" placeholder="000" class="nth" autocomplete="off"></td>
-                        <td><input type="text" id="costo_" name="costo_" placeholder="00.00" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad_" name="cantidad_" placeholder="000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="costo_" name="costo_" placeholder="00.00" class="nth" autocomplete="off"></td>
                     </tr>
                     <tr class="activo">
-                        <td><input type="text" id="codigo__" name="codigo__" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="codigo__" name="codigo__" placeholder="0000000" class="nth" autocomplete="off"></td>
                         <td>
                             <select name="itbis__" id="itbis__" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
@@ -190,11 +196,11 @@
                                 <option>0</option>
                             </select>
                         </td>
-                        <td><input type="text" id="cantidad__" name="cantidad__" placeholder="000" class="nth" autocomplete="off"></td>
-                        <td><input type="text" id="costo__" name="costo__" placeholder="00.00" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad__" name="cantidad__" placeholder="000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="costo__" name="costo__" placeholder="00.00" class="nth" autocomplete="off"></td>
                     </tr>
                     <tr class="activo">
-                        <td><input type="text" id="codigo___" name="codigo___" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="codigo___" name="codigo___" placeholder="0000000" class="nth" autocomplete="off"></td>
                         <td>
                             <select name="itbis___" id="itbis___" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
@@ -203,11 +209,11 @@
                                 <option>0</option>
                             </select>
                         </td>
-                        <td><input type="text" id="cantidad___" name="cantidad___" placeholder="000" class="nth" autocomplete="off"></td>
-                        <td><input type="text" id="costo___" name="costo___" placeholder="00.00" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad___" name="cantidad___" placeholder="000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="costo___" name="costo___" placeholder="00.00" class="nth" autocomplete="off"></td>
                     </tr>
                     <tr class="activo">
-                        <td><input type="text" id="codigo____" name="codigo____" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="codigo____" name="codigo____" placeholder="0000000" class="nth" autocomplete="off"></td>
                         <td>
                             <select name="itbis____" id="itbis____" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
@@ -216,11 +222,11 @@
                                 <option>0</option>
                             </select>
                         </td>
-                        <td><input type="text" id="cantidad____" name="cantidad____" placeholder="000" class="nth" autocomplete="off"></td>
-                        <td><input type="text" id="costo____" name="costo____" placeholder="00.00" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad____" name="cantidad____" placeholder="000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="costo____" name="costo____" placeholder="00.00" class="nth" autocomplete="off"></td>
                     </tr>
                     <tr class="activo">
-                        <td><input type="text" id="codigo_____" name="codigo_____" placeholder="0000000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="codigo_____" name="codigo_____" placeholder="0000000" class="nth" autocomplete="off"></td>
                         <td>
                             <select name="itbis_____" id="itbis_____" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
@@ -229,11 +235,11 @@
                                 <option>0</option>
                             </select>
                         </td>
-                        <td><input type="text" id="cantidad_____" name="cantidad_____" placeholder="000" class="nth" autocomplete="off"></td>
-                        <td><input type="text" id="costo_____" name="costo_____" placeholder="00.00" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="cantidad_____" name="cantidad_____" placeholder="000" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="costo_____" name="costo_____" placeholder="00.00" class="nth" autocomplete="off"></td>
                     </tr>
                     <tr class="activo">
-                        <td><input type="text" id="codigo______" name="codigo______" placeholder="0000000" class="nth" autocomplete="off">
+                        <td><input type="number" id="codigo______" name="codigo______" placeholder="0000000" class="nth" autocomplete="off">
                         </td>
                         <td>
                             <select name="itbis______" id="itbis______" autocomplete="off">
@@ -243,12 +249,12 @@
                                 <option>0</option>
                             </select>
                         </td>
-                        <td><input type="text" id="cantidad______" name="cantidad______" placeholder="000" class="nth" autocomplete="off">
+                        <td><input type="number" id="cantidad______" name="cantidad______" placeholder="000" class="nth" autocomplete="off">
                         </td>
-                        <td><input type="text" id="costo______" name="costo______" placeholder="00.00" class="nth" autocomplete="off"></td>
+                        <td><input type="number" id="costo______" name="costo______" placeholder="00.00" class="nth" autocomplete="off"></td>
                     </tr>
                 </table>
-                <button type="submit" class="boton Save" onclick="confirmacion()">GUARDAR</button>
+                <button type="submit" class="boton Save" onclick="return confirmacion()">GUARDAR</button>
             </form>
         </aside>
         <div id="miModalM" class="modal">
@@ -268,8 +274,8 @@
                                 <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionM()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -295,8 +301,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEV()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -322,8 +328,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEC()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -456,6 +462,7 @@
     <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModalMostrarCompras.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modalConfirmacion.js') }}"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html> 

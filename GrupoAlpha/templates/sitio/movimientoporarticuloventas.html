@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/movimientos.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
@@ -111,15 +112,22 @@
     <main>
         <aside>
             <h1>Movimientos Por Articulos | Ventas</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for mensaje in messages %}
+                        <div class="mensajep">{{ mensaje }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <div class="formularios">
                 <form action="/movimientoporarticuloventas/filtrobd" method="post" enctype="multipart/form-data" class="formularios">
                     <div class="contenedor_formulario">
                         <label for="des-codigo">Desde El C&oacute;digo:</label>
-                        <input type="text" id="des-codigo" name="des-codigo" autocomplete="off">
+                        <input type="number" id="des-codigo" name="des-codigo" autocomplete="off">
                     </div>
                     <div class="contenedor_formulario">
                         <label for="has-codigo">Hasta El C&oacute;digo:</label>
-                        <input type="text" id="has-codigo" name="has-codigo" autocomplete="off">
+                        <input type="number" id="has-codigo" name="has-codigo" autocomplete="off">
                     </div>
                     <button type="submit" class="filtro"><img src="{{ url_for('static', filename='icons/filtrar.png') }}" alt="buscar" class="icono"></button>
                 </form>
@@ -183,8 +191,8 @@
                                 <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionM()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -210,8 +218,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEV()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -237,8 +245,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEC()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -249,7 +257,7 @@
             <div class="flex" id="flexEC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ELIMINACI&oacute;N DE CUENTA</h2>
+                        <h2>ELIMINACI&Oacute;N DE CUENTA</h2>
                         <span class="close" id="closeEC">&times;</span>
                     </div>
                     <div class="modal-body">
@@ -272,6 +280,7 @@
     <script src="{{ url_for('static', filename='JS/menuDesplegable.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modalConfirmacion.js') }}"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>

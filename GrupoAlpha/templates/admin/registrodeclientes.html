@@ -14,6 +14,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
+    <script>
+        function confirmacion() {
+            var conf =  confirm("¿Estas seguro de que quieres guardar este cliente?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
     <div class="menu-boton">
         <i class="fas fa-bars"></i>
     </div>
@@ -117,11 +128,11 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            <form class="formulario" action="/registrodeclientes/bd" method="post">
+            <form class="formulario" action="/registrodeclientes/bd" method="post" id="form">
                 <div class="grid-1">
                     <div class="campo">
                         <label for="id_cliente">C&oacute;digo</label>
-                        <input type="text" id="codigo" name="codigo" autocomplete="off" required>
+                        <input type="number" id="codigo" name="codigo" autocomplete="off" required>
                     </div>
                     <div class="campo">
                         <label for="dir">Direcci&oacute;n</label>
@@ -139,7 +150,7 @@
                     </div>
                     <div class="campo">
                         <label for="tel">Tel&eacute;fono</label>
-                        <input type="tel" id="tel" name="tel" autocomplete="off" required>
+                        <input type="tel" id="tel" name="tel" autocomplete="off" maxlength="12" required>
                     </div>
                     <div class="campo">
                         <label for="rnc">RNC</label>
@@ -149,7 +160,7 @@
                 <div class="grid-3">
                     <div class="campo">
                         <label for="cedula">C&eacute;dula</label>
-                        <input type="text" id="cedula" name="cedula" autocomplete="off" required>
+                        <input type="number" id="cedula" name="cedula" autocomplete="off" required>
                     </div>
                     <div class="campo">
                         <label for="ciudad">Ciudad</label>
@@ -196,7 +207,7 @@
                 </div>
                 <div class="botones">
                     <button type="reset" class="boton">Limpiar</button>
-                    <button type="submit" class="boton">Guardar</button>
+                    <button type="submit" class="boton" onclick="return confirmacion()">Guardar</button>
                 </div>
             </form>
         </aside>
@@ -217,8 +228,8 @@
                                 <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionM()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -244,8 +255,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEV()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -271,8 +282,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEC()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -283,7 +294,7 @@
             <div class="flex" id="flexEC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ELIMINACI&oacute;N DE CUENTA</h2>
+                        <h2>ELIMINACI&Oacute;N DE CUENTA</h2>
                         <span class="close" id="closeEC">&times;</span>
                     </div>
                     <div class="modal-body">
@@ -306,6 +317,7 @@
     <script src="{{ url_for('static', filename='JS/menuDesplegable.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modalConfirmacion.js') }}"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>

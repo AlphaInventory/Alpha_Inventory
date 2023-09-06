@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es-Do">
 <head>
-	<!-- Reestructurar pagina completa -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +12,16 @@
 </head>
 <body>
 	<script>
-		function vaciar(control) {
-            control.placeholder = ''
+        function confirmacion() {
+            var conf =  confirm("¿Estas seguro de que sus datos estan correctos?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
         }
-	</script>
+    </script>
     <header>
         <h1 class="titulo">M&eacute;todo de Pago</h1>
     </header>
@@ -101,14 +106,14 @@
 						</div>
 					</div>
 					<div class="grupo ccv">
-						<input type="text" id="inputCCV" name="inputCCV" maxlength="3" placeholder="CVV" onfocus="vaciar(this)" required>
+						<input type="text" id="inputCCV" name="inputCCV" maxlength="3" placeholder="CVV" required>
 					</div>
 				</div>
 				<div class="botones">
 					<a href="/metododepago">
 						<button type="button" class="btn-enviar">Atr&aacute;s</button>
 					</a>
-					<button type="submit" class="btn-enviar">Enviar</button>
+					<button type="submit" class="btn-enviar" onclick="return confirmacion()">Enviar</button>
 				</div>
 			</form>
 		</div>

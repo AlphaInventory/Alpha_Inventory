@@ -14,6 +14,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
+    <script>
+        function confirmacion() {
+            var conf =  confirm("¿Estas seguro de que quieres guardar este suplidor?");
+
+            if(conf == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
     <div class="menu-boton">
         <i class="fas fa-bars"></i>
     </div>
@@ -121,7 +132,7 @@
                 <div class="grid-1">
                     <div class="campo">
                         <label for="id_suplidor">C&oacute;digo</label>
-                        <input type="text" id="codigo" name="codigo" autocomplete="off" required>
+                        <input type="number" id="codigo" name="codigo" autocomplete="off" required>
                     </div>
                     <div class="campo">
                         <label for="tel">Tel&eacute;fono</label>
@@ -139,7 +150,7 @@
                     </div>
                     <div class="campo">
                         <label for="rnc">RNC</label>
-                        <input type="text" id="rnc" name="rnc" autocomplete="off" required>
+                        <input type="number" id="rnc" name="rnc" autocomplete="off" required>
                     </div>
                     <div class="campo">
                         <label for="condiciones">Condiciones</label>
@@ -196,7 +207,7 @@
                 </div>
                 <div class="botones">
                     <button type="reset" class="boton">Limpiar</button>
-                    <button type="submit" class="boton">Guardar</button>
+                    <button type="submit" class="boton" onclick="return confirmacion()">Guardar</button>
                 </div>
             </form>
         </aside>
@@ -217,8 +228,8 @@
                                 <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionM()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -244,8 +255,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEV()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -271,8 +282,8 @@
                                     placeholder="Ingrese el Nombre">
                             </div>
                             <div class="botones-">
-                                <button type="reset" class="boton-">Borrar</button>
-                                <button type="submit" class="boton-">Guardar</button>
+                                <button type="reset" class="boton-">Limpiar</button>
+                                <button type="submit" class="boton-" onclick="return confirmacionEC()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -283,7 +294,7 @@
             <div class="flex" id="flexEC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ELIMINACI&oacute;N DE CUENTA</h2>
+                        <h2>ELIMINACI&Oacute;N DE CUENTA</h2>
                         <span class="close" id="closeEC">&times;</span>
                     </div>
                     <div class="modal-body">
@@ -307,6 +318,7 @@
     <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModalMotrar.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/modalConfirmacion.js') }}"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>
