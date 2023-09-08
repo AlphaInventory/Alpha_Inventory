@@ -112,7 +112,8 @@ input:is(:focus-visible, :valid) {
 }
 
 .boton {
-    background-color: #009BEF;
+    background-color: #189BEF;
+    border: 2px solid #fff;
     color: #000;
     border-radius: 6px;
     cursor: pointer;
@@ -311,7 +312,7 @@ input:is(:focus-visible, :valid) {
 
 @media screen and (max-width: 524px) {
     aside {
-        left: -4%;
+        left: -5%;
         position: fixed;
         width: 100%;
     }
@@ -360,5 +361,44 @@ input:is(:focus-visible, :valid) {
 }
 
 @media screen and (max-width: 500px) {
-    
+    .indicaciones_cta .parrafos_contrasena {
+        font-size: 10px;
+        margin-left: 23px;
+    }
+
+    .campo {
+        margin-left: 65px;
+    }
+
+    input {
+        font-size: 11px;
+    }
+
+    label {
+        font-size: 11px;
+        transform: translate(30px, 8px);
+    }
+
+    input:focus-visible~label,
+    input:valid~label {
+        font-size: 15px;
+        transform: translate(-6px, -10px) scale(0.8);
+    }
+
+    .icono_label {
+        top: -37px;
+        font-size: 11px;
+    }
+
+    .moscontra {
+        font-size: 12px;
+        bottom: 36px;
+        left: 212px;
+    }
+
+    .boton {
+        font-size: 11px;
+        margin-top: 40px;
+        margin-left: 105px;
+    }
 }

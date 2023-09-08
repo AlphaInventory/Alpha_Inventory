@@ -204,6 +204,30 @@ input:is(:focus-visible, :valid) {
     }
 }
 
-@media screen and (max-width: 500px) {
-    
+@media  screen and (max-width: 500px) {
+    body, header, main {
+        overflow: hidden;
+    }
+
+    .contenedor_nomape {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+    }
+
+    .titulo_reg {
+        max-width: 480px;
+    }
+
+    .campo {
+        margin-top: 20px;
+    }
+
+    input {
+        width: 98%;
+    }
+
+    .moscontra {
+        left: 254px;
+    }
 }

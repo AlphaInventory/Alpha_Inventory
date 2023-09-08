@@ -121,36 +121,29 @@ p {
 .botones- {
     display: flex;
     justify-content: center;
+    gap: 20px;
     padding-top: 30px;
 }
 
 .boton- {
-    background-color: #2CF30B;
+    background-color: #189BEF;
+    border: 2px solid #fff;
+    height: 34px;
+    color: #000;
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 700;
-    height: 34px;
-    margin: 0 10px;
+    margin: 0;
     text-transform: uppercase;
     width: 130px;
 }
 
 .botones- a {
-    border: #000;
-}
-
-.botones- .input_boton {
-    background-color: #2CF30B;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 700;
-    height: 34px;
-    margin: 0;
-    padding: 0;
-    text-transform: uppercase;
-    width: 130px;
+    text-decoration: none;
+    text-align: center;
+    padding: 4px 0;
+    border: 2px solid #000;
 }
 
 .icono_email {
@@ -277,5 +270,24 @@ p {
 }
 
 @media screen and (max-width: 500px) {
-    
+    h2 {
+        font-size: 9px;
+    }
+
+    .close {
+        font-size: 20px;
+    }
+
+    .contenido-modal {
+        margin: auto;
+        width: 65%;
+    }
+
+    .campo- input {
+        font-size: 9px;
+    }
+
+    .boton- {
+        font-size: 10px;
+    }
 }

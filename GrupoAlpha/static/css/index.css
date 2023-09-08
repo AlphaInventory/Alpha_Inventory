@@ -324,11 +324,11 @@ input:is(:focus-visible, :valid) {
     }
 
     .titulo {
-        font-size: 35px
+        font-size: 36px
     }
 
     .subtitulo {
-        font-size: 25px;
+        font-size: 22px;
         padding: 8px;
         width: 800px;
     }
@@ -419,5 +419,34 @@ input:is(:focus-visible, :valid) {
 }
 
 @media screen and (max-width: 500px) {
-    
+    body, header, main {
+        overflow: hidden;
+    }   
+
+    .logo {
+        margin-top: 10px;
+    }
+
+    .subtitulo {
+        max-width: 480px;
+    }
+
+    .campo {
+        margin-top: 20px;
+        margin-left: 25px;
+    }
+
+    .boton_ini {
+        margin-top: 10px;
+    }
+
+    .boton_inicio {
+        font-size: 17px;
+        height: 42px;
+        width: 110px;
+    }
+
+    .enlaces_reg_iconos {
+        margin-top: 10px;
+    }
 }

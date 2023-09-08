@@ -84,7 +84,7 @@ h1 {
 .delantera .chip {
 	width: 100%;
 	max-width: 50px;
-	margin-bottom: 20px;
+	margin-top: -90px;
 }
 
 .delantera .grupo .label {
@@ -333,27 +333,84 @@ h1 {
 	}
 }
 
-@media screen and (max-width: 375px) {
-    h1 {
-        font-size: 19px;
-        padding: 9px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    h1 {
-        font-size: 18px;
-        padding: 8px;
-    }
-}
-
-@media screen and (max-width: 280px) {
-    h1 {
-        font-size: 17px;
-        padding: 7px;
-    }
-}
-
 @media screen and (max-width: 500px) {
-    
+	body, header, main {
+		overflow: hidden;
+	}
+
+	.contenedor {
+		padding: 10px;
+	}
+
+	.tarjeta > div {
+		min-height: 240px;
+		height: 230px;
+	}
+
+	.datos .flexbox .grupo {
+		margin-bottom: 5px;
+	}
+
+	.delantera .grupo .label {
+		font-size: 16px;
+	}
+
+	.delantera .grupo .numero,
+	.delantera .grupo .nombre,
+	.delantera .grupo .expiracion {
+		font-size: 17px;
+	}
+
+	.trasera .barra-magnetica {
+		height: 30px;
+	}
+
+	.trasera .datos #firma .firma {
+		height: 32px;
+	}
+
+	.trasera .datos #firma .firma p {
+		line-height: 30px;
+		font-size: 22px;
+		text-align: center;
+	}
+
+	.trasera .datos #ccv {
+		width: 18%;
+	}
+
+	.trasera .datos #ccv .ccv {
+		height: 32px;
+	}
+
+	.trasera .leyenda {
+		font-size: 13px;
+	}
+
+	.formulario-tarjeta {
+		max-width: 500px;
+	}
+
+	.formulario-tarjeta input,
+	.formulario-tarjeta select,
+	.btn-enviar {
+		font-size: 16px;
+		height: 40px;
+	}
+
+	.botones {
+		padding-top: 20px;
+	}
+
+	.formulario-tarjeta a  {
+		text-align: center;
+		width: 200px;
+	}
+
+	.formulario-tarjeta .btn-enviar {
+		font-size: 18px;
+		margin: 0 10px;
+		padding: 8px;
+		width: 200px;
+	}
 }

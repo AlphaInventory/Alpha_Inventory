@@ -108,8 +108,10 @@ input:is(:focus-visible, :valid) {
 }
 
 .boton {
-    background-color: #009BEF;
+    background-color: #189BEF;
+    border: 2px solid #fff;
     border-radius: 6px;
+    color: #000;
     cursor: pointer;
     font-size: 18px;
     font-weight: 700;
@@ -125,7 +127,6 @@ input:is(:focus-visible, :valid) {
 
 .botones a {
     text-decoration: none;
-    color: #000;
     font-weight: 700;
     font-size: 15px;
 }
@@ -392,5 +393,17 @@ input:is(:focus-visible, :valid) {
 }
 
 @media screen and (max-width: 500px) {
-    
+    .campo {
+        margin-left: 75px;
+        margin-top: 30px;
+    }
+
+    .botones a img {
+        margin: auto;
+        padding: 0;
+    }
+
+    .botones {
+        margin-left: 40%;
+    }
 }

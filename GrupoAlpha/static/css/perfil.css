@@ -44,7 +44,8 @@ aside h1 {
 }
 
 .boton_editar {
-    background-color: #009BEF;
+    background-color: #189BEF;
+    border: 2px solid #fff;
     border-radius: 6px;
     cursor: pointer;
     font-size: 18px;
@@ -334,5 +335,25 @@ aside h1 {
 }
 
 @media screen and (max-width: 500px) {
-    
+    .campo {
+        margin-top: 30px;
+    }
+
+    .editar {
+        margin-top: 10px;
+    }
+
+    .boton_editar {
+        color: #000;
+        height: 34px;
+        margin-top: 30px;
+        margin-left: 46%;
+        font-size: 11px;
+        width: 170px;
+    }
+
+    .editar a img {
+        height: 13px;
+        width: 13px;
+    }
 }

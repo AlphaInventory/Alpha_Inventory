@@ -96,7 +96,8 @@ table td {
 }
 
 .boton {
-    background-color: #2CF30B;
+    background-color: #189BEF;
+    border: 2px solid #fff;
     border-radius: 6px;
     cursor: pointer;
     font-size: 18px;

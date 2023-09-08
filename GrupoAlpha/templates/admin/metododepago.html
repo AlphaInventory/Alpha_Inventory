@@ -36,8 +36,7 @@
         <div class="contenedor">
 			<section class="tarjeta" id="tarjeta">
 				<div class="delantera">
-					<div class="logo-marca" id="logo-marca">
-					</div>
+					<div class="logo-marca" id="logo-marca"></div>
 					<img src="{{ url_for('static', filename='icons/chip-tarjeta.png') }}" class="chip" alt="">
 					<div class="datos">
 						<div class="grupo" id="numero">
@@ -110,9 +109,7 @@
 					</div>
 				</div>
 				<div class="botones">
-					<a href="/metododepago">
-						<button type="button" class="btn-enviar">Atr&aacute;s</button>
-					</a>
+					<a href="/metododepago" role="button" class="btn-enviar">Atr&aacute;s</a>
 					<button type="submit" class="btn-enviar" onclick="return confirmacion()">Enviar</button>
 				</div>
 			</form>

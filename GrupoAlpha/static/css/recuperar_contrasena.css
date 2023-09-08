@@ -226,13 +226,15 @@ input:is(:focus-visible, :valid) {
 
    label {
        font-size: 15px;
+       transform: translate(38px, 10px);
    }
 
    input:focus-visible~.password,
    input:valid~.password,
    input:focus-visible~.password-,
    input:valid~.password- {
-       font-size: 17px;
+       font-size: 19px;
+       transform: translate(-5px, -20px) scale(0.8);
    }
 
     .icono_label {
@@ -258,5 +260,53 @@ input:is(:focus-visible, :valid) {
 }
 
 @media screen and (max-width: 500px) {
-    
+    body, header, main {
+        overflow: hidden;
+    }
+
+    header {
+        padding: 30px 0;
+    }
+
+    h1 {
+        padding: 10px;
+    }
+
+    .indicaciones_cta p {
+        font-size: 13px;
+    }
+
+    label {
+        font-size: 14px;
+        transform: translate(38px, 8px);
+    }
+
+    input:focus-visible~.password,
+    input:valid~.password,
+    input:focus-visible~.password-,
+    input:valid~.password- {
+        font-size: 18px;
+        transform: translate(-5px, -20px) scale(0.8);
+    }
+
+    input {
+        height: 34px;
+        width: 300px;
+    }
+
+    .icono_label {
+        top: -38px;
+        left: 20px;
+        font-size: 13px;
+    }
+
+    .moscontra {
+        font-size: 15px;
+        left: 267px;
+        bottom: 38px;
+    }
+
+    .botones {
+        margin-top: 60px;
+    }
 }
