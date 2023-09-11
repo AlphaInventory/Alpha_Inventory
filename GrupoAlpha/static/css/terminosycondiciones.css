@@ -2,12 +2,12 @@ aside {
     bottom: 0;
     left: 20%;
     position: fixed;
+    right: 0;
     text-transform: uppercase; 
     top: 5%;
-    right: 0;
 }
 
-aside h1 {
+aside h2 {
     background-color: #009BEF;
     color: #fff;
     font-size: 26px;
@@ -19,8 +19,8 @@ aside h1 {
 }
 
 .parrafos {
-    align-items: center;
     align-content: center;
+    align-items: center;
     background: #fff;
     display: flex;
     flex-flow: column;
@@ -39,9 +39,7 @@ aside h1 {
 
 @media screen and (max-width: 1224px) {
     aside {
-        position: fixed;
         left: 24%;
-        font-size: 16px;
     }
 
     .parrafos p {
@@ -50,9 +48,7 @@ aside h1 {
 }
 
 @media screen and (max-width: 924px) {
-
     aside {
-        position: fixed;
         left: 28%;
     }
 
@@ -63,15 +59,12 @@ aside h1 {
 }
 
 @media screen and (max-width: 824px) {
-
     aside {
-        position: fixed;
         left: 0%;
-        top: 5%;
         width: 100%;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 22px;
         width: 100%;
     }
@@ -82,7 +75,7 @@ aside h1 {
 }
 
 @media screen and (max-width: 724px) {
-    aside h1 {
+    aside h2 {
         font-size: 19px;
     }
 
@@ -92,7 +85,7 @@ aside h1 {
 }
 
 @media screen and (max-width: 624px) {
-    aside h1 {
+    aside h2 {
         font-size: 16px;
     }
 
@@ -102,13 +95,6 @@ aside h1 {
 }
 
 @media screen and (max-width: 524px) {
-    aside {
-        position: fixed;
-        left: 0;
-        top: 5%;
-        width: 100%;
-    }
-
     .parrafos p {
         margin-right: 10px;
     }

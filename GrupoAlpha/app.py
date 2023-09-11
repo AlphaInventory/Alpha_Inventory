@@ -2660,14 +2660,14 @@ def metodo_pago_bd():
 @app.route('/recuperarcontrasena')
 def recuperar_contrasena():
 
-    # if not 'registrado' in session:
-    #     return redirect('/')
+    if not 'registrado' in session:
+        return redirect('/')
 
-    # bdsql=mysql.connect().cursor()
-    # bdsql.execute("SELECT * FROM `registro_usuario` WHERE correo_electronico=%s",(session['registrado']))
-    # recuperar_contrasena=bdsql.fetchall()
+    bdsql=mysql.connect().cursor()
+    bdsql.execute("SELECT * FROM `registro_usuario` WHERE correo_electronico=%s",(session['registrado']))
+    recuperar_contrasena=bdsql.fetchall()
 
-    return render_template('admin/recuperarcontrasena.html')
+    return render_template('admin/recuperarcontrasena.html', recuperar_contrasena=recuperar_contrasena)
 
 # RECUPERAR CONTRASEÑA - BASE DE DATOS
 @app.route('/recuperarcontrasena/bd', methods=['post'])

@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INICIO | RECUPERAR TU CONTRASEÑA</title>
     <link rel="icon" href="{{ url_for('static', filename='icons/recuperar_contrasena.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/recuperar_contrasena.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
     <script>
         function confirmacion() {
-            var conf =  confirm("¿Estas seguro de que quieres actualizar la contraseña?");
+            var conf =  confirm("¿Estás seguro de que quieres actualizar la contraseña?");
 
             if(conf == true) {
                 return true;
@@ -23,7 +23,7 @@
         }
     </script>
     <header>
-        <h1 class="titulo">Recuperar Tu Contraseña</h1>
+        <h1>Recuperar Tu Contraseña</h1>
     </header>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -56,15 +56,13 @@
                     <label for="password-" class="password-">Confirmar Contraseña</label>
                 </div>
                 <div class="botones">
-                    <a href="/">
-                        <button type="button" class="boton">Atr&aacute;s</button>
-                    </a>
-                        <button type="submit" class="boton" onclick="return confirmacion()">Enviar</button>
+                    <a href="/" class="boton">Atr&aacute;s</a>
+                    <button type="submit" class="boton" onclick="return confirmacion()">Enviar</button>
                 </div>
             </form>
         </div>
     </main>
-    <script src="{{ url_for('static', filename='JS/mostrarContrasena.js') }}"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/mostrarContrasena.js') }}"></script>
 </body>
 </html>

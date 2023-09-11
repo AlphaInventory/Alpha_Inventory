@@ -2,12 +2,12 @@ aside {
     bottom: 0;
     left: 20%;
     position: absolute;
+    right: 0;
     text-transform: uppercase;
     top: 5%;
-    right: 0;
 }
 
-aside h1 {
+aside h2 {
     background-color: #009BEF;
     color: #fff;
     font-size: 26px;
@@ -17,47 +17,9 @@ aside h1 {
     width: 97%;
 }
 
-.formularios {
-    display: flex;
-    padding: 10px 0;
-    justify-content: center;
-}
-
-.formularios label {
-    font-size: 15px;
-    font-weight: 700;
-}
-
-.formularios .contenedor_formulario input {
-    height: 19px;
-    text-align: center;
-    width: 55px;
-}
-
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
-}
-
-.contenedor_formulario {
-    margin-left: 10px;
-}
-
-.filtro,
-.reiniciar {
-    background-color: transparent;
-    border: none;
-    margin-top: 1px;
-    margin-left: 3px;
-}
-
-.icono {
-    margin: 0px 4px;
-    width: 18px;
-}
-
-.icono_filtro {
-    width: 20px;
 }
 
 thead {
@@ -66,12 +28,12 @@ thead {
 }
 
 tfoot {
-    position: sticky;
     bottom: 0;
+    position: sticky;
 }
 
 .contentedor_tabla {
-    height: 70%;
+    height: 80%;
     overflow-y: scroll;
 }
 
@@ -83,7 +45,7 @@ table {
     background-color: #ADD8E6;
     border-collapse: collapse;
     height: auto;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 97%;
 }
 
@@ -92,11 +54,11 @@ table tr:nth-child(even) {
 }
 
 table th {
+    background-color: #009BEF;
     border-bottom: 1px solid;
     border-right: 1px solid;
     padding: 7px;
     text-align: center;
-    background-color: #009BEF;
 }
 
 table td {
@@ -106,52 +68,16 @@ table td {
     text-align: center;
 }
 
-.boton {
-    background-color: #189BEF;
-    border: 2px solid #fff;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
-    margin-top: 5px;
-    margin-left: 42%;
-    padding: 7px 30px;
-    text-transform: uppercase;
-}
-
-.boton a {
-    text-decoration: none;
-    color: #000
-}
-
 @media screen and (max-width: 1230px) {
     aside {
-        bottom: 0;
         left: 22%;
         position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 26px;
         padding: 7px;
         width: 94%;
-    }
-
-    .formularios {
-        font-size: 16px;
-    }
-
-    .formularios label {
-        font-size: 16px;
-        font-weight: 700;
-    }
-
-    .formularios input {
-        height: 22px;
-        width: 70px;
     }
 
     table {
@@ -162,18 +88,13 @@ table td {
         font-size: 14px;
     }
 
-
     table td {
         font-size: 14px;
-    }
-
-    .boton {
-        font-size: 17px;
     }
 }
 
 @media screen and (max-width: 1124px) {
-    aside h1 {
+    aside h2 {
         font-size: 24px;
         width: 96%;
     }
@@ -197,8 +118,6 @@ table td {
         margin-left: 10px;
         width: 95%;
     }
-
-
 }
 
 @media screen and (max-width: 924px) {
@@ -207,20 +126,11 @@ table td {
         position: fixed;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 22px;
-        padding: 8px;
         margin-left: 20px;
+        padding: 8px;
         width: 94%;
-    }
-
-    .formularios label {
-        font-size: 15px;
-    }
-
-    .formularios input {
-        height: 18px;
-        width: 70px;
     }
 
     table {
@@ -235,10 +145,6 @@ table td {
     table td {
         font-size: 12px;
     }
-
-    .boton {
-        font-size: 15px;
-    }
 }
 
 @media screen and (max-width: 824px) {
@@ -247,19 +153,11 @@ table td {
         position: fixed;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 20px;
+        margin-left: 11px;
         padding: 9px;
         width: 100%;
-    }
-
-    .formularios label {
-        font-size: 14px;
-    }
-
-    .formularios input {
-        height: 20px;
-        width: 65px;
     }
 
     table {
@@ -274,24 +172,9 @@ table td {
     table td {
         font-size: 13px;
     }
-
-    .boton {
-        font-size: 14px;
-        margin-left: 43%;
-    }
 }
 
-
 @media screen and (max-width: 724px) {
-    .formularios label {
-        font-size: 13px;
-    }
-
-    .formularios input {
-        height: 18px;
-        width: 60px;
-    }
-
     table {
         margin-left: 34px;
     }
@@ -303,23 +186,9 @@ table td {
     table td {
         font-size: 12px;
     }
-
-    .boton {
-        font-size: 13px;
-        margin-left: 44%;
-    }
 }
 
 @media screen and (max-width: 624px) {
-    .formularios label {
-        font-size: 13px;
-    }
-
-    .formularios input {
-        height: 16px;
-        width: 50px;
-    }
-
     table {
         margin-left: 29px;
     }
@@ -341,29 +210,11 @@ table td {
 @media screen and (max-width: 524px) {
     aside {
         left: -4%;
-        position: fixed;
     }
-
-    .formularios label {
-        font-size: 12px;
-    }
-
-    .formularios input {
-        height: 16px;
-        width: 50px;
-    }
-
-    .icono {
-        width: 14px;
-        height: 14px;
-    }
-
-    aside .contentedor_tabla .tabla {
-        width: 90%;
-    }
-
+    
     table {
         margin-left: 27px;
+        width: 90%;
     }
 
     table th {
@@ -381,5 +232,30 @@ table td {
 }
 
 @media screen and (max-width: 500px) {
+    aside {
+        left: -5%;
+    }
+
+    aside h2 {
+        font-size: 18px;
+    }
+
+    table {
+        width: 94%;
+    }
     
+    table th {
+        font-size: 8px;
+        padding: 7px;
+    }
+
+    table td {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    table {
+        margin-left: 24px;
+    }
 }

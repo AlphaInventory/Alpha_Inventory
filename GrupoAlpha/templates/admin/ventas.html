@@ -6,18 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PROCESOS | VENTAS</title>
     <link rel="icon" href="{{ url_for('static', filename='icons/ventas.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/procesos.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodalMostrar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
     <script>
         function confirmacion() {
-            var conf =  confirm("¿Estas seguro de que quieres realizar la compra?");
+            var conf =  confirm("¿Estás seguro de que quieres realizar la compra?");
 
             if(conf == true) {
                 return true;
@@ -35,14 +34,14 @@
                 <i class="fas fa-times"></i>
             </div>
             <a href="/inicio_inventario" class="inicio">
-                <img src="{{ url_for('static', filename='icons/logo.png') }}" class="logo">
+                <img src="{{ url_for('static', filename='icons/logo.png') }}" class="logo" alt="Inicio">
                 <h1>Inventory</h1>
             </a>
             <div class="menu">
                 <div class="elemento">
                     <a class="sub-boton toggle" id="registros">
-                        <img class="icon" src="{{ url_for('static', filename='icons/registros.png') }}"><span>REGISTROS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/registros.png') }}"
+                            alt="Registros"><span>REGISTROS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/registrodearticulos" class="sub-elemento">ART&Iacute;CULOS</a>
@@ -55,8 +54,8 @@
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="procesos">
-                        <img class="icon" src="{{ url_for('static', filename='icons/procesos.png') }}"><span>PROCESOS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/procesos.png') }}"
+                            alt="Procesos"><span>PROCESOS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/compras" class="sub-elemento">COMPRAS</a>
@@ -65,8 +64,8 @@
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="movimientos">
-                        <img class="icon" src="{{ url_for('static', filename='icons/movimientos.png') }}"><span>MOVIMIENTOS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/movimientos.png') }}"
+                            alt="Movimientos"><span>MOVIMIENTOS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/movimientosdiariocompras" class="sub-elemento">DIARIOS / COMPRAS</a>
@@ -77,8 +76,8 @@
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="listados">
-                        <img class="icon" src="{{ url_for('static', filename='icons/listados.png') }}"><span>LISTADOS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/listados.png') }}"
+                            alt="Listados"><span>LISTADOS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/listadodearticulos" class="sub-elemento">LISTADO DE ART&Iacute;CULOS</a>
@@ -92,14 +91,13 @@
                 <div class="elemento ">
                     <a href="/respaldos" class="toggle" id="respaldos">
                         <img class="icon" src="{{ url_for('static', filename='icons/respaldos.png') }}"
-                            alt=""><span>RESPALDOS</span>
+                            alt="Respaldos"><span>RESPALDOS</span>
                     </a>
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="configuraciones">
-                        <img class="icon"
-                            src="{{ url_for('static', filename='icons/configuraciones.png') }}"><span>CONFIGURACIONES</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/configuraciones.png') }}"
+                            alt="Configuraciones"><span>CONFIGURACIONES</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/perfil" class="sub-elemento">PERFIL</a>
@@ -110,8 +108,8 @@
                 </div>
                 <div class="elemento">
                     <a href="/cerrar_sesion">
-                        <img class="icon" src="{{ url_for('static', filename='icons/cerrar-sesion.png') }}"><span>CERRAR
-                            SESI&Oacute;N</span>
+                        <img class="icon" src="{{ url_for('static', filename='icons/cerrar-sesion.png') }}"
+                            alt="Cerrar-sesion"><span>CERRAR SESI&Oacute;N</span>
                     </a>
                 </div>
             </div>
@@ -119,7 +117,7 @@
     </div>
     <main>
         <aside>
-            <h1>Ventas</h1>
+            <h2>Ventas</h2>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for mensaje in messages %}
@@ -135,16 +133,16 @@
                     <label for="fact">N&uacute;mero De Factura:</label>
                     <input type="number" id="fact" name="fact" autocomplete="off" required>
                 </div>
-                <div class="contenedor_formulario">
+                <div class="contenedor_formulario group">
                     <label for="date">Fecha:</label>
-                    <input type="date" id="date" name="date" autocomplete="off" required>
+                    <input type="date" id="date" name="date" class="up" autocomplete="off" required>
                 </div>
                 <div class="contenedor_formulario">
                     <label for="cliente">Cliente:</label>
                     <input type="text" id="cliente" name="cliente" autocomplete="off" required>
                     <a href="#" id="abrirC"><img src="{{ url_for('static', filename='icons/magnifier.png') }}" alt="buscar" class="icono"></a>
                 </div>
-                <div class="contenedor_formulario">
+                <div class="contenedor_formulario group">
                     <label for="Encargado">Encargado de ventas:</label>
                     <input type="text" id="Encargado" name="Encargado" autocomplete="off" required>
                     <a href="#" id="abrirENVM"><img src="{{ url_for('static', filename='icons/magnifier.png') }}" alt="buscar" class="icono"></a>
@@ -159,7 +157,7 @@
                     <tr class="activo">
                         <td><input type="number" id="codigo" name="codigo" placeholder="0000000" class="nth" autocomplete="off" required></td>
                         <td>
-                            <select name="itbis" id="itbis" autocomplete="off" required>
+                            <select name="itbis" id="itbis" size="1" autocomplete="off" required>
                                 <option selected>Sel. impuesto</option>
                                 <option>18</option>
                                 <option>16</option>
@@ -172,7 +170,7 @@
                     <tr class="activo">
                         <td><input type="number" id="codigo_" name="codigo_" placeholder="0000000" class="nth" autocomplete="off"></td>
                         <td>
-                            <select id="itbis_" name="itbis_" autocomplete="off">
+                            <select id="itbis_" name="itbis_" size="1" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
                                 <option>18</option>
                                 <option>16</option>
@@ -185,7 +183,7 @@
                     <tr class="activo">
                         <td><input type="number" id="codigo__" name="codigo__" placeholder="0000000" class="nth" autocomplete="off"></td>
                         <td>
-                            <select name="itbis__" id="itbis__" autocomplete="off">
+                            <select name="itbis__" id="itbis__" size="1" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
                                 <option>18</option>
                                 <option>16</option>
@@ -198,7 +196,7 @@
                     <tr class="activo">
                         <td><input type="number" id="codigo___" name="codigo___" placeholder="0000000" class="nth" autocomplete="off"></td>
                         <td>
-                            <select name="itbis___" id="itbis___" autocomplete="off">
+                            <select name="itbis___" id="itbis___" size="1" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
                                 <option>18</option>
                                 <option>16</option>
@@ -211,7 +209,7 @@
                     <tr class="activo">
                         <td><input type="number" id="codigo____" name="codigo____" placeholder="0000000" class="nth" autocomplete="off"></td>
                         <td>
-                            <select name="itbis____" id="itbis____" autocomplete="off">
+                            <select name="itbis____" id="itbis____" size="1" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
                                 <option>18</option>
                                 <option>16</option>
@@ -225,7 +223,7 @@
                         <td><input type="number" id="codigo_____" name="codigo_____" placeholder="0000000" class="nth" autocomplete="off">
                         </td>
                         <td>
-                            <select name="itbis_____" id="itbis_____" autocomplete="off">
+                            <select name="itbis_____" id="itbis_____" size="1" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
                                 <option>18</option>
                                 <option>16</option>
@@ -240,7 +238,7 @@
                         <td><input type="number" id="codigo______" name="codigo______" placeholder="0000000" class="nth" autocomplete="off">
                         </td>
                         <td>
-                            <select name="itbis______" id="itbis______" autocomplete="off">
+                            <select name="itbis______" id="itbis______" size="1" autocomplete="off">
                                 <option selected>Sel. impuesto</option>
                                 <option>18</option>
                                 <option>16</option>
@@ -252,28 +250,29 @@
                         <td><input type="number" id="precio______" name="precio______" placeholder="00.00" class="nth" autocomplete="off"></td>
                     </tr>
                 </table>
-                <button type="submit" class="boton Save" value="Grabar" onclick="return confirmacion()">GUARDAR</button>
+                <button type="submit" class="boton Save" value="Grabar" onclick="return confirmacion()">REALIZAR</button>
             </form>
         </aside>
         <div id="miModalM" class="modal">
             <div class="flex" id="flexM">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CREADOR DE MARCAS</h2>
+                        <h3 class="titulo_modal">CREADOR DE MARCAS</h3>
                         <span class="close" id="closeM">&times;</span>
                     </div>
                     <div class="modal-body">
-                        <form action="/ventas/marcas/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo-">
-                                <input type="text" name="codigo_marca" id="codigo_marca" placeholder="Ingrese el C&oacute;digo">
+                        <form action="/ventas/marcas/bd" method="post" enctype="multipart/form-data" class="formulario_modal">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo_marca" id="codigo_marca"
+                                    placeholder="Ingrese el C&oacute;digo">
                             </div>
-                            <div class="campo-">
-                                <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="nombre_marca" id="nombre_marca"
+                                    placeholder="Ingrese el Nombre">
                             </div>
-                            <div class="botones-">
-                                <button type="reset" class="boton-">Limpiar</button>
-                                <button type="submit" class="boton-" onclick="return confirmacionM()">Guardar</button>
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionM()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -284,23 +283,23 @@
             <div class="flex" id="flexENV">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CREADOR DE ENCARGADO DE VENTAS</h2>
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE VENTAS</h3>
                         <span class="close" id="closeENV">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/ventas/encVentas/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo-">
-                                <input type="text" name="codigo_enc_ventas" id="codigo_enc_ventas"
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo_enc_ventas" id="codigo_enc_ventas"
                                     placeholder="Ingrese el C&oacute;digo">
                             </div>
-                            <div class="campo-">
-                                <input type="text" name="nombre_enc_ventas" id="nombre_enc_ventas"
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="nombre_enc_ventas" id="nombre_enc_ventas"
                                     placeholder="Ingrese el Nombre">
                             </div>
-                            <div class="botones-">
-                                <button type="reset" class="boton-">Limpiar</button>
-                                <button type="submit" class="boton-" onclick="return confirmacionEV()">Guardar</button>
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEV()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -311,23 +310,23 @@
             <div class="flex" id="flexENC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CREADOR DE ENCARGADO DE COMPRAS</h2>
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE COMPRAS</h3>
                         <span class="close" id="closeENC">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/ventas/encCompras/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo-">
-                                <input type="text" name="codigo_enc_compras" id="codigo_enc_compras"
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo_enc_compras" id="codigo_enc_compras"
                                     placeholder="Ingrese el C&oacute;digo">
                             </div>
-                            <div class="campo-">
-                                <input type="text" name="nombre_enc_compras" id="nombre_enc_compras"
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="nombre_enc_compras" id="nombre_enc_compras"
                                     placeholder="Ingrese el Nombre">
                             </div>
-                            <div class="botones-">
-                                <button type="reset" class="boton-">Limpiar</button>
-                                <button type="submit" class="boton-" onclick="return confirmacionEC()">Guardar</button>
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEC()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -338,28 +337,28 @@
             <div class="flex" id="flexC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CLIENTES</h2>
+                        <h3 class="titulo_modal_mostrar">CLIENTES</h3>
                         <span class="close" id="closeC">&times;</span>
                     </div>
                     <div class="modal-body">
-                        <table class="tabla">
-                            <tr>
-                                <th>C&Oacute;DIGO</th>
-                                <th>NOMBRE</th>
-                                <th>C&Eacute;DULA</th>
-                                <th>DIRECCI&Oacute;N</th>
-                                <th>TEL&Eacute;FONO</th>
-                            </tr>
-                            {% for cliente in clientes %}
-                            <tr class="activo">
-                                <td>{{ cliente[1] }}</td>
-                                <td>{{ cliente[2] }}</td>
-                                <td>{{ cliente[6] }}</td>
-                                <td>{{ cliente[3] }}</td>
-                                <td>{{ cliente[5] }}</td>
-                            </tr>
-                            {% endfor %}
-                        </table>
+                        <div class="contenedor_tabla_modal">
+                            <table class="tabla_modal">
+                                <tr>
+                                    <th>C&Oacute;DIGO</th>
+                                    <th>NOMBRE</th>
+                                    <th>C&Eacute;DULA</th>
+                                    <th>TEL&Eacute;FONO</th>
+                                </tr>
+                                {% for cliente in clientes %}
+                                <tr class="activo">
+                                    <td>{{ cliente[1] }}</td>
+                                    <td>{{ cliente[2] }}</td>
+                                    <td>{{ cliente[6] }}</td>
+                                    <td>{{ cliente[5] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -368,32 +367,34 @@
             <div class="flex" id="flexENVM">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ENCARGADO DE VENTAS</h2>
+                        <h3 class="titulo_modal_mostrar">ENCARGADO DE VENTAS</h3>
                         <span class="close" id="closeENVM">&times;</span>
                     </div>
                     <div class="modal-body">
-                        <table class="tabla">
-                            <tr>
-                                <th scope="col">C&Oacute;DIGO</th>
-                                <th scope="col">NOMBRE</th>
-                                <th scope="col">GESTI&Oacute;N</th>
-                            </tr>
-                            {% for encVentas in encargado_ventas %}
-                            <tr class="activo">
-                                <td>{{ encVentas[1] }}</td>
-                                <td>{{ encVentas[2] }}</td>
-                                <td>
-                                    <form action="/ventas/encargadoventa/eliminar/bd" method="post" enctype="multipart/form-data">
-                                        <button type="submit">
-                                            <input type="hidden" id="id_encargadoventa" name="id_encargadoventa" value="{{ encVentas[0] }}">
-                                            <img src="{{ url_for('static', filename='icons/boton_eliminar.png') }}" alt="Eliminar"
-                                                class="eliminar">
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </table>
+                        <div class="contenedor_tabla_modal">
+                            <table class="tabla_modal">
+                                <tr>
+                                    <th scope="col">C&Oacute;DIGO</th>
+                                    <th scope="col">NOMBRE</th>
+                                    <th scope="col">GESTI&Oacute;N</th>
+                                </tr>
+                                {% for encVentas in encargado_ventas %}
+                                <tr class="activo">
+                                    <td>{{ encVentas[1] }}</td>
+                                    <td>{{ encVentas[2] }}</td>
+                                    <td>
+                                        <form action="/ventas/encargadoventa/eliminar/bd" method="post" enctype="multipart/form-data">
+                                            <button type="submit">
+                                                <input type="hidden" id="id_encargadoventa" name="id_encargadoventa" value="{{ encVentas[0] }}">
+                                                <img src="{{ url_for('static', filename='icons/boton_eliminar.png') }}" alt="Eliminar"
+                                                    class="eliminar">
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -402,28 +403,32 @@
             <div class="flex" id="flexA">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ART&Iacute;CULOS</h2>
+                        <h3 class="titulo_modal_mostrar">ART&Iacute;CULOS</h3>
                         <span class="close" id="closeA">&times;</span>
                     </div>
                     <div class="modal-body">
-                        <table class="tabla">
-                            <tr>
-                                <th scope="col">C&Oacute;DIGO</th>
-                                <th scope="col">DESCRIPCI&Oacute;N</th>
-                                <th scope="col">ITBIS</th>
-                                <th scope="col">CANTIDAD</th>
-                                <th scope="col">PRECIO</th>
-                            </tr>
-                            {% for articulo in articulos %}
-                            <tr class="activo">
-                                <td>{{ articulo[1] }}</td>
-                                <td>{{ articulo[2] }}</td>
-                                <td>{{ articulo[9] }}</td>
-                                <td>{{ articulo[10] }}</td>
-                                <td>{{ articulo[8] }}</td>
-                            </tr>
-                            {% endfor %}
-                        </table>
+                        <div class="contenedor_tabla_modal">
+                            <table class="tabla_modal">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">C&Oacute;DIGO</th>
+                                        <th scope="col">ITBIS</th>
+                                        <th scope="col">CANTIDAD</th>
+                                        <th scope="col">PRECIO</th>
+                                    </tr>
+                                </thead>
+                                {% for articulo in articulos %}
+                                <tbody>
+                                    <tr class="activo">
+                                        <td>{{ articulo[1] }}</td>
+                                        <td>{{ articulo[9] }}</td>
+                                        <td>{{ articulo[10] }}</td>
+                                        <td>{{ articulo[8] }}</td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -432,21 +437,19 @@
             <div class="flex" id="flexEC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ELIMINACI&Oacute;N DE CUENTA</h2>
+                        <h3 class="titulo_modal">ELIMINACI&Oacute;N DE CUENTA</h3>
                         <span class="close" id="closeEC">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/ventas/eliminar_cuenta/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            {% for usuario in eliminar_cuenta %}
-                                <input type="hidden" value="{{ usuario[0] }}" name="id_registro_usuario" id="id_registro_usuario">
-                            {% endfor %}
-                            <div class="campo">
-                                <p>¿Seguro que desea eliminar su cuenta?</p>
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <p class="parrafo_modal">¿Seguro que desea eliminar su cuenta?</p>
                             </div>
-                            <div class="botones-">
-                                <a href="/ventas"><button type="button" class="boton-">Atr&aacute;s</button></a>
-                                <button type="submit" class="boton-">Eliminar</button>
+                            <div class="botones_modal">
+                                <a href="/ventas" class="boton_modal">Atr&aacute;s</a>
+                                <button type="submit" class="boton_modal" id="id_registro_usuario"
+                                    name="id_registro_usuario">Eliminar</button>
                             </div>
                         </form>
                     </div>
@@ -454,12 +457,13 @@
             </div>
         </div>
     </main>
+    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="{{ url_for('static', filename='JS/menuDesplegable.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModalMostrarVentas.js') }}"></script>
-    <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModalEC.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/modalConfirmacion.js') }}"></script>
-    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body> 
 </html> 

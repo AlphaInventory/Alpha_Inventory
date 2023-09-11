@@ -2,12 +2,12 @@ aside {
     bottom: 0;
     left: 20%;
     position: fixed;
+    right: 0;
     text-transform: uppercase;
     top: 5%;
-    right: 0;
 }
 
-aside h1 {
+aside h2 {
     background-color: #009BEF;
     color: #fff;
     font-size: 26px;
@@ -29,6 +29,7 @@ thead {
 
 .contentedor_tabla {
     height: 77%;
+    margin-top: 10px;
     overflow-y: scroll;
 }
 
@@ -44,20 +45,12 @@ table {
     width: 97%;
 }
 
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-table .activo:hover {
-    background-color: #009BEF;
-}
-
 table th {
+    background-color: #009BEF;
     border-bottom: 1px solid;
     border-right: 1px solid;
     padding: 7px;
     text-align: center;
-    background-color: #009BEF;
 }
 
 table td {
@@ -69,17 +62,17 @@ table td {
 
 .flex_center {
     display: flex;
-    justify-content: center;
     gap: 5px;
+    justify-content: center;
 }
 
 .btn {
-    text-decoration: none;
     color: #fff;
     border-radius: 3px;
     font-size: 13px;
     font-weight: bold;
     padding: 4px;
+    text-decoration: none;
     width: 75px;
 }
 
@@ -91,10 +84,6 @@ table td {
     background-color: #dc3545;
 }
 
-.btn:active {
-    color: #000;
-}
-
 .boton {
     background-color: #189BEF;
     border: 2px solid #fff;
@@ -102,32 +91,26 @@ table td {
     cursor: pointer;
     font-size: 18px;
     font-weight: 700;
+    margin-left: 37.5%;
     margin-top: 5px;
-    margin-left: 37%;
     padding: 7px 30px;
     text-transform: uppercase;
 }
 
 @media screen and (max-width: 1230px) {
     aside {
-        bottom: 0;
         left: 22%;
         position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 24px;
-        padding: 7px;
         margin-left: 18px;
+        padding: 7px;
         width: 90%;
     }
 
-
     table {
-        margin-top: 20px;
         margin-left: 20px;
         width: 90%;
     }
@@ -150,15 +133,31 @@ table td {
     }
 }
 
+@media screen and (max-width: 1200px) {
+    .boton {
+        margin-left: 36%;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    .boton {
+        margin-left: 35%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .boton {
+        margin-left: 34%;
+    }
+}
+
 @media screen and (max-width: 924px) {
     aside {
         left: 26%;
-        position: fixed;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 22px;
-        padding: 7px;
     }
 
     table th {
@@ -166,7 +165,7 @@ table td {
     }
 
     table td {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .boton {
@@ -177,19 +176,17 @@ table td {
 @media screen and (max-width: 824px) {
     aside {
         left: -3%;
-        position: fixed;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 20px;
-        padding: 7px;
+        margin-left: 0px;
         width: 100%;
     }
 
     table {
-        position: relative;
         left: 4%;
-        width: 90%;
+        position: relative;
     }
 
     table th {
@@ -202,44 +199,20 @@ table td {
 
     .boton {
         font-size: 15px;
+        margin-left: 39%;
     }
 }
 
 @media screen and (max-width: 724px) {
-
-    aside h1 {
-        font-size: 20px;
-        width: 100%;
-    }
-
-    table {
-        width: 90%;
-    }
-
-    table th {
-        font-size: 12px;
-    }
-
-    table td {
-        font-size: 12px;
-    }
-
     .boton {
         font-size: 13px;
     }
 }
 
 @media screen and (max-width: 624px) {
-    aside h1 {
+    aside h2 {
         font-size: 18px;
         padding: 6px;
-        width: 100%;
-    }
-
-
-    table {
-        margin-left: 20px;
-        width: 90%;
     }
 
     table th {
@@ -263,19 +236,15 @@ table td {
 @media screen and (max-width: 524px) {
     aside {
         left: -4%;
-        position: fixed;
-        width: 100%;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 16px;
         padding: 7px;
-        width: 100%;
     }
 
     table {
-        position: relative;
-        left: 3%;
+        left: 1%;
         width: 95%;
     }
 
@@ -297,6 +266,32 @@ table td {
     }
 }
 
-@media screen and (max-width: 500px) {
-    
+@media screen and (max-width: 500px) {    
+    aside h2 {
+        padding: 10px;
+    }
+
+    table {
+        left: 2px;
+        overflow-x: hidden;
+    }
+
+    .boton {
+        margin-left: 36%;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    aside {
+        left: -4.5%;
+    }
+
+    table {
+        left: 4px;
+        width: 93%;
+    }
+
+    .boton {
+        margin-left: 31%;
+    }
 }

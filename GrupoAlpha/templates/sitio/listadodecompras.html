@@ -6,19 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LISTADOS | LISTADO DE COMPRAS</title>
     <link rel="icon" href="{{ url_for('static', filename='icons/listado_compras.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/listados.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formulario_filtros.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
-    <script>
-        function confirmacion() {
-            alert("Esta funcion no esta implementada por el momento.");
-        }
-    </script>
     <div class="menu-boton">
         <i class="fas fa-bars"></i>
     </div>
@@ -28,14 +23,13 @@
                 <i class="fas fa-times"></i>
             </div>
             <a href="/inicio_inventario" class="inicio">
-                <img src="{{ url_for('static', filename='icons/logo.png') }}" class="logo">
+                <img src="{{ url_for('static', filename='icons/logo.png') }}" class="logo" alt="Inicio">
                 <h1>Inventory</h1>
             </a>
             <div class="menu">
                 <div class="elemento">
                     <a class="sub-boton toggle" id="registros">
-                        <img class="icon" src="{{ url_for('static', filename='icons/registros.png') }}"><span>REGISTROS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/registros.png') }}" alt="Registros"><span>REGISTROS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/registrodearticulos" class="sub-elemento">ART&Iacute;CULOS</a>
@@ -48,7 +42,7 @@
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="procesos">
-                        <img class="icon" src="{{ url_for('static', filename='icons/procesos.png') }}"><span>PROCESOS</span><i
+                        <img class="icon" src="{{ url_for('static', filename='icons/procesos.png') }}" alt="Procesos"><span>PROCESOS</span><i
                             class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
@@ -58,7 +52,7 @@
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="movimientos">
-                        <img class="icon" src="{{ url_for('static', filename='icons/movimientos.png') }}"><span>MOVIMIENTOS</span><i
+                        <img class="icon" src="{{ url_for('static', filename='icons/movimientos.png') }}" alt="Movimientos"><span>MOVIMIENTOS</span><i
                             class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
@@ -70,8 +64,7 @@
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="listados">
-                        <img class="icon" src="{{ url_for('static', filename='icons/listados.png') }}"><span>LISTADOS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/listados.png') }}" alt="Listados"><span>LISTADOS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/listadodearticulos" class="sub-elemento">LISTADO DE ART&Iacute;CULOS</a>
@@ -84,15 +77,13 @@
                 </div>
                 <div class="elemento ">
                     <a href="/respaldos" class="toggle" id="respaldos">
-                        <img class="icon" src="{{ url_for('static', filename='icons/respaldos.png') }}"
-                            alt=""><span>RESPALDOS</span>
+                        <img class="icon" src="{{ url_for('static', filename='icons/respaldos.png') }}" alt="Respaldos"><span>RESPALDOS</span>
                     </a>
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="configuraciones">
-                        <img class="icon"
-                            src="{{ url_for('static', filename='icons/configuraciones.png') }}"><span>CONFIGURACIONES</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/configuraciones.png') }}" alt="Configuraciones"><span>CONFIGURACIONES</span><i
+                        class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/perfil" class="sub-elemento">PERFIL</a>
@@ -103,8 +94,7 @@
                 </div>
                 <div class="elemento">
                     <a href="/cerrar_sesion">
-                        <img class="icon" src="{{ url_for('static', filename='icons/cerrar-sesion.png') }}"><span>CERRAR
-                            SESI&Oacute;N</span>
+                        <img class="icon" src="{{ url_for('static', filename='icons/cerrar-sesion.png') }}" alt="Cerrar-sesion"><span>CERRAR SESI&Oacute;N</span>
                     </a>
                 </div>
             </div>
@@ -112,7 +102,7 @@
     </div>
     <main>
         <aside>
-            <h1>Listado De Compras</h1>
+            <h2>Listado De Compras</h2>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for mensaje in messages %}
@@ -135,78 +125,87 @@
                 </form>
                 <form action="/listadodecompras" method="post" enctype="multipart/form-data" class="formularios">
                     <button type="submit" class="reiniciar"><img src="{{ url_for('static', filename='icons/reiniciar.png') }}" alt="Reiniciar"
-                    class="icono"></button>
+                    class="reiniciar icono"></button>
                 </form>
             </div>
             <div class="contentedor_tabla">
                 <table class="table">
                     <thead>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Facturas</th>
-                        <th scope="col">C&oacute;digo</th>
-                        <th scope="col">Enc. Compras</th>
-                        <th scope="col">Suplidor</th>
-                        <th scope="col">Itbis</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Costo</th>
-                        <th scope="col">Total</th>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Facturas</th>
+                            <th scope="col">C&oacute;digo</th>
+                            <th scope="col">Enc. Compras</th>
+                            <th scope="col">Suplidor</th>
+                            <th scope="col">Itbis</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Costo</th>
+                            <th scope="col">Total</th>
+                        </tr>
                     </thead>
                     {% if compra_filtro %}
                         {% for filtro in compra_filtro %}
                         <tbody class="activo">
-                            <td>{{ filtro[3] }}</td>
-                            <td>{{ filtro[1] }}</td>
-                            <td>{{ filtro[6] }}</td>
-                            <td>{{ filtro[4] }}</td>
-                            <td>{{ filtro[5] }}</td>
-                            <td>{{ filtro[8] }}</td>
-                            <td>{{ filtro[7] }}</td>
-                            <td>{{ filtro[9] }}</td>
-                            <td>{{ filtro[10] }}</td>
+                            <tr>
+                                <td>{{ filtro[3] }}</td>
+                                <td>{{ filtro[1] }}</td>
+                                <td>{{ filtro[6] }}</td>
+                                <td>{{ filtro[4] }}</td>
+                                <td>{{ filtro[5] }}</td>
+                                <td>{{ filtro[8] }}</td>
+                                <td>{{ filtro[7] }}</td>
+                                <td>{{ filtro[9] }}</td>
+                                <td>{{ filtro[10] }}</td>
+                            </tr>
                         </tbody>
                         {% endfor %}
                     {% else %}
                         {% for compra in compras %}
                         <tbody class="activo">
-                            <td>{{ compra[3] }}</td>
-                            <td>{{ compra[1] }}</td>
-                            <td>{{ compra[6] }}</td>
-                            <td>{{ compra[4] }}</td>
-                            <td>{{ compra[5] }}</td>
-                            <td>{{ compra[8] }}</td>
-                            <td>{{ compra[7] }}</td>
-                            <td>{{ compra[9] }}</td>
-                            <td>{{ compra[10] }}</td>
+                            <tr>
+                                <td>{{ compra[3] }}</td>
+                                <td>{{ compra[1] }}</td>
+                                <td>{{ compra[6] }}</td>
+                                <td>{{ compra[4] }}</td>
+                                <td>{{ compra[5] }}</td>
+                                <td>{{ compra[8] }}</td>
+                                <td>{{ compra[7] }}</td>
+                                <td>{{ compra[9] }}</td>
+                                <td>{{ compra[10] }}</td>
+                            </tr>
                         </tbody>
                         {% endfor %}
                     {% endif %}
                     <tfoot>
-                        <th colspan="4" class="background">Total de Compras = {{ compras|length }}</th>
-                        <th colspan="5" class="background">Costo Total De Compras = {{ costo_total }}</th>
+                        <tr>
+                            <th colspan="4" class="background">Total de Compras = {{ compras|length }}</th>
+                            <th colspan="5" class="background">Costo Total De Compras = {{ costo_total }}</th>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
-            <button type="submit" class="boton" value="Grabar" onclick="confirmacion()">Imprimir</button>
         </aside>
         <div id="miModalM" class="modal">
             <div class="flex" id="flexM">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CREADOR DE MARCAS</h2>
+                        <h3 class="titulo_modal">CREADOR DE MARCAS</h3>
                         <span class="close" id="closeM">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/listadodecompras/marcas/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo-">
-                                <input type="text" name="codigo_marca" id="codigo_marca" placeholder="Ingrese el C&oacute;digo">
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo_marca" id="codigo_marca"
+                                    placeholder="Ingrese el C&oacute;digo">
                             </div>
-                            <div class="campo-">
-                                <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="nombre_marca" id="nombre_marca"
+                                    placeholder="Ingrese el Nombre">
                             </div>
-                            <div class="botones-">
-                                <button type="reset" class="boton-">Limpiar</button>
-                                <button type="submit" class="boton-" onclick="return confirmacionM()">Guardar</button>
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionM()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -217,23 +216,23 @@
             <div class="flex" id="flexENV">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CREADOR DE ENCARGADO DE VENTAS</h2>
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE VENTAS</h3>
                         <span class="close" id="closeENV">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/listadodecompras/encVentas/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo-">
-                                <input type="text" name="codigo_enc_ventas" id="codigo_enc_ventas"
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo_enc_ventas" id="codigo_enc_ventas"
                                     placeholder="Ingrese el C&oacute;digo">
                             </div>
-                            <div class="campo-">
-                                <input type="text" name="nombre_enc_ventas" id="nombre_enc_ventas"
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="nombre_enc_ventas" id="nombre_enc_ventas"
                                     placeholder="Ingrese el Nombre">
                             </div>
-                            <div class="botones-">
-                                <button type="reset" class="boton-">Limpiar</button>
-                                <button type="submit" class="boton-" onclick="return confirmacionEV()">Guardar</button>
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEV()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -244,23 +243,23 @@
             <div class="flex" id="flexENC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CREADOR DE ENCARGADO DE COMPRAS</h2>
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE COMPRAS</h3>
                         <span class="close" id="closeENC">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/listadodecompras/encCompras/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo-">
-                                <input type="text" name="codigo_enc_compras" id="codigo_enc_compras"
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo_enc_compras" id="codigo_enc_compras"
                                     placeholder="Ingrese el C&oacute;digo">
                             </div>
-                            <div class="campo-">
-                                <input type="text" name="nombre_enc_compras" id="nombre_enc_compras"
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="nombre_enc_compras" id="nombre_enc_compras"
                                     placeholder="Ingrese el Nombre">
                             </div>
-                            <div class="botones-">
-                                <button type="reset" class="boton-">Limpiar</button>
-                                <button type="submit" class="boton-" onclick="return confirmacionEC()">Guardar</button>
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEC()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -271,19 +270,19 @@
             <div class="flex" id="flexEC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ELIMINACI&Oacute;N DE CUENTA</h2>
+                        <h3 class="titulo_modal">ELIMINACI&Oacute;N DE CUENTA</h3>
                         <span class="close" id="closeEC">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/listadodecompras/eliminar_cuenta/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo">
-                                <p>¿Seguro que desea eliminar su cuenta?</p>
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <p class="parrafo_modal">¿Seguro que desea eliminar su cuenta?</p>
                             </div>
-                            <div class="botones-">
-                                <a href="/listadodecompras"><button type="button" class="boton-">Atr&aacute;s</button></a>
-                                <a href="/listadodecompras/eliminar_cuenta/bd"><button type="submit" id="id_registro_usuario"
-                                        name="id_registro_usuario" class="boton-">Eliminar</button></a>
+                            <div class="botones_modal">
+                                <a href="/listadodecompras" class="boton_modal">Atr&aacute;s</a>
+                                <button type="submit" class="boton_modal" id="id_registro_usuario"
+                                    name="id_registro_usuario">Eliminar</button>
                             </div>
                         </form>
                     </div>
@@ -291,12 +290,13 @@
             </div>
         </div>
     </main>
+    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="{{ url_for('static', filename='JS/menuDesplegable.js') }}"></script>
-    <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModalEC.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/modalConfirmacion.js') }}"></script>
-    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>
 

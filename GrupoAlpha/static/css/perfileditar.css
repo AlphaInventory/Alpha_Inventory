@@ -7,7 +7,7 @@ aside {
     right: 0;
 }
 
-aside h1 {
+aside h2 {
     background-color: #009BEF;
     color: #fff;
     font-size: 26px;
@@ -57,7 +57,7 @@ input {
     display: flex;
     height: 36px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 400;
     text-align: center;
     text-transform: uppercase;
     outline: 2px solid #009BEF;
@@ -66,7 +66,7 @@ input {
 
 label {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
     position: absolute;
     left: 0;
     top: 0;
@@ -107,54 +107,42 @@ input:is(:focus-visible, :valid) {
     color: #ea4335;
 }
 
+.botones {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.botones a {
+    padding: 6px 23px;
+}
+
 .boton {
     background-color: #189BEF;
     border: 2px solid #fff;
     border-radius: 6px;
     color: #000;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     height: 38px;
-    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
     text-transform: uppercase;
     width: 140px;
 }
 
-.botones {
-    margin-left: 9%;
-}
-
-.botones a {
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
-}
-
-.botones a img {
-    height: 20px;
-    width: 20px;
-}
-
 @media screen and (max-width: 1224px) {
     aside {
-        bottom: 0;
         left: 22%;
         position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
-    aside h1 {
-        font-size: 26px;
+    aside h2 {
         padding: 7px;
         width: 94%;
-    }
-
-    .contenedor_formulario {
-        max-width: 1100px;
-        padding-top: 40px;
     }
 
     .grid__ {
@@ -164,8 +152,6 @@ input:is(:focus-visible, :valid) {
 
     .imagen_empresa {
         height: 300px;
-        margin-top: 5px;
-        margin-left: 50px;
         width: 300px;
     }
 
@@ -174,41 +160,38 @@ input:is(:focus-visible, :valid) {
     }
 
     .botones {
-        margin-left: 11%;
+        margin-right: 3%;
+    }
+
+    .botones a {
+        padding: 6px 20px;
     }
 
     .boton {
         height: 36px;
-        margin-top: 30px;
         font-size: 15px;
         width: 120px;
-    }
-
-    .botones a img {
-        height: 17px;
-        width: 17px;
     }
 }
 
 @media screen and (max-width: 1124px) {
-    aside h1 {
+    aside h2 {
         font-size: 24px;
         width: 96%; 
     }
 
-    .boton {
-        font-size: 14px;
-        width: 115px;
+    .botones {
+        margin-right: -4%;
     }
 
-    .botones a img {
-        height: 16px;
-        width: 16px;
+    .boton {
+        font-size: 14px;
+        width: 110px;
     }
 }
 
 @media screen and (max-width: 1024px) {
-    aside h1 {
+    aside h2 {
         margin-left: 10px;
         width: 95%; 
     }
@@ -263,19 +246,14 @@ input:is(:focus-visible, :valid) {
     }
 
     .botones {
-        margin-left: 24%;
+        margin-left: 16%;
+        margin-top: 10px;
     }
 
     .boton {
         height: 34px;
-        margin-top: 0px;
         font-size: 14px;
         width: 115px;
-    }
-
-    .botones a img {
-        height: 15px;
-        width: 15px;
     }
 }
 
@@ -285,7 +263,7 @@ input:is(:focus-visible, :valid) {
         position: fixed;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 22px;
         padding: 8px;
         margin-left: 20px;
@@ -303,7 +281,7 @@ input:is(:focus-visible, :valid) {
         position: fixed;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 20px;
         padding: 9px;
         width: 100%;
@@ -329,18 +307,13 @@ input:is(:focus-visible, :valid) {
     }
 
     .botones {
-        margin-left: 34%;
+        margin-left: 27%;
     }
 
     .boton {
         height: 34px;
         font-size: 13px;
         width: 100px;
-    }
-
-    .botones a img {
-        height: 14px;
-        width: 14px;
     }
 }
 
@@ -364,20 +337,14 @@ input:is(:focus-visible, :valid) {
     .boton {
         height: 32px;
         font-size: 12px;
-        margin-top: 20px;
+        margin-top: 0px;
         width: 90px;
-    }
-
-    .botones a img {
-        height: 13px;
-        width: 13px;
     }
 }
 
 @media screen and (max-width: 524px) {
     aside {
         left: -4%;
-        position: fixed;
         width: 100%;
     }
 
@@ -393,17 +360,21 @@ input:is(:focus-visible, :valid) {
 }
 
 @media screen and (max-width: 500px) {
+    aside {
+        left: -4.8%;
+    }
+
+    aside h2 {
+        padding: 10px;
+    }
+
     .campo {
         margin-left: 75px;
         margin-top: 30px;
     }
 
-    .botones a img {
-        margin: auto;
-        padding: 0;
-    }
-
     .botones {
-        margin-left: 40%;
+        margin-left: 33%;
+        margin-top: 20px;
     }
 }

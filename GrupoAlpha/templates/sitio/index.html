@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INICIO</title>
     <link rel="icon" href="{{ url_for('static', filename='icons/iniciar_sesion.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
     <script>
@@ -22,13 +22,11 @@
             <figure>
                 <img src="{{ url_for('static', filename='icons/logo.png') }}" alt="Logo" class="logo_inicio">
             </figure>
-            <h1 class="titulo">Inventory</h1>
+            <h1>Inventory</h1>
         </div>
     </header>
     <main>
-        <div class="cabecera_main-">
-            <h3 class="subtitulo">Inicio De Sesi&oacute;n</h3>
-        </div>
+        <h2 class="subtitulo">Inicio De Sesi&oacute;n</h3>
         <div class="contenedor_formulario">
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -46,11 +44,10 @@
                 </div>
                 <div class="campo">
                     <input class="input_password" type="password" id="password" name="password" autocomplete="off" required>
-                    <span class="icono_contrasena" title="Contraseña"><i class="fa-solid fa-key"></i></span>
-                    <label for="password" class="centrar">CONTRASEÑA</label>
                     <span class="moscontra" title="Contraseña Oculta"><i class="fa-regular fa-eye-slash mostrar"></i></span>
+                    <span class="icono_contrasena" title="Contraseña"><i class="fa-solid fa-key"></i></span>
+                    <label for="password">CONTRASEÑA</label>
                 </div>
-            </div>
                 <div class="olvcon">
                     <a href="#" id="abrirOC" class="enlace_olvcon">¿Olvidaste tu contraseña?</a>
                 </div>
@@ -58,8 +55,7 @@
                     <button type="submit" class="boton_inicio" onclick="validar()">Entrar</button>
                 </div>
                 <div class="reg_usuario">
-                    <h4 class="subtitulo-">¿Eres un nuevo usuario?</h4>
-                    <a href="/registro_usuario" class="enlace_reg">Registrarse</a>
+                    <h4 class="subtitulo-">¿Eres un nuevo usuario?</h4><span><a href="/registro_usuario" class="enlace_reg">Registrarse</a></span>
                 </div>
                 <div class="enlaces_reg_iconos">
                     <div class="enlaces_reg" onclick="funcion_no_agregada()">
@@ -83,18 +79,19 @@
             <div class="flex" id="flexOC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>¿TIENES PROBLEMAS PARA INICIAR SESI&Oacute;N?</h2>
+                        <h3 class="titulo_modal">OLVIDASTE TU CONTRASEÑA</h3>
                         <span class="close" id="closeOC">&times;</span>
                     </div>
                     <div class="modal-body">
-                        <form action="/registro_usuario/olvidastetucontrasena/bd" method="post" enctype="multipart/form-data" id="form" class="formulario-"> 
-                            <div class="campo-">
-                                <input type="email" id="correo" name="correo" class="control-" placeholder="Ingrese su correo Electr&oacute;nico" autocomplete="off" required>
-                                <span class="icono_email" title="Correo Electronico"><i class="fa-regular fa-envelope"></i></span>
+                        <p class="parrafo_modal">¿TIENES PROBLEMAS PARA INICIAR SESI&Oacute;N?</p>
+                        <form action="/registro_usuario/olvidastetucontrasena/bd" method="post" enctype="multipart/form-data" id="form" class="formulario_modal"> 
+                            <div class="campo_modal">
+                                <input type="email" id="correo" name="correo" class="input_modal" placeholder="Ingrese su correo Electr&oacute;nico" autocomplete="off" required>
+                                <span class="icono_email_modalOC" title="Correo Electronico"><i class="fa-regular fa-envelope"></i></span>
                             </div>
-                            <div class="botones-">
-                                <a href="/" role="button" class="boton-">Atr&aacute;s</a>
-                                <button type="submit" id="boton" class="boton-">Enviar</button>
+                            <div class="botones_modal">
+                                <a href="/" role="button" class="boton_modal">Atr&aacute;s</a>
+                                <button type="submit" id="boton" class="boton_modal">Enviar</button>
                             </div>
                         </form>
                     </div>

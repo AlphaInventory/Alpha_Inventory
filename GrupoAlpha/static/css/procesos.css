@@ -1,14 +1,14 @@
 aside {
     bottom: 0;
     left: 20%;
+    overflow: hidden;
     position: absolute;
+    right: 0;
     text-transform: uppercase;
     top: 5%;
-    right: 0;
-    overflow: hidden;
 }
 
-aside h1 {
+aside h2 {
     background-color: #009BEF;
     color: #fff;
     font-size: 26px;
@@ -26,24 +26,28 @@ aside h1 {
 }
 
 .contenedor_formulario {
+    left: 10px;
     margin: 2px;
     position: relative;
     top: 10px;
-    left: 10px;
 }
 
 .contenedor_formulario label {
-    font-weight: 800;
+    font-weight: 700;
+}
+
+.contenedor_formulario input {
+    font-weight: 400;
 }
 
 .icono {
+    margin-left: 7px;
     position: relative;
     top: 4px;
-    margin-left: 7px;
     width: 20px;
 }
 
-.table {
+table {
     background-color: #ADD8E6;
     border-collapse: collapse;
     height: auto;
@@ -70,12 +74,12 @@ table td {
 }
 
 table td input {
-    border: none;
     background-color: #ADD8E6;
-    height: 20px;
-    text-align: center;
+    border: none;
     color: #000;
     font-size: 15px;
+    height: 20px;
+    text-align: center;
     width: 80px;
 }
 
@@ -99,37 +103,35 @@ table td input::placeholder {
     cursor: pointer;
     font-size: 18px;
     font-weight: 700;
+    margin-left: 42%;
     margin-top: 10px;
-    margin-left: 42.5%;
     padding: 7px 30px;
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 1230px) {
+@media screen and (max-width: 1224px) {
     aside {
-        bottom: 0;
         left: 22%;
         position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
-    aside h1 {
-        font-size: 26px;
+    aside h2 {
+        margin-right: 10px;
         padding: 7px;
         width: 94%;
     }
 
     .formulario {
-        position: relative;
         left: 5px;
-        font-size: 17px;
+        position: relative;
+    }
+
+    .contenedor_formulario {
+        margin-left: 10px;
     }
 
     .formulario label {
         font-size: 17px;
-        font-weight: 800;
     }
 
     .formulario input {
@@ -137,14 +139,10 @@ table td input::placeholder {
         width: 130px;
     }
 
-    .contenedor_formulario {
-        margin-left: 10px;
-    }
-
-    .table {
-        margin-top: 30px;
+    form table {
         margin-right: 10px;
-        width: 93%;
+        margin-top: 30px;
+        width: 94%;
     }
 
     table th {
@@ -157,55 +155,50 @@ table td input::placeholder {
 
     .boton {
         font-size: 17px;
-        left: 200%;
+        margin-left: 38.5%;
     }
 }
 
 @media screen and (max-width: 1124px) {
-    aside h1 {
+    aside h2 {
         font-size: 24px;
-        width: 96%;
+        width: 95%;
     }
 
-    table {
-        width: 96%;
+    form table {
+        margin-right: 30%;
+        margin-top: 30px;
+        width: 95%;
     }
-
 }
 
 @media screen and (max-width: 1024px) {
-    aside h1 {
+    aside h2 {
         margin-left: 10px;
-        width: 95%;
     }
 
-    table {
+    form table {
         margin-left: 10px;
-        width: 95%;
     }
 
     .boton {
         font-size: 16px;
-        left: 200%;
     }
-
 }
 
 @media screen and (max-width: 924px) {
     aside {
         left: 24%;
-        position: fixed;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 22px;
-        padding: 8px;
         margin-left: 20px;
-        width: 94%;
+        padding: 8px;
+        width: 93%;
     }
 
     .formulario {
-        position: relative;
         left: 14px;
     }
 
@@ -218,25 +211,12 @@ table td input::placeholder {
         width: 110px;
     }
 
+    form table {
+        width: 93%;
+    }
+
     table th {
-        font-size: 12px;
-    }
-
-    .formulario_arriba .contenedor_formulario h3 {
-        position: relative;
-        left: 1.8%;
         font-size: 14px;
-    }
-
-
-    .contenedor_formulario label {
-        font-size: 16px;
-        margin-left: 10px;
-    }
-
-    .contenedor_formulario input {
-        width: 100px;
-        height: 18px;
     }
 
     table td {
@@ -245,31 +225,27 @@ table td input::placeholder {
 
     .boton {
         font-size: 15px;
-        left: 290px;
-        top: 60px;
     }
 }
 
 @media screen and (max-width: 824px) {
     aside {
         left: -4%;
-        position: fixed;
     }
 
-    aside h1 {
-        width: 100%;
+    aside h2 {
         font-size: 20px;
         padding: 9px;
+        width: 100%;
     }
 
-    .contenedor_formulario h3 {
-        margin-left: 10px;
-        font-size: 17px;
+    .contenedor_formulario {
+        margin-left: 40px;
     }
 
-    table {
+    form table {
+        left: 4%;
         position: relative;
-        left: 2%;
         width: 90%;
     }
 
@@ -283,11 +259,13 @@ table td input::placeholder {
 
     .boton {
         font-size: 14px;
+        margin-left: 43%;
+        margin-top: 20px;
     }
 }
 
 @media screen and (max-width: 724px) {
-    aside h1 {
+    aside h2 {
         padding: 10px;
     }
 
@@ -300,11 +278,7 @@ table td input::placeholder {
         width: 110px;
     }
 
-    .contenedor_formulario h3 {
-        font-size: 16px;
-    }
-
-    table {
+    form table {
         margin-left: 10px;
     }
 
@@ -323,23 +297,6 @@ table td input::placeholder {
 }
 
 @media screen and (max-width: 624px) {
-    .formulario_arriba .contenedor_formulario label {
-        font-size: 11.5px;
-    }
-
-    .formulario_arriba .contenedor_formulario input {
-        height: 17px;
-        width: 90px;
-    }
-
-    .contenedor_formulario h3 {
-        font-size: 16px;
-    }
-
-    table {
-        width: 90%;
-    }
-
     table th {
         font-size: 11px;
     }
@@ -362,11 +319,6 @@ table td input::placeholder {
 }
 
 @media screen and (max-width: 524px) {
-    aside {
-        left: -4%;
-        position: fixed;
-    }
-
     .formulario label {
         font-size: 12px;
     }
@@ -377,18 +329,13 @@ table td input::placeholder {
     }
 
     .icono {
-        width: 18px;
         height: 18px;
+        width: 18px;
     }
-
-    aside table {
+    
+    form table {
+        margin-left: 0.5%;
         width: 90%;
-        margin-left: 1%;
-
-    }
-
-    .formulario_arriba .contenedor_formulario input {
-        width: 80px;
     }
 
     table th {
@@ -405,5 +352,65 @@ table td input::placeholder {
 }
 
 @media screen and (max-width: 500px) {
+    aside {
+        left: -5%;
+    }
+
+    .contenedor_formulario {
+        margin-left: 20px;
+    }
+
+    .formulario label {
+        font-size: 12px;
+    }
+
+    .group {
+        margin-top: -10px;
+    }
+
+    .formulario .contenedor_formulario input {
+        align-content: center;
+        background-color: #fff;
+        border: 1px #000 solid;
+        height: 15px;
+        font-size: 9px;
+        margin-bottom: 10px;
+        width: 100px;
+    }
+
+    .up {
+        left: 56px;
+        position: absolute;
+        top: 6px;
+    }
+
+    .icono {
+        height: 15px;
+        width: 15px;
+    }
+        
+    table th {
+        align-items: center;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    table td {
+        font-size: 9px;
+    }
     
+    .boton {
+        margin-left: 40%;
+        margin-top: 50px;
+    }
 }
+
+@media screen and (max-width: 495px) {
+    .formulario .contenedor_formulario label {
+        font-size: 11px;
+    }
+
+    .boton {
+        margin-left: 36%;
+    }
+}    

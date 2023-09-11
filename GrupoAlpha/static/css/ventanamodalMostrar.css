@@ -25,13 +25,9 @@
     backdrop-filter: blur(3px);
 }
 
-.modal::-webkit-scrollbar {
-    display: none;
-}
-
 .contenido-modal {
     position: relative;
-    background-color: #fefefe;
+    background-color: #EAEBEF;
     margin: auto;
     width: 45%;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
@@ -66,33 +62,17 @@
 .modal-header {
     padding: 8px 16px;
     background-color: #009BEF;
-    position: sticky;
-    top: 0;
 }
 
 .modal-body {
     padding: 20px 16px;
 }
 
-.cabecera_main {
-    width: 100%;
-}
-
-h2 {
+.titulo_modal {
     color: #000;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
     padding: 10px 0;
-}
-
-.input_modal {
-    border-radius: 5px;
-    border: transparent;
-    font-size: 14px;
-    font-weight: 600;
-    height: 24px;
-    outline: 2px solid #009BEF;
-    width: 190px;
 }
 
 .contentedor_tabla_modal {
@@ -100,7 +80,7 @@ h2 {
     overflow-y: scroll;
 }
 
-.tabla {
+.tabla_modal {
     background-color: #fff;
     border-collapse: collapse;
     height: auto;
@@ -108,16 +88,12 @@ h2 {
     width: 100%;
 }
 
-.tabla .activo:hover {
-    background-color: #f2f2f2;
-}
-
-.tabla thead {
+.tabla_modal thead {
     position: sticky;
     top: 11.8%;
 }
 
-.tabla th {
+.tabla_modal th {
     background-color: #009BEF;
     border-bottom: 1px solid;
     border-right: 1px solid;
@@ -125,7 +101,7 @@ h2 {
     text-align: center;
 }
 
-.tabla td {
+.tabla_modal td {
     border-right: 1px solid;
     padding: 7px;
     text-align: center;
@@ -137,7 +113,235 @@ h2 {
     width: 20px;
 }
 
+@media screen and (max-width: 1224px) {
+    .titulo_modal_mostrar {
+        font-size: 20px;
+    }
+
+    .contenido-modal {
+        width: 55%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 18px;
+    }
+
+    .tabla_modal td {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    .titulo_modal_mostrar {
+        font-size: 19px;
+    }
+
+    .contenido-modal {
+        width: 55%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 17px;
+    }
+
+    .tabla_modal td {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .titulo_modal_mostrar {
+        font-size: 18px;
+    }
+
+    .contenido-modal {
+        width: 55%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 16px;
+    }
+
+    .tabla_modal td {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    .titulo_modal_mostrar {
+        font-size: 18px;
+    }
+
+    .contenido-modal {
+        width: 55%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 15px;
+    }
+
+    .tabla_modal td {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    .titulo_modal_mostrar {
+        font-size: 17px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 14px;
+    }
+
+    .tabla_modal td {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 724px) {
+    .titulo_modal_mostrar {
+        font-size: 16px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 13px;
+    }
+
+    .tabla_modal td {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .titulo_modal_mostrar {
+        font-size: 15px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 12px;
+    }
+
+    .tabla_modal td {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 524px) {
+    .titulo_modal_mostrar {
+        font-size: 14px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 11px;
+    }
+
+    .tabla_modal td {
+        font-size: 11px;
+    }
+}
 
 @media screen and (max-width: 500px) {
-    
+    .titulo_modal_mostrar {
+        font-size: 13px;
+    }
+
+    .close {
+        font-size: 20px;
+    }
+
+    .contenido-modal {
+        width: 60%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 10px;
+    }
+
+    .tabla_modal td {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    .titulo_modal_mostrar {
+        font-size: 12px;
+    }
+
+    .close {
+        font-size: 18px;
+    }
+
+    .contenido-modal {
+        width: 70%;
+    }
+
+    .tabla_modal {
+        margin: auto;
+    }
+
+    .tabla_modal th {
+        font-size: 9px;
+    }
+
+    .tabla_modal td {
+        font-size: 9px;
+    }
+
+    .eliminar {
+        height: 15px;
+        width: 15px;
+    }
 }

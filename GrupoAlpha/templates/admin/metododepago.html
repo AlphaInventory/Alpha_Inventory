@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INICIO | M&Eacute;TODO DE PAGO</title>
 	<link rel="icon" href="{{ url_for('static', filename='icons/metodo_pago.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/metododepago.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 <body>
 	<script>
         function confirmacion() {
-            var conf =  confirm("¿Estas seguro de que sus datos estan correctos?");
+            var conf =  confirm("¿Estás seguro de que sus datos estan correctos?");
 
             if(conf == true) {
                 return true;
@@ -23,7 +23,7 @@
         }
     </script>
     <header>
-        <h1 class="titulo">M&eacute;todo de Pago</h1>
+        <h1>M&eacute;todo de Pago</h1>
     </header>
 	{% with messages = get_flashed_messages() %}
 		{% if messages %}
@@ -34,7 +34,7 @@
 	{% endwith %}
     <main>
         <div class="contenedor">
-			<section class="tarjeta" id="tarjeta">
+			<div class="tarjeta" id="tarjeta">
 				<div class="delantera">
 					<div class="logo-marca" id="logo-marca"></div>
 					<img src="{{ url_for('static', filename='icons/chip-tarjeta.png') }}" class="chip" alt="">
@@ -70,7 +70,7 @@
 					<p class="leyenda">Authorized signature / Firma autorizada. Not valid unless signed / No es valida sin firma.</p>
 					<a href="#" class="link-banco"></a>
 				</div>
-			</section>
+			</div>
 			<div class="contenedor-btn">
 				<button class="btn-abrir-formulario" id="btn-abrir-formulario">
 					<i class="fas fa-plus"></i>
@@ -91,16 +91,14 @@
 					<div class="grupo expira">
 						<div class="flexbox">
 							<div class="grupo-select">
-								<select name="selectMes" id="selectMes" required>
+								<select name="selectMes" id="selectMes" size="1" required>
 									<option disabled selected>Mes</option>
 								</select>
-								<i class="fas fa-angle-down"></i>
 							</div>
 							<div class="grupo-select">
-								<select name="selectYear" id="selectYear" required>
+								<select name="selectYear" id="selectYear" size="1" required>
 									<option disabled selected>Año</option>
 								</select>
-								<i class="fas fa-angle-down"></i>
 							</div>
 						</div>
 					</div>
@@ -109,13 +107,12 @@
 					</div>
 				</div>
 				<div class="botones">
-					<a href="/metododepago" role="button" class="btn-enviar">Atr&aacute;s</a>
 					<button type="submit" class="btn-enviar" onclick="return confirmacion()">Enviar</button>
 				</div>
 			</form>
 		</div>
     </main>
-	<script src="{{ url_for('static', filename='JS/metodoPago.js') }}"></script>
     <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+	<script src="{{ url_for('static', filename='JS/metodoPago.js') }}"></script>
 </body>
 </html>

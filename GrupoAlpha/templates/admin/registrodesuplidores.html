@@ -1,30 +1,19 @@
 <!DOCTYPE html>
 <html lang="es-Do">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTROS | REGISTRO DE SUPLIDORES</title>
     <link rel="icon" href="{{ url_for('static', filename='icons/suplidores.png') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/registros.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registros.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ventanamodal.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mensaje.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
-    <script>
-        function confirmacion() {
-            var conf =  confirm("¿Estas seguro de que quieres guardar este suplidor?");
-
-            if(conf == true) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    </script>
     <div class="menu-boton">
         <i class="fas fa-bars"></i>
     </div>
@@ -34,14 +23,14 @@
                 <i class="fas fa-times"></i>
             </div>
             <a href="/inicio_inventario" class="inicio">
-                <img src="{{ url_for('static', filename='icons/logo.png') }}" class="logo">
+                <img src="{{ url_for('static', filename='icons/logo.png') }}" class="logo" alt="Inicio">
                 <h1>Inventory</h1>
             </a>
             <div class="menu">
                 <div class="elemento">
                     <a class="sub-boton toggle" id="registros">
-                        <img class="icon" src="{{ url_for('static', filename='icons/registros.png') }}"><span>REGISTROS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/registros.png') }}"
+                            alt="Registros"><span>REGISTROS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/registrodearticulos" class="sub-elemento">ART&Iacute;CULOS</a>
@@ -54,8 +43,8 @@
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="procesos">
-                        <img class="icon" src="{{ url_for('static', filename='icons/procesos.png') }}"><span>PROCESOS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/procesos.png') }}"
+                            alt="Procesos"><span>PROCESOS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/compras" class="sub-elemento">COMPRAS</a>
@@ -64,8 +53,8 @@
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="movimientos">
-                        <img class="icon" src="{{ url_for('static', filename='icons/movimientos.png') }}"><span>MOVIMIENTOS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/movimientos.png') }}"
+                            alt="Movimientos"><span>MOVIMIENTOS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/movimientosdiariocompras" class="sub-elemento">DIARIOS / COMPRAS</a>
@@ -76,8 +65,8 @@
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="listados">
-                        <img class="icon" src="{{ url_for('static', filename='icons/listados.png') }}"><span>LISTADOS</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/listados.png') }}"
+                            alt="Listados"><span>LISTADOS</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/listadodearticulos" class="sub-elemento">LISTADO DE ART&Iacute;CULOS</a>
@@ -91,14 +80,13 @@
                 <div class="elemento ">
                     <a href="/respaldos" class="toggle" id="respaldos">
                         <img class="icon" src="{{ url_for('static', filename='icons/respaldos.png') }}"
-                            alt=""><span>RESPALDOS</span>
+                            alt="Respaldos"><span>RESPALDOS</span>
                     </a>
                 </div>
                 <div class="elemento">
                     <a class="sub-boton toggle" id="configuraciones">
-                        <img class="icon"
-                            src="{{ url_for('static', filename='icons/configuraciones.png') }}"><span>CONFIGURACIONES</span><i
-                            class="fas fa-angle-right dropdown"></i>
+                        <img class="icon" src="{{ url_for('static', filename='icons/configuraciones.png') }}"
+                            alt="Configuraciones"><span>CONFIGURACIONES</span><i class="fas fa-angle-right dropdown"></i>
                     </a>
                     <div class="sub-menu">
                         <a href="/perfil" class="sub-elemento">PERFIL</a>
@@ -109,8 +97,8 @@
                 </div>
                 <div class="elemento">
                     <a href="/cerrar_sesion">
-                        <img class="icon" src="{{ url_for('static', filename='icons/cerrar-sesion.png') }}"><span>CERRAR
-                            SESI&Oacute;N</span>
+                        <img class="icon" src="{{ url_for('static', filename='icons/cerrar-sesion.png') }}"
+                            alt="Cerrar-sesion"><span>CERRAR SESI&Oacute;N</span>
                     </a>
                 </div>
             </div>
@@ -118,9 +106,7 @@
     </div>
     <main>
         <aside>
-            <div class="cabecera_main">
-                <h1 class="titulo">Registro de suplidores</h1>
-            </div>
+            <h2>Registro de suplidores</h2>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for mensaje in messages %}
@@ -129,85 +115,79 @@
                 {% endif %}
             {% endwith %}
             <form class="formulario" action="/registrodesuplidores/bd" method="post">
-                <div class="grid-1">
-                    <div class="campo">
-                        <label for="id_suplidor">C&oacute;digo</label>
-                        <input type="number" id="codigo" name="codigo" autocomplete="off" required>
-                    </div>
-                    <div class="campo">
-                        <label for="tel">Tel&eacute;fono</label>
-                        <input type="tel" id="tel" name="tel" autocomplete="off" required>
-                    </div>
-                    <div class="campo">
-                        <label for="limite">L&iacute;mite de Cr&eacute;dito</label>
-                        <input type="text" id="limite" name="limite" autocomplete="off" required>
-                    </div>
+                <div class="campo">
+                    <label for="codigo">C&oacute;digo</label>
+                    <input type="number" id="codigo" name="codigo" autocomplete="off" required>
                 </div>
-                <div class="grid-2">
-                    <div class="campo">
-                        <label for="nom">Nombre</label>
-                        <input type="text" id="nom" name="nom" autocomplete="off" required>
-                    </div>
-                    <div class="campo">
-                        <label for="rnc">RNC</label>
-                        <input type="number" id="rnc" name="rnc" autocomplete="off" required>
-                    </div>
-                    <div class="campo">
-                        <label for="condiciones">Condiciones</label>
-                        <input type="text" id="condiciones" name="condiciones" autocomplete="off" required>
-                    </div>
+                <div class="campo">
+                    <label for="nom">Nombre</label>
+                    <input type="text" id="nom" name="nom" autocomplete="off" required>
                 </div>
-                <div class="grid-3">
-                    <div class="campo">
-                        <label for="dir">Direcci&oacute;n</label>
-                        <input type="text" id="dir" name="dir" autocomplete="off" required>
-                    </div>
-                    <div class="campo">
-                        <label for="ciudad">Ciudad</label>
-                        <select name="ciudad" id="ciudad" autocomplete="off" required>
-                            <option selected>Sel. una provincia</option>
-                            <option>Azua</option>
-                            <option>Bahoruco</option>
-                            <option>Barahona</option>
-                            <option>Dajab&oacute;n</option>
-                            <option>Duarte</option>
-                            <option>El Seibo</option>
-                            <option>El&acute;as Piña</option>
-                            <option>Espaillat</option>
-                            <option>Hato Mayor</option>
-                            <option>Hermanas Mirabal</option>
-                            <option>Independencia</option>
-                            <option>La Altagracia</option>
-                            <option>La Romana</option>
-                            <option>La Vega</option>
-                            <option>Mar&iacute;a Trinidad S&aacute;nchez</option>
-                            <option>Monseñor Nouel</option>
-                            <option>Monte Cristi</option>
-                            <option>Monte Plata</option>
-                            <option>Perdanales</option>
-                            <option>Peravia</option>
-                            <option>Puerto Plata</option>
-                            <option>Saman&aacute;</option>
-                            <option>San Cristobal</option>
-                            <option>San Jos&eacute; De Ocoa</option>
-                            <option>San Juan</option>
-                            <option>San Pedro De Macor&iacute;s</option>
-                            <option>S&aacute;nchez Ramirez</option>
-                            <option>Santiago</option>
-                            <option>Santiago Rodr&iacute;guez</option>
-                            <option>Santo Domingo</option>
-                            <option>Valverde</option>
-                            <option>Distrito Nacional</option>
-                        </select>
-                    </div>
-                    <div class="campo">
-                        <label for="descuento">Descuento</label>
-                        <input type="text" id="descuento" name="descuento" autocomplete="off" required>
-                    </div>
+                <div class="campo">
+                    <label for="dir">Direcci&oacute;n</label>
+                    <input type="text" id="dir" name="dir" autocomplete="off" required>
+                </div>
+                <div class="campo">
+                    <label for="tel">Tel&eacute;fono</label>
+                    <input type="tel" id="tel" name="tel" autocomplete="off" required>
+                </div>
+                <div class="campo">
+                    <label for="rnc">RNC</label>
+                    <input type="number" id="rnc" name="rnc" autocomplete="off" required>
+                </div>
+                <div class="campo">
+                    <label for="ciudad">Ciudad</label>
+                    <select name="ciudad" id="ciudad" size="1" autocomplete="off" required>
+                        <option selected>Sel. una provincia</option>
+                        <option>Azua</option>
+                        <option>Bahoruco</option>
+                        <option>Barahona</option>
+                        <option>Dajab&oacute;n</option>
+                        <option>Duarte</option>
+                        <option>El Seibo</option>
+                        <option>El&acute;as Piña</option>
+                        <option>Espaillat</option>
+                        <option>Hato Mayor</option>
+                        <option>Hermanas Mirabal</option>
+                        <option>Independencia</option>
+                        <option>La Altagracia</option>
+                        <option>La Romana</option>
+                        <option>La Vega</option>
+                        <option>Mar&iacute;a Trinidad S&aacute;nchez</option>
+                        <option>Monseñor Nouel</option>
+                        <option>Monte Cristi</option>
+                        <option>Monte Plata</option>
+                        <option>Perdanales</option>
+                        <option>Peravia</option>
+                        <option>Puerto Plata</option>
+                        <option>Saman&aacute;</option>
+                        <option>San Cristobal</option>
+                        <option>San Jos&eacute; De Ocoa</option>
+                        <option>San Juan</option>
+                        <option>San Pedro De Macor&iacute;s</option>
+                        <option>S&aacute;nchez Ramirez</option>
+                        <option>Santiago</option>
+                        <option>Santiago Rodr&iacute;guez</option>
+                        <option>Santo Domingo</option>
+                        <option>Valverde</option>
+                        <option>Distrito Nacional</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="limite">L&iacute;mite de Cr&eacute;dito</label>
+                    <input type="text" id="limite" name="limite" autocomplete="off" required>
+                </div>
+                <div class="campo">
+                    <label for="condiciones">Condiciones</label>
+                    <input type="text" id="condiciones" name="condiciones" autocomplete="off" required>
+                </div>
+                <div class="campo">
+                    <label for="descuento">Descuento</label>
+                    <input type="text" id="descuento" name="descuento" autocomplete="off" required>
                 </div>
                 <div class="botones">
                     <button type="reset" class="boton">Limpiar</button>
-                    <button type="submit" class="boton" onclick="return confirmacion()">Guardar</button>
+                    <button type="submit" class="boton">Guardar</button>
                 </div>
             </form>
         </aside>
@@ -215,21 +195,23 @@
             <div class="flex" id="flexM">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CREADOR DE MARCAS</h2>
+                        <h3 class="titulo_modal">CREADOR DE MARCAS</h3>
                         <span class="close" id="closeM">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/registrodesuplidores/marcas/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo-">
-                                <input type="text" name="codigo_marca" id="codigo_marca" placeholder="Ingrese el C&oacute;digo">
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo_marca" id="codigo_marca"
+                                    placeholder="Ingrese el C&oacute;digo">
                             </div>
-                            <div class="campo-">
-                                <input type="text" name="nombre_marca" id="nombre_marca" placeholder="Ingrese el Nombre">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="nombre_marca" id="nombre_marca"
+                                    placeholder="Ingrese el Nombre">
                             </div>
-                            <div class="botones-">
-                                <button type="reset" class="boton-">Limpiar</button>
-                                <button type="submit" class="boton-" onclick="return confirmacionM()">Guardar</button>
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionM()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -240,23 +222,23 @@
             <div class="flex" id="flexENV">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CREADOR DE ENCARGADO DE VENTAS</h2>
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE VENTAS</h3>
                         <span class="close" id="closeENV">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/registrodesuplidores/encVentas/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo-">
-                                <input type="text" name="codigo_enc_ventas" id="codigo_enc_ventas"
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo_enc_ventas" id="codigo_enc_ventas"
                                     placeholder="Ingrese el C&oacute;digo">
                             </div>
-                            <div class="campo-">
-                                <input type="text" name="nombre_enc_ventas" id="nombre_enc_ventas"
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="nombre_enc_ventas" id="nombre_enc_ventas"
                                     placeholder="Ingrese el Nombre">
                             </div>
-                            <div class="botones-">
-                                <button type="reset" class="boton-">Limpiar</button>
-                                <button type="submit" class="boton-" onclick="return confirmacionEV()">Guardar</button>
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEV()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -267,23 +249,23 @@
             <div class="flex" id="flexENC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>CREADOR DE ENCARGADO DE COMPRAS</h2>
+                        <h3 class="titulo_modal">CREADOR ENCARGADO DE COMPRAS</h3>
                         <span class="close" id="closeENC">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/registrodesuplidores/encCompras/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo-">
-                                <input type="text" name="codigo_enc_compras" id="codigo_enc_compras"
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="codigo_enc_compras" id="codigo_enc_compras"
                                     placeholder="Ingrese el C&oacute;digo">
                             </div>
-                            <div class="campo-">
-                                <input type="text" name="nombre_enc_compras" id="nombre_enc_compras"
+                            <div class="campo_modal">
+                                <input type="text" class="input_modal" name="nombre_enc_compras" id="nombre_enc_compras"
                                     placeholder="Ingrese el Nombre">
                             </div>
-                            <div class="botones-">
-                                <button type="reset" class="boton-">Limpiar</button>
-                                <button type="submit" class="boton-" onclick="return confirmacionEC()">Guardar</button>
+                            <div class="botones_modal">
+                                <button type="reset" class="boton_modal">Limpiar</button>
+                                <button type="submit" class="boton_modal" onclick="return confirmacionEC()">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -294,19 +276,19 @@
             <div class="flex" id="flexEC">
                 <div class="contenido-modal">
                     <div class="modal-header flex">
-                        <h2>ELIMINACI&Oacute;N DE CUENTA</h2>
+                        <h3 class="titulo_modal">ELIMINACI&Oacute;N DE CUENTA</h3>
                         <span class="close" id="closeEC">&times;</span>
                     </div>
                     <div class="modal-body">
                         <form action="/registrodesuplidores/eliminar_cuenta/bd" method="post" enctype="multipart/form-data"
-                            class="formulario-">
-                            <div class="campo">
-                                <p>¿Seguro que desea eliminar su cuenta?</p>
+                            class="formulario_modal">
+                            <div class="campo_modal">
+                                <p class="parrafo_modal">¿Seguro que desea eliminar su cuenta?</p>
                             </div>
-                            <div class="botones-">
-                                <a href="/registrodesuplidores"><button type="button" class="boton-">Atr&aacute;s</button></a>
-                                <a href="/registrodesuplidores/eliminar_cuenta/bd"><button type="submit" id="id_registro_usuario"
-                                        name="id_registro_usuario" class="boton-">Eliminar</button></a>
+                            <div class="botones_modal">
+                                <a href="/registrodesuplidores" class="boton_modal">Atr&aacute;s</a>
+                                <button type="submit" class="boton_modal" id="id_registro_usuario"
+                                    name="id_registro_usuario">Eliminar</button>
                             </div>
                         </form>
                     </div>
@@ -314,12 +296,13 @@
             </div>
         </div>
     </main>
+    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="{{ url_for('static', filename='JS/menuDesplegable.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModal.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModalMotrar.js') }}"></script>
-    <script src="{{ url_for('static', filename='JS/active.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/ventanaModalEC.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/modalConfirmacion.js') }}"></script>
-    <script src="https://kit.fontawesome.com/fa9d163aa9.js" crossorigin="anonymous"></script>
 </body>
 </html>

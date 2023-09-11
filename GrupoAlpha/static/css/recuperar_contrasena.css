@@ -11,8 +11,8 @@ body {
 }
 
 header {
-    text-align: center;
     padding: 30px;
+    text-align: center;
     width: 100%;
 }
 
@@ -30,15 +30,15 @@ h1 {
 main {
     align-items: center;
     display: flex;
-    justify-content: center;
     flex-flow: column;
-    padding: 20px 0 0 0px;
+    justify-content: center;
     margin: auto;
+    padding: 20px 0 0 0px;
 }
 
 .indicaciones_cta {
-    padding: 8px 0;
     margin: auto;
+    padding: 8px 0;
     text-align: justify;
 }
 
@@ -56,8 +56,8 @@ main {
 }
 
 .campo {
-    position: relative;
     margin-top: 40px;
+    position: relative;
 }
 
 input {
@@ -66,9 +66,9 @@ input {
     box-shadow: none;
     color: #000;
     display: flex;
-    font-size: 14px;
-    font-weight: bold;
     flex-flow: column;
+    font-size: 14px;
+    font-weight: 500;
     height: 42px;
     justify-content: left;
     margin: 10px;
@@ -79,9 +79,9 @@ input {
 
 label {
     font-size: 17px;
-    font-weight: bold;
-    position: absolute;
+    font-weight: 700;
     left: 0;
+    position: absolute;
     top: 0;
     transform: translate(38px, 8px);
     transform-origin: center;
@@ -94,8 +94,8 @@ input:focus-visible~.password-,
 input:valid~.password- {
     color: #000;
     font-size: 20px;
-    transform: translate(-0px, -20px) scale(0.8);
     margin-top: -10px;
+    transform: translate(-0px, -20px) scale(0.8);
 }
 
 input:is(:focus-visible, :valid) {
@@ -103,11 +103,11 @@ input:is(:focus-visible, :valid) {
 }
 
 .icono_label {
+    cursor: pointer;
+    font-size: 15px;
+    left: 16px;
     position: relative;
     top: -43px;
-    left: 16px;
-    font-size: 15px;
-    cursor: pointer;
 }
 
 .fa-key {
@@ -115,36 +115,40 @@ input:is(:focus-visible, :valid) {
 }
 
 .moscontra {
-    position: relative;
-    left: 344px;
-    bottom: 42px;
+    position: absolute;
+    right: 5%;
+    top: 14%;
 }
 
 .botones {
     display: flex;
-    justify-content: center;
     flex-flow: row;
-    margin-top: 60px;
     gap: 20px;
+    justify-content: center;
+    margin-top: 60px;
 }
 
 .boton {
-    background-color: #009BEF;
     color: #000;
-    border-radius: 6px;
     cursor: pointer;
+    background-color: #009BEF;
+    border: 1px solid #FFF;
+    border-radius: 6px;
     font-size: 18px;
     font-weight: 700;
     padding: 8px;
+    text-align: center;
+    text-decoration: none;
     text-transform: uppercase;
     width: 120px;
 }
 
 .boton:hover {
     background-color: #0029FF;
+    border: 1px solid #000;
     color: #FFF;
-    width: 120px;
     transition: all 1s ease-out;
+    width: 120px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -179,15 +183,9 @@ input:is(:focus-visible, :valid) {
     }
 
     .icono_label {
-        top: -43px;
-        left: 15px;
         font-size: 15px;
-    }
-
-    .moscontra {
-        position: relative;
-        left: 360px;
-        bottom: 42px;
+        left: 15px;
+        top: -43px;
     }
 
     .botones {
@@ -238,14 +236,9 @@ input:is(:focus-visible, :valid) {
    }
 
     .icono_label {
-        top: -42px;
-        left: 18px;
         font-size: 14px;
-    }
-
-    .moscontra {
-        left: 305px;
-        bottom: 42px;
+        left: 18px;
+        top: -42px;
     }
 
     .botones {
@@ -295,15 +288,13 @@ input:is(:focus-visible, :valid) {
     }
 
     .icono_label {
-        top: -38px;
-        left: 20px;
         font-size: 13px;
+        left: 20px;
+        top: -38px;
     }
 
     .moscontra {
         font-size: 15px;
-        left: 267px;
-        bottom: 38px;
     }
 
     .botones {

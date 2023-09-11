@@ -2,12 +2,12 @@ aside {
     bottom: 0;
     left: 20%;
     position: fixed;
+    right: 0;
     text-transform: uppercase;
     top: 5%;
-    right: 0;
 }
 
-aside h1 {
+aside h2 {
     background-color: #009BEF;
     color: #fff;
     font-size: 26px;
@@ -19,10 +19,10 @@ aside h1 {
 }
 
 .indicaciones_cta {
-    padding: 8px 0;
-    text-align: justify;
     margin-top: 20px;
     margin-right: 30px;
+    padding: 8px 0;
+    text-align: justify;
 }
 
 .indicaciones_cta .parrafos_contrasena {
@@ -46,9 +46,9 @@ aside h1 {
 }
 
 .campo {
-    position: relative;
-    margin-top: 40px;
     margin-right: 30px;
+    margin-top: 40px;
+    position: relative;
 }
 
 input {
@@ -57,9 +57,9 @@ input {
     box-shadow: none;
     color: #000;
     display: flex;
-    font-size: 14px;
-    font-weight: bold;
     flex-flow: column;
+    font-size: 14px;
+    font-weight: 400;
     height: 38px;
     justify-content: left;
     margin: 10px;
@@ -70,9 +70,9 @@ input {
 
 label {
     font-size: 14px;
-    font-weight: bold;
-    position: absolute;
+    font-weight: 700;
     left: 0;
+    position: absolute;
     top: 0;
     transform: translate(38px, 9px);
     transform-origin: center;
@@ -83,8 +83,8 @@ input:focus-visible~label,
 input:valid~label {
     color: #000;
     font-size: 17px;
-    transform: translate(-0px, -20px) scale(0.8);
     margin-top: -10px;
+    transform: translate(-0px, -20px) scale(0.8);
 }
 
 input:is(:focus-visible, :valid) {
@@ -92,11 +92,11 @@ input:is(:focus-visible, :valid) {
 }
 
 .icono_label {
-    position: relative;
-    top: -40px;
-    left: 15px;
     font-size: 15px;
     cursor: pointer;
+    left: 15px;
+    position: relative;
+    top: -40px;
 }
 
 .fa-key {
@@ -104,23 +104,23 @@ input:is(:focus-visible, :valid) {
 }
 
 .moscontra {
-    position: relative;
-    left: 304px;
-    bottom: 40px;
-    font-size: 15px;
     cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    right: 5%;
+    top: 12%;
 }
 
 .boton {
     background-color: #189BEF;
     border: 2px solid #fff;
-    color: #000;
     border-radius: 6px;
+    color: #000;
     cursor: pointer;
     font-size: 16px;
     font-weight: 700;
     height: 36px;
-    margin-left: 18%;
+    margin-left: 20%;
     padding: 5px 30px;
     text-transform: uppercase;
     width: 220px;
@@ -128,16 +128,10 @@ input:is(:focus-visible, :valid) {
 
 @media screen and (max-width: 1224px) {
     aside {
-        bottom: 0;
         left: 22%;
-        position: fixed;
-        text-transform: uppercase;
-        top: 5%;
-        right: 0;
     }
 
-    aside h1 {
-        font-size: 26px;
+    aside h2 {
         padding: 7px;
         width: 94%;
     }
@@ -148,7 +142,7 @@ input:is(:focus-visible, :valid) {
 }
 
 @media screen and (max-width: 1124px) {
-    aside h1 {
+    aside h2 {
         font-size: 24px;
         width: 96%; 
     }
@@ -159,7 +153,7 @@ input:is(:focus-visible, :valid) {
 }
 
 @media screen and (max-width: 1024px) {
-    aside h1 {
+    aside h2 {
         margin-left: 10px;
         width: 95%; 
     }
@@ -168,13 +162,12 @@ input:is(:focus-visible, :valid) {
 @media screen and (max-width: 924px) {
     aside {
         left: 24%;
-        position: fixed;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 22px;
-        padding: 8px;
         margin-left: 20px;
+        padding: 8px;
         width: 94%;
     }
 
@@ -190,12 +183,10 @@ input:is(:focus-visible, :valid) {
         width: 310px;
     }
 
-    .moscontra {
-        left: 274px;
-    }
+    
 
     .boton {
-        margin-left: 90px;
+        margin-left: 26%;
         width: 200px;
     }
 }
@@ -203,10 +194,9 @@ input:is(:focus-visible, :valid) {
 @media screen and (max-width: 824px) {
     aside {
         left: -3%;
-        position: fixed;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 20px;
         padding: 9px;
         width: 100%;
@@ -218,8 +208,8 @@ input:is(:focus-visible, :valid) {
     }
 
     .campo {
-        margin-top: 40px;
         margin-left: 50px;
+        margin-top: 40px;
     }
 
     input {
@@ -241,9 +231,9 @@ input:is(:focus-visible, :valid) {
     }
 
     .icono_label {
-        top: -39px;
-        left: 15px;
         font-size: 14px;
+        left: 15px;
+        top: -39px;
     }
 
     .moscontra {
@@ -252,17 +242,16 @@ input:is(:focus-visible, :valid) {
 
     .boton {
         font-size: 13px;
-        margin-left: 120px;
+        margin-left: 32%;
         margin-top: 20px;
         width: 186px;
     }
 }
 
 @media screen and (max-width: 724px) {
-    main h1 {
+    aside h2 {
         font-size: 18px;
         padding: 7px;
-        width: 100%;
     }
 
     .indicaciones_cta {
@@ -274,35 +263,27 @@ input:is(:focus-visible, :valid) {
     }
 
     input {
-        font-size: 13px;
-        height: 34px;
         width: 280px;
     }
 
     .icono_label {
-        top: -40px;
-        left: 15px;
         font-size: 13px;
+        top: -40px;
     }
 
     .moscontra {
         font-size: 13px;
-        bottom: 40px;
-        left: 248px;
     }
 
     .boton {
         font-size: 12px;
-        margin-left: 115px;
         width: 180px;
     }
 }
 
 @media screen and (max-width: 624px) {
-    aside h1 {
-        font-size: 20px;
+    aside h2 {
         padding: 6px;
-        width: 100%;
     }
 
     .indicaciones_cta .parrafos_contrasena {
@@ -312,15 +293,13 @@ input:is(:focus-visible, :valid) {
 
 @media screen and (max-width: 524px) {
     aside {
-        left: -5%;
-        position: fixed;
+        left: -4%;
         width: 100%;
     }
 
-    aside h1 {
+    aside h2 {
         font-size: 16px;
         padding: 7px;
-        width: 100%;
     }
 
     .indicaciones_cta .parrafos_contrasena {
@@ -328,7 +307,6 @@ input:is(:focus-visible, :valid) {
     }
 
     input {
-        font-size: 13px;
         height: 30px;
         width: 240px;
     }
@@ -345,22 +323,24 @@ input:is(:focus-visible, :valid) {
     }
 
     .icono_label {
-        top: -38px;
         font-size: 12px;
-    }
-
-    .moscontra {
-        bottom: 38px;
-        left: 208px;
+        top: -38px;
     }
 
     .boton {
-        margin-left: 95px;
         width: 180px;
     }
 }
 
 @media screen and (max-width: 500px) {
+    aside {
+        left: -4.8%;
+    }
+
+    aside h2 {
+        padding: 10px;
+    }
+
     .indicaciones_cta .parrafos_contrasena {
         font-size: 10px;
         margin-left: 23px;
@@ -386,19 +366,17 @@ input:is(:focus-visible, :valid) {
     }
 
     .icono_label {
-        top: -37px;
         font-size: 11px;
+        top: -37px;
     }
 
     .moscontra {
         font-size: 12px;
-        bottom: 36px;
-        left: 212px;
     }
 
     .boton {
         font-size: 11px;
+        margin-left: 30%;
         margin-top: 40px;
-        margin-left: 105px;
     }
 }

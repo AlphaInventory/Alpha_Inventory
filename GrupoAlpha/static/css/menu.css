@@ -11,7 +11,8 @@ body {
     background-size: cover;
     color: #000;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 header,
@@ -80,7 +81,7 @@ header h1 {
     color: #000;
     display: block;
     font-size: 14px;
-    font-weight: bolder;
+    font-weight: 700;
     line-height: 10px;
     text-decoration: none;
 }
@@ -122,7 +123,7 @@ header h1 {
 .barra-lateral .menu .elemento .sub-menu a {
     border-left: 2px solid #303440;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 400;
     margin-left: 30px;
     padding: 15px;
 }
@@ -152,13 +153,10 @@ header h1 {
 
     .barra-lateral .menu .elemento a{
         font-size: 13px;
-        font-weight: bolder;
-
     }
 
     .barra-lateral .menu .elemento .sub-menu a{
         font-size: 12px; 
-        font-weight: bold;
     }
 
     .elemento a i {
@@ -180,20 +178,17 @@ header h1 {
     
     .barra-lateral .menu .elemento a{
         font-size: 13px;
-        font-weight: bolder;
-        
     }
     
     .barra-lateral .menu .elemento .sub-menu a{
         font-size: 12px; 
-        font-weight: bold;
     }
 }
 
 @media screen and (max-width: 824px) {
     .logo {
-        width: 180px;
         height: 50px;
+        width: 180px;
     }
 
     header h1 {
@@ -202,18 +197,16 @@ header h1 {
     }
 
     .barra-lateral {
-        width: 195px;
         left: -205px;
+        width: 195px;
     }
 
     .barra-lateral .menu .elemento a {
         font-size: 12px;
-        font-weight: bolder; 
     }
 
     .barra-lateral .menu .elemento .sub-menu a{
         font-size: 11px;
-        font-weight: bold; 
         padding: 13px;
     }
 
@@ -239,22 +232,27 @@ header h1 {
     .menu-boton {
         display: unset;
     }
-    
 }
 
 @media screen and (max-width: 524px) {
     .barra-lateral .elemento a i {
-        position: relative;
         left: 65%;
+        position: relative;
     }
 
     .menu-boton {
-        font-size: 30px;
+        font-size: 26px;
         margin-left: 10px;
     }
 
     .cerrar-boton {
         font-size: 25px;
         margin-left: 160px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .barra-lateral {
+        overflow: hidden;
     }
 }

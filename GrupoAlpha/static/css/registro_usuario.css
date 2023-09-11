@@ -12,8 +12,8 @@ body {
 }
 
 header {
-    text-align: center;
     padding: 30px;
+    text-align: center;
     width: 100%;
 }
 
@@ -31,14 +31,14 @@ h1 {
 main {
     align-items: center;
     display: flex;
-    justify-content: center;
     flex-flow: column;
+    justify-content: center;
     padding: 8px 0 0 20px;
 }
 
 .campo {
-    position: relative;
     margin-top: 20px;
+    position: relative;
 }
 
 .contenedor_nomape {
@@ -54,10 +54,10 @@ input {
     box-shadow: none;
     color: #000;
     display: flex;
-    height: 35px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     flex-flow: column;
+    height: 35px;
     justify-content: center;
     margin: 20px 0 0 0;
     padding: 10px;
@@ -68,9 +68,9 @@ input {
 
 label {
     font-size: 16px;
-    font-weight: bold;
-    position: absolute;
+    font-weight: 700;
     left: 0;
+    position: absolute;
     top: 0;
     transform: translate(26px, 7px);
     transform-origin: left;
@@ -81,8 +81,8 @@ input:focus-visible~label,
 input:valid~label {
     color: #000;
     font-size: 20px;
-    transform: translate(0, -20px) scale(0.8);
     margin-top: -10px;
+    transform: translate(0, -20px) scale(0.8);
 }
 
 input:is(:focus-visible, :valid) {
@@ -95,11 +95,11 @@ input:is(:focus-visible, :valid) {
 }
 
 .icono_label {
+    cursor: pointer;
+    font-size: 14px;
+    left: 5px;
     position: relative;
     top: -28px;
-    left: 5px;
-    font-size: 14px;
-    cursor: pointer;
 }
 
 .fa-signature {
@@ -123,11 +123,11 @@ input:is(:focus-visible, :valid) {
 }
 
 .moscontra {
-    font-size: 15px;
-    position: relative;
-    left: 350px;
-    bottom: 28px;
     cursor: pointer;
+    font-size: 15px;
+    position: absolute;
+    right: 3%;
+    top: 14%;
 }
 
 .botones {
@@ -137,22 +137,26 @@ input:is(:focus-visible, :valid) {
 
 .boton {
     background-color: #009BEF;
-    color: #000;
+    border: 1px solid #fff;
     border-radius: 6px;
+    color: #000;
     cursor: pointer;
     font-size: 16px;
     font-weight: 700;
     margin: 20px 20px;
     padding: 8px;
+    text-align: center;
+    text-decoration: none;
     text-transform: uppercase;
     width: 120px;
 }
 
 .boton:hover {
+    border: 1px solid #000;
     background-color: #0029FF;
     color: #FFF;
-    width: 120px;
     transition: all 1s ease-out;
+    width: 120px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -195,7 +199,6 @@ input:is(:focus-visible, :valid) {
     .boton:hover {
         width: 110px;
     }
-
 }
 
 @media screen and (max-width: 525px) {
@@ -215,7 +218,7 @@ input:is(:focus-visible, :valid) {
         width: 100%;
     }
 
-    .titulo_reg {
+    h1 {
         max-width: 480px;
     }
 
@@ -225,9 +228,5 @@ input:is(:focus-visible, :valid) {
 
     input {
         width: 98%;
-    }
-
-    .moscontra {
-        left: 254px;
     }
 }
